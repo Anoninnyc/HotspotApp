@@ -33,6 +33,57 @@ module.exports.generateYelpNewBusParam = function (name, longitude, latitude, fr
   };
 };
 
+
+// 
+var parseYelpData = function (business, friendWishOnly) {
+  console.log('businessss',business);
+  let cuisine;
+  if (business.categories && business.categories[0]) {
+    cuisine = business.categories[0][0];
+  } else {
+    cuisine = 'food';
+  }
+  var imageUrl = business.image_url;
+  var businessId = business.id;
+  var parsed = {
+    address:business.location.display_address.join(','),
+    rating:business.rating,
+    url:business.url,
+    name: business.name,
+    cuisine: cuisine,
+    image: imageUrl,
+    businessId: businessId,
+    latitude: business.location.coordinate.latitude,
+    longitude: business.location.coordinate.longitude,
+    friendWishOnly: friendWishOnly
+  };
+
+  return parsed;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Yelp call
 module.exports.requestYelp = function (setParameters, busId, searchBar) {
   var friendWishOnly = setParameters.friendWishOnly
