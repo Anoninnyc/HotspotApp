@@ -62,6 +62,79 @@ var parseYelpData = function (business, friendWishOnly) {
 };
 
 
+var requestYelp = function (setParameters, busId, searchBar) {
+  var friendWishOnly = setParameters.friendWishOnly
+  console.log('requestYelp called')
+  var httpMethod = 'GET';
+
+  if (busId) {
+    var url = endpointBusID + setParameters;
+  } else {
+    var url = endpointNewPlace;
+  }
+
+  var defaultParameters = {};
+
+  var requiredParameters = {
+    oauth_consumer_key: YELP_CONSUMER_KEY,
+    oauth_token: YELP_TOKEN,
+    oauth_nonce: n()(),
+    oauth_timestamp: n()().toString().substr(0, 10),
+    oauth_signature_method: 'HMAC-SHA1',
+    oauth_version: '1.0'
+  };
+
+  if (busId) {
+    var parameters = _.assign(requiredParameters);
+  } else {
+    var parameters = _.assign(setParameters, requiredParameters);
+  }
+
+  var consumerSecret = YELP_CONSUMER_SECRET;
+  var tokenSecret = YELP_TOKEN_SECRET;
+  // Call Yelp servers for a oAuth signature (only good for 300 sec)
+  var signature = oauthSignature.generate(
+    httpMethod,
+    url,
+    parameters,
+    consumerSecret,
+    tokenSecret,
+    {encodeSignature: false}
+  );
+
+  parameters.oauth_signature = signature;
+  console.log('parameters', parameters);
+  var paramUrl = qs.stringify(parameters);
+
+  var apiUrl = url + '?' + paramUrl;
+
+  return new Promise((resolve, reject) => {
+    // console.log(apiUrl);
+    request(apiUrl, function(err, res, body) {
+       console.log('yelp res', err, JSON.parse(body));
+      if (err) {
+        console.log('**********************************');
+        console.log('ERROR', err);
+        reject(err);
+      }
+
+      var data = JSON.parse(body);
+      // console.log('returning data', data);
+      if (busId) {
+        resolve(parseYelpData(data, friendWishOnly));
+      } else if (data.businesses.length > 0) {
+        if (searchBar) {
+          resolve(data.businesses.map(business => parseYelpData(business, friendWishOnly)));
+        } else {
+          resolve(parseYelpData(data.businesses[0], friendWishOnly));
+        }
+      } else {
+        resolve();
+      }
+    });
+  });
+
+};
 
 
 
