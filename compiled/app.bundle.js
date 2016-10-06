@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "04669a46c199c0983d62"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b4fe37ce31353771dd90"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21968,6 +21968,7 @@
 	      var that = this;
 	      $.get('/api/spots', function (data, err) {
 	        console.log('hi');
+	        console.log(data, 'this is the data');
 	      }).then(function (result) {
 	        that.setState({
 	          collection: result.data

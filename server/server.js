@@ -13,7 +13,6 @@ var apiRoutes =require('./routes/apiRoutes');
 const app = express();
 const port = process.env.PORT || 8732;
 
-console.log('User', User);
 // Server and auth configuration
 localAuthConfig(User);
 facebookAuthConfig(User);
