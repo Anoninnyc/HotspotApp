@@ -53,10 +53,7 @@ console.log(friendRequest);
           return resolve(res);
         });
       });
-
-
   }
-
 
 
   render() {
@@ -87,44 +84,43 @@ panelItems = <div>
 }
 
 else if (this.props.panelMode === 'results'){
-if (this.props.searchResults.length===0){
-  
-    panelItems=<div><p style={{color:"white"}}>Search Something!</p></div>
+if (!this.props.searchResults.length){
+    panelItems=<div><p className="panelHeader">Search Something!</p></div>
 } else {
-      panelItems = this.props.searchResults.map((restaurant) => {
-        return (<ResultModel item={restaurant}
-          viewCollectionItem={this.props.actions.viewCollectionItem}
-          key={restaurant.name}/>);
-      });
-    }
-    } else if (this.props.panelMode === 'filter') {
-
-      panelItems = this.props.filters.map((filter) => {
-        return (<FilterItem filter={filter}
-                appliedFilters={this.props.filterSelected}
-                toggleFilter={this.props.actions.toggleFilter}
-                collection={this.props.totalCollection}
-                key={filter}
-                />);
-      });
+    panelItems = this.props.searchResults.map(restaurant => (
+      <ResultModel item={restaurant}
+        viewCollectionItem={this.props.actions.viewCollectionItem}
+        key={restaurant.name}
+      />
+    ));
+  }
+} else if (this.props.panelMode === 'filter') {
+      panelItems = this.props.filters.map(filter => (
+        <FilterItem filter={filter}
+          appliedFilters={this.props.filterSelected}
+          toggleFilter={this.props.actions.toggleFilter}
+          collection={this.props.totalCollection}
+          key={filter}
+         />
+      ));
     } else if (this.props.filteredCollection.length !== 0) {
 
-      panelItems = this.props.filteredCollection.map((restaurant) => {
-        return (<CollectionModel item={restaurant} key={restaurant.name}/>);
-      });
+      panelItems = this.props.filteredCollection.map(restaurant => (
+        <CollectionModel item={restaurant} key={restaurant.name}/>
+      ));
     } else if (this.props.panelMode==='collection') {
 
       console.log("This should be the collection", this.props.totalCollection);
 
 if (!this.props.totalCollection.length){
   
-    panelItems=<div ><p style={{color:"white"}}>Add some places to your collection!</p></div>
+    panelItems=<div><p className="panelHeader">Add some places to your collection!</p></div>
 } else {
-      panelItems = this.props.totalCollection.map((restaurant) => {
-        return (<CollectionModel item={restaurant}
+      panelItems = this.props.totalCollection.map(restaurant => (
+          <CollectionModel item={restaurant}
           viewCollectionItem={this.props.actions.viewCollectionItem}
-          key={restaurant.name}/>);
-      });
+          key={restaurant.name}/>
+      ));
      }
     }
     return (

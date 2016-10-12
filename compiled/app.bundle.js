@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6240c50cdda92d443e54"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "87cadd568ed2ee162aff"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57308,14 +57308,13 @@
 	          )
 	        );
 	      } else if (this.props.panelMode === 'results') {
-	        if (this.props.searchResults.length === 0) {
-
+	        if (!this.props.searchResults.length) {
 	          panelItems = _react2.default.createElement(
 	            'div',
 	            null,
 	            _react2.default.createElement(
 	              'p',
-	              { style: { color: "white" } },
+	              { className: 'panelHeader' },
 	              'Search Something!'
 	            )
 	          );
@@ -57323,11 +57322,11 @@
 	          panelItems = this.props.searchResults.map(function (restaurant) {
 	            return _react2.default.createElement(_ResultModel2.default, { item: restaurant,
 	              viewCollectionItem: _this2.props.actions.viewCollectionItem,
-	              key: restaurant.name });
+	              key: restaurant.name
+	            });
 	          });
 	        }
 	      } else if (this.props.panelMode === 'filter') {
-
 	        panelItems = this.props.filters.map(function (filter) {
 	          return _react2.default.createElement(_FilterItem2.default, { filter: filter,
 	            appliedFilters: _this2.props.filterSelected,
@@ -57352,7 +57351,7 @@
 	            null,
 	            _react2.default.createElement(
 	              'p',
-	              { style: { color: "white" } },
+	              { className: 'panelHeader' },
 	              'Add some places to your collection!'
 	            )
 	          );
