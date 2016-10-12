@@ -7,6 +7,7 @@ import FilterItem from '../components/FilterItem';
 import FriendModel from '../components/FriendModel';
 import * as Actions from '../actions';
 import CollectionDetailModel from '../components/CollectionDetailModel';
+import { fade } from '../utils'
 import request from 'superagent';
 
 const Menu = require('react-burger-menu').slide;
@@ -49,9 +50,9 @@ console.log(friendRequest);
 
             console.log('request  sent!!')
           } else if (res.text.indexOf('already send')!==-1 ){
-
-             $(".alreadySent").fadeIn(1000);
-            $(".alreadySent").fadeOut(1000);
+            fade(".alreadySent");
+            //  $(".alreadySent").fadeIn(1000);
+            // $(".alreadySent").fadeOut(1000);
             //document.getElementsByClassName("alreadySent")[0].style.display='inline';
 
             console.log('request already sent')
@@ -95,9 +96,9 @@ if (this.props.panelMode === 'friendRequests'){
    <input className = 'friendToAdd 'type='text' placeholder='Add a Friend'/>
    <button className='button' onClick={this.submitFriendReq.bind(this)}>Send Request</button>
 <div style= {{display:"none",color:"white"}} className='alreadyAFriend'>   Already a friend </div>
-<div style= {{display:"none",color:"white"}} className='doesntExist'>   This Person hasn't signed up   </div>
-<div style= {{display:"none",color:"white"}} className='requestSent'>   Request Sent!   </div>
-<div style= {{display:"none",color:"white"}} className='alreadySent'>   Already sent a friend request  </div>
+<div style= {{display:"none",color:"white"}} className='doesntExist'>  This Person hasn't signed up   </div>
+<div style= {{display:"none",color:"white"}} className='requestSent'>  Request Sent!   </div>
+<div style= {{display:"none",color:"white"}} className='alreadySent'>  Already sent a friend request  </div>
    </div>
 <div>
       {this.props.friendRequests.map((person) => {

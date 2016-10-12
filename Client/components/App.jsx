@@ -2,11 +2,12 @@ import React from 'react';
 import Map from '../containers/Map';
 import Nav from '../containers/Nav';
 import Panel from '../containers/Panel';
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -36,8 +37,8 @@ class App extends React.Component {
     let that = this;
     $.get('/api/spots', (data, err)=> {
       console.log('hi');
-      console.log(data, 'this is the data');
-    }).then((result)=> {
+    }).then( result => {
+      console.log("this is result.data", result.data);
       that.setState({
         collection: result.data
       })
@@ -57,11 +58,15 @@ class App extends React.Component {
     return (
       <div>
         <Nav />
-        <Map collection={this.state.collection}
+        <Map 
+        collection={this.state.collection}
         getUpdate={this.getUpdate.bind(this)}
         getSpots={this.getSpots.bind(this)}
-        postSpots={this.postSpots.bind(this)}/>
-        <Panel />
+        postSpots={this.postSpots.bind(this)}
+        />
+        <Panel
+        
+        />
       </div>
     );
   }
