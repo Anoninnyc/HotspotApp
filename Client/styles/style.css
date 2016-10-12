@@ -126,8 +126,11 @@ background-color: red;
 }
 
 
+.mess{
+  display:"none";
+  color:"white";
+}
 
-
-
-
-
+.noPending{
+  color:"white";
+}

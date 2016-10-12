@@ -61,49 +61,35 @@ console.log(friendRequest);
 
   render() {
     let panelItems;
-
     this.props.actions.createFilters(this.props.totalCollection, this.props.filters);
 console.log(this.props.panelMode)
 if (this.props.panelMode === 'friendRequests'){
    
-   if (this.props.friendRequests.length===0){
-
-    panelItems=<div>
-  <div ><input className = 'friendToAdd 'type='text' placeholder='Add a Friend'/>
-  <button className='button' onClick={this.submitFriendReq.bind(this)}>Send Request</button></div>
-<div style= {{display:"none",color:"white"}} className='alreadyAFriend'>   Already a friend </div>
-<div style= {{display:"none",color:"white"}} className='doesntExist'>   This Person hasn't signed up   </div><br/>
-<div style= {{display:"none",color:"white"}} className='requestSent'>   Request Sent!   </div>
-<div style= {{display:"none",color:"white"}} className='alreadySent'>   Already sent a friend request  </div>
-
-<p style={{color:"white"}}>No pending friend requests</p>
-
-    </div>
-} else {//
-      panelItems = <div>  
-   <div >
+panelItems = <div>  
+   <div>
    <input className = 'friendToAdd 'type='text' placeholder='Add a Friend'/>
    <button className='button' onClick={this.submitFriendReq.bind(this)}>Send Request</button>
-<div style= {{display:"none",color:"white"}} className='alreadyAFriend'>   Already a friend </div>
-<div style= {{display:"none",color:"white"}} className='doesntExist'>  This Person hasn't signed up   </div>
-<div style= {{display:"none",color:"white"}} className='requestSent'>  Request Sent!   </div>
-<div style= {{display:"none",color:"white"}} className='alreadySent'>  Already sent a friend request  </div>
+  <div className='mess alreadyAFriend'> Already a friend </div>
+  <div className='mess doesntExist'> This Person hasn't signed up </div>
+  <div className='mess requestSent'> Request Sent! </div>
+  <div className='mess alreadySent'> Already sent a friend request </div>
+
+      {!this.props.friendRequests.length?<p className="noPending">No pending friend requests</p>:null}
    </div>
 <div>
-      {this.props.friendRequests.map((person) => {
+      {this.props.friendRequests.map(person => {
         return (<FriendModel item={person} />);
       })}
-      </div>
 
-      </div>
+    </div>
+</div>
 
 }
-    }
 
 else if (this.props.panelMode === 'results'){
 if (this.props.searchResults.length===0){
   
-    panelItems=<div><p style={{color:"white"}}>SEARCH SOMETHING!!!</p></div>
+    panelItems=<div><p style={{color:"white"}}>Search Something!</p></div>
 } else {
       panelItems = this.props.searchResults.map((restaurant) => {
         return (<ResultModel item={restaurant}
@@ -128,7 +114,7 @@ if (this.props.searchResults.length===0){
     } else if (this.props.panelMode==='collection') {
 if (this.props.totalCollection.length===0){
   
-    panelItems=<div ><p style={{color:"white"}}>Add some places to your collection!!!</p></div>
+    panelItems=<div ><p style={{color:"white"}}>Add some places to your collection!</p></div>
 } else {
       panelItems = this.props.totalCollection.map((restaurant) => {
         return (<CollectionModel item={restaurant}
