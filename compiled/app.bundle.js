@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "80661f948394f8d0475e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "64c3af8bd9805d9c26ad"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57232,13 +57232,15 @@
 	          //;
 	          console.log('response test', res.text);
 	          if (res.text.indexOf('exist') !== -1) {
-	            $(".doesntExist").fadeIn(1000);
-	            $(".doesntExist").fadeOut(1000);
+	            (0, _utils.fade)(".doesntExist");
+	            // $(".doesntExist").fadeIn(1000);
+	            // $(".doesntExist").fadeOut(1000);
 	            //document.getElementsByClassName("doesntExist")[0].style.display='inline';
 	            console.log('doesnt exist');
 	          } else if (res.text.indexOf('request sent') !== -1) {
-	            $(".requestSent").fadeIn(1000);
-	            $(".requestSent").fadeOut(1000);
+	            (0, _utils.fade)(".requestSent");
+	            // $(".requestSent").fadeIn(1000);
+	            // $(".requestSent").fadeOut(1000);
 	            //document.getElementsByClassName("requestSent")[0].style.display='inline';
 
 	            console.log('request  sent!!');
@@ -57250,8 +57252,7 @@
 
 	            console.log('request already sent');
 	          } else {
-	            $(".alreadyAFriend").fadeIn(1000);
-	            $(".alreadyAFriend").fadeOut(1000);
+	            (0, _utils.fade)(".alreadyAFriend");
 	            document.getElementsByClassName("alreadyAFriend")[0].style.display = 'inline';
 	          }
 	          return resolve(res);

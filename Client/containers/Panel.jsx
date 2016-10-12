@@ -39,13 +39,15 @@ console.log(friendRequest);
           //;
           console.log('response test',res.text);
           if (res.text.indexOf('exist')!==-1){
-            $(".doesntExist").fadeIn(1000);
-            $(".doesntExist").fadeOut(1000);
+             fade(".doesntExist");
+            // $(".doesntExist").fadeIn(1000);
+            // $(".doesntExist").fadeOut(1000);
             //document.getElementsByClassName("doesntExist")[0].style.display='inline';
             console.log('doesnt exist')
           } else if (res.text.indexOf('request sent')!==-1 ){
-            $(".requestSent").fadeIn(1000);
-            $(".requestSent").fadeOut(1000);
+            fade(".requestSent");
+            // $(".requestSent").fadeIn(1000);
+            // $(".requestSent").fadeOut(1000);
             //document.getElementsByClassName("requestSent")[0].style.display='inline';
 
             console.log('request  sent!!')
@@ -57,8 +59,7 @@ console.log(friendRequest);
 
             console.log('request already sent')
           } else {
-            $(".alreadyAFriend").fadeIn(1000);
-            $(".alreadyAFriend").fadeOut(1000);
+            fade(".alreadyAFriend");
             document.getElementsByClassName("alreadyAFriend")[0].style.display='inline';
           }
           return resolve(res);
