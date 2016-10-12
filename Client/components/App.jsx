@@ -47,7 +47,7 @@ class App extends React.Component {
 
   postSpots(spotObj) {
     $.post('/api/spots', spotObj, (data, err)=> {
-      console.log('hii')
+      console.log('hii');
     }).then(result=> {
       this.getSpots();//
     })
@@ -64,7 +64,6 @@ class App extends React.Component {
         postSpots={this.postSpots.bind(this)}
         />
         <Panel
-        
         />
       </div>
     );
