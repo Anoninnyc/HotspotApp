@@ -7,7 +7,7 @@ import FilterItem from '../components/FilterItem';
 import FriendModel from '../components/FriendModel';
 import * as Actions from '../actions';
 import CollectionDetailModel from '../components/CollectionDetailModel';
-import { fade } from '../utils'
+import { fade } from './utils'
 import request from 'superagent';
 
 const Menu = require('react-burger-menu').slide;
