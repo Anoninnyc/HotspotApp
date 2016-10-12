@@ -101,10 +101,11 @@ if (this.props.searchResults.length===0){
 
       panelItems = this.props.filters.map((filter) => {
         return (<FilterItem filter={filter}
-                            appliedFilters={this.props.filterSelected}
-                            toggleFilter={this.props.actions.toggleFilter}
-                            collection={this.props.totalCollection}
-                            key={filter}/>);
+                appliedFilters={this.props.filterSelected}
+                toggleFilter={this.props.actions.toggleFilter}
+                collection={this.props.totalCollection}
+                key={filter}
+                />);
       });
     } else if (this.props.filteredCollection.length !== 0) {
 
@@ -112,10 +113,10 @@ if (this.props.searchResults.length===0){
         return (<CollectionModel item={restaurant} key={restaurant.name}/>);
       });
     } else if (this.props.panelMode==='collection') {
-      this.props.actions.fetchCollection();
+
       console.log("This should be the collection", this.props.totalCollection);
 
-if (this.props.totalCollection.length===0){
+if (!this.props.totalCollection.length){
   
     panelItems=<div ><p style={{color:"white"}}>Add some places to your collection!</p></div>
 } else {

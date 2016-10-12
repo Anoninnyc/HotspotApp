@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "195bc7d8b2d4b7801112"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6240c50cdda92d443e54"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57333,7 +57333,8 @@
 	            appliedFilters: _this2.props.filterSelected,
 	            toggleFilter: _this2.props.actions.toggleFilter,
 	            collection: _this2.props.totalCollection,
-	            key: filter });
+	            key: filter
+	          });
 	        });
 	      } else if (this.props.filteredCollection.length !== 0) {
 
@@ -57341,10 +57342,10 @@
 	          return _react2.default.createElement(_CollectionModel2.default, { item: restaurant, key: restaurant.name });
 	        });
 	      } else if (this.props.panelMode === 'collection') {
-	        this.props.actions.fetchCollection();
+
 	        console.log("This should be the collection", this.props.totalCollection);
 
-	        if (this.props.totalCollection.length === 0) {
+	        if (!this.props.totalCollection.length) {
 
 	          panelItems = _react2.default.createElement(
 	            'div',
