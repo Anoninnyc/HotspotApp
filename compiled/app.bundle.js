@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "64c3af8bd9805d9c26ad"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "00734dfb8550dc015973"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57229,27 +57229,15 @@
 	            console.log(err);
 	            return reject(err);
 	          }
-	          //;
 	          console.log('response test', res.text);
 	          if (res.text.indexOf('exist') !== -1) {
 	            (0, _utils.fade)(".doesntExist");
-	            // $(".doesntExist").fadeIn(1000);
-	            // $(".doesntExist").fadeOut(1000);
-	            //document.getElementsByClassName("doesntExist")[0].style.display='inline';
 	            console.log('doesnt exist');
 	          } else if (res.text.indexOf('request sent') !== -1) {
 	            (0, _utils.fade)(".requestSent");
-	            // $(".requestSent").fadeIn(1000);
-	            // $(".requestSent").fadeOut(1000);
-	            //document.getElementsByClassName("requestSent")[0].style.display='inline';
-
 	            console.log('request  sent!!');
 	          } else if (res.text.indexOf('already send') !== -1) {
 	            (0, _utils.fade)(".alreadySent");
-	            //  $(".alreadySent").fadeIn(1000);
-	            // $(".alreadySent").fadeOut(1000);
-	            //document.getElementsByClassName("alreadySent")[0].style.display='inline';
-
 	            console.log('request already sent');
 	          } else {
 	            (0, _utils.fade)(".alreadyAFriend");

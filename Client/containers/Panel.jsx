@@ -36,27 +36,15 @@ console.log(friendRequest);
             console.log(err)
             return reject(err);
           }
-          //;
           console.log('response test',res.text);
           if (res.text.indexOf('exist')!==-1){
              fade(".doesntExist");
-            // $(".doesntExist").fadeIn(1000);
-            // $(".doesntExist").fadeOut(1000);
-            //document.getElementsByClassName("doesntExist")[0].style.display='inline';
             console.log('doesnt exist')
           } else if (res.text.indexOf('request sent')!==-1 ){
             fade(".requestSent");
-            // $(".requestSent").fadeIn(1000);
-            // $(".requestSent").fadeOut(1000);
-            //document.getElementsByClassName("requestSent")[0].style.display='inline';
-
             console.log('request  sent!!')
           } else if (res.text.indexOf('already send')!==-1 ){
             fade(".alreadySent");
-            //  $(".alreadySent").fadeIn(1000);
-            // $(".alreadySent").fadeOut(1000);
-            //document.getElementsByClassName("alreadySent")[0].style.display='inline';
-
             console.log('request already sent')
           } else {
             fade(".alreadyAFriend");
