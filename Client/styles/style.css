@@ -127,10 +127,10 @@ background-color: red;
 
 
 .mess{
-  display:"none";
-  color:"white";
+  display:none;
+  color:white;
 }
 
 .noPending{
-  color:"white";
+  color:white;
 }

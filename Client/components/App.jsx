@@ -34,23 +34,22 @@ class App extends React.Component {
   }
 
   getSpots() {
-    let that = this;
     $.get('/api/spots', (data, err)=> {
       console.log('hi');
     }).then( result => {
       console.log("this is result.data", result.data);
-      that.setState({
+      this.setState({
         collection: result.data
-      })
+      });
+      console.log("And this is the collection:", this.state.collection)
     })
   }
 
   postSpots(spotObj) {
-    let that = this;
-    $.post('/api/spots', spotObj, function(data, err) {
+    $.post('/api/spots', spotObj, (data, err)=> {
       console.log('hii')
-    }).then(function(result) {
-      that.getSpots();
+    }).then(result=> {
+      this.getSpots();
     })
   }
 

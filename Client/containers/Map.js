@@ -231,7 +231,7 @@ class Map extends React.Component {
       `<input type="radio" name="goBack${pointQuery._leaflet_id}" required> Definitely and absolutely<br>` +
       `<input type="radio" name="goBack${pointQuery._leaflet_id}"> Never ever ever<br>` +
       'go back<br>' +
-      `<input type="button" id="fistBump${pointQuery._leaflet_id}" value="Thumbs!!!!"></form>` +
+      `<input type="button" id="fistBump${pointQuery._leaflet_id}" value="Thumbs!"></form>` +
       '<img src="' + feature.properties.image + '" alt="">' +
       `<img id="wishImage" src="${wishImage}" alt="">` +
       ((marker.feature.properties.icon.iconUrl == starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
