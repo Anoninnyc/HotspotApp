@@ -131,11 +131,6 @@ background-color: red;
   color:white;
 }
 
-.noPending{
+.noPending, .panelHeader{
   color:white;
-}
-
-.panelHeader{
-  color:white;
-
 }
