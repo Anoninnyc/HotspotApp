@@ -112,8 +112,9 @@ if (this.props.searchResults.length===0){
         return (<CollectionModel item={restaurant} key={restaurant.name}/>);
       });
     } else if (this.props.panelMode==='collection') {
+      this.props.actions.fetchCollection();
       console.log("This should be the collection", this.props.totalCollection);
-      
+
 if (this.props.totalCollection.length===0){
   
     panelItems=<div ><p style={{color:"white"}}>Add some places to your collection!</p></div>

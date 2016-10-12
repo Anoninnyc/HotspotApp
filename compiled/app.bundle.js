@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "555bf26c4f83b7dfbdb9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "195bc7d8b2d4b7801112"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57341,6 +57341,7 @@
 	          return _react2.default.createElement(_CollectionModel2.default, { item: restaurant, key: restaurant.name });
 	        });
 	      } else if (this.props.panelMode === 'collection') {
+	        this.props.actions.fetchCollection();
 	        console.log("This should be the collection", this.props.totalCollection);
 
 	        if (this.props.totalCollection.length === 0) {
