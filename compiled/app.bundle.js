@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1af65eab29fe78c05408"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "80661f948394f8d0475e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57823,14 +57823,11 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var fade = function fade(el) {
+	exports.fade = fade;
+	function fade(el) {
 	  $(el).fadeIn(1000);
 	  $(el).fadeOut(1000);
-	};
-
-	exports.default = {
-	  fade: fade
-	};
+	}
 
 /***/ },
 /* 203 */
