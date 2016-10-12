@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "83e63e50b4afc3528be9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5073c4df6a51b52f74f7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21985,7 +21985,7 @@
 	      $.post('/api/spots', spotObj, function (data, err) {
 	        console.log('hii');
 	      }).then(function (result) {
-	        _this3.getSpots();
+	        _this3.getSpots(); //
 	      });
 	    }
 	  }, {

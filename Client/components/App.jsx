@@ -49,7 +49,7 @@ class App extends React.Component {
     $.post('/api/spots', spotObj, (data, err)=> {
       console.log('hii')
     }).then(result=> {
-      this.getSpots();
+      this.getSpots();//
     })
   }
 
