@@ -41,11 +41,6 @@ class Map extends React.Component {
         this.renderMap();
         this.getUserLocation(mainMap);
       });
-    // this.props.getSpots()
-    //   .then((results) => {
-    //     this.renderMap();
-    //     this.getUserLocation(mainMap);
-    //   })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -85,12 +80,6 @@ class Map extends React.Component {
     };
     //make a db query on each click for thumbs up/down
     this.props.postSpots(spotToAdd);
-    // var newCollection = this.state.temp_collection.concat([spotToAdd]);
-    //get updated data, and setState
-    // this.props.getSpots();
-    // this.setState({
-    //   temp_collection: newCollection
-    // })
   }
 
   tempClickWishListSubmit(name, latitude, longitude) {
