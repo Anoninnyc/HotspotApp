@@ -42,7 +42,7 @@ console.log(friendRequest);
             console.log('doesnt exist')
           } else if (res.text.indexOf('request sent')!==-1 ){
             fade(".requestSent");
-            console.log('request  sent!!')
+            console.log('request sent!!')
           } else if (res.text.indexOf('already send')!==-1 ){
             fade(".alreadySent");
             console.log('request already sent')
