@@ -10,8 +10,8 @@ pids
 *.seed
 
 ## Compiled files ##
-.hot-update.json
-.hot-update.js
+*.hot-update.json
+*.hot-update.js
 
 ## NPM ##
 node_modules/

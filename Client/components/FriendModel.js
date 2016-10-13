@@ -39,7 +39,7 @@ $.post(friendEndpoints.decline,{ friendname:person },function(a,b){
 });
 
  }
-////
+//
 
   render(){
     var that=this;

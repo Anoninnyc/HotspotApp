@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e545b5c46a798f378bb0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f3e69e94d4a6d8ea4704"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22300,7 +22300,7 @@
 	        marker.bindPopup(content);
 	        marker.on('mouseover', function (e) {
 	          this.openPopup();
-	        }); //
+	        });
 	        marker.on('popupopen', function (e) {
 	          $('#wishImage').click(function (event) {
 	            console.log('Image clicked', marker);
@@ -57687,7 +57687,7 @@
 	        that.props.actions.fetchFriendRequests();
 	      });
 	    }
-	    ////
+	    //
 
 	  }, {
 	    key: 'render',
