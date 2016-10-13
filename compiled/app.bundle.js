@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f3e69e94d4a6d8ea4704"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1153b43cda024f3f3430"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22223,7 +22223,7 @@
 	        var marker = point.layer;
 	        var feature = marker.feature;
 	        marker.setIcon(L.icon(feature.properties.icon));
-	        var content = '<h2>' + feature.properties.title + '<\/h2>' + '<img src="' + feature.properties.image + '" alt="">' + ('<img id="wishImage" src="' + wishImage + '" alt="">') + (marker.feature.properties.icon.iconUrl == starFill ? '<img id="giftImage" src="' + giftImage + '"' : '');
+	        var content = '<h2>' + feature.properties.title + '<\/h2>' + '<img className="popUpImage" src="' + feature.properties.image || 'https://bit.ly/2e99Pwd' + '" alt="">' + ('<img id="wishImage" src="' + wishImage + '" alt="">') + (marker.feature.properties.icon.iconUrl == starFill ? '<img id="giftImage" src="' + giftImage + '"' : '');
 	        //wish icon on click, change icon
 	        marker.bindPopup(content);
 	        marker.on('mouseover', function (e) {
