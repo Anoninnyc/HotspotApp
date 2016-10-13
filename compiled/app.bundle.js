@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "89e3ed000093bf10553e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "19b340052ba6412cf8ab"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57273,7 +57273,7 @@
 	      var _this2 = this;
 
 	      var panelItems = void 0;
-	      this.props.actions.createFilters(this.props.totalCollection, this.props.filters);
+	      this.props.actions.createFilters(this.props.collection, this.props.filters);
 	      console.log(this.props.panelMode);
 	      if (this.props.panelMode === 'friendRequests') {
 
@@ -57349,7 +57349,7 @@
 	          return _react2.default.createElement(_FilterItem2.default, { filter: filter,
 	            appliedFilters: _this2.props.filterSelected,
 	            toggleFilter: _this2.props.actions.toggleFilter,
-	            collection: _this2.props.totalCollection,
+	            collection: _this2.props.collection,
 	            key: filter
 	          });
 	        });
@@ -57362,7 +57362,7 @@
 
 	        console.log("This should be the collection", this.props.totalCollection, "other collection", this.props.collection);
 
-	        if (!this.props.totalCollection.length) {
+	        if (!this.props.collection.length) {
 
 	          panelItems = _react2.default.createElement(
 	            'div',
@@ -57374,7 +57374,7 @@
 	            )
 	          );
 	        } else {
-	          panelItems = this.props.totalCollection.map(function (restaurant) {
+	          panelItems = this.props.collection.map(function (restaurant) {
 	            return _react2.default.createElement(_CollectionModel2.default, { item: restaurant,
 	              viewCollectionItem: _this2.props.actions.viewCollectionItem,
 	              key: restaurant.name });

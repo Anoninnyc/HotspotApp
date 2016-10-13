@@ -58,7 +58,7 @@ console.log(friendRequest);
 
   render() {
     let panelItems;
-    this.props.actions.createFilters(this.props.totalCollection, this.props.filters);
+    this.props.actions.createFilters(this.props.collection, this.props.filters);
 console.log(this.props.panelMode)
 if (this.props.panelMode === 'friendRequests'){
    
@@ -99,7 +99,7 @@ if (!this.props.searchResults.length){
         <FilterItem filter={filter}
           appliedFilters={this.props.filterSelected}
           toggleFilter={this.props.actions.toggleFilter}
-          collection={this.props.totalCollection}
+          collection={this.props.collection}
           key={filter}
          />
       );
@@ -112,11 +112,11 @@ if (!this.props.searchResults.length){
 
       console.log("This should be the collection", this.props.totalCollection,"other collection",this.props.collection);
 
-if (!this.props.totalCollection.length){
+if (!this.props.collection.length){
   
     panelItems=<div><p className="panelHeader">Add some places to your collection!</p></div>
 } else {
-      panelItems = this.props.totalCollection.map(restaurant => (
+      panelItems = this.props.collection.map(restaurant => (
           <CollectionModel item={restaurant}
           viewCollectionItem={this.props.actions.viewCollectionItem}
           key={restaurant.name}/>
