@@ -32,7 +32,7 @@ collectionClick(e) {
 
   handleEnter(e){
     if (e.which===13){
-      this.submitSearch();
+      this.submitSearch(e);
     }
   }
 

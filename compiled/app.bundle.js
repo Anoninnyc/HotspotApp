@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "91b63b983eb1c7eed6b8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1610076af9db6d7a5092"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57022,7 +57022,7 @@
 	    key: 'handleEnter',
 	    value: function handleEnter(e) {
 	      if (e.which === 13) {
-	        this.submitSearch();
+	        this.submitSearch(e);
 	      }
 	    }
 	  }, {
