@@ -18,7 +18,7 @@ class App extends React.Component {
   componentDidMount() {
     var that = this;
     this.getSpots();
-    console.log('states during app mount, ', that.state.collection);
+    console.log('states during app mount', that.state.collection);
   }
 
   getUpdate(wish) {
@@ -68,6 +68,7 @@ class App extends React.Component {
         postSpots={this.postSpots.bind(this)}
         />
         <Panel
+        collection={this.state.collection}
         />
       </div>
     );

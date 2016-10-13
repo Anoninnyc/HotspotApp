@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ac409fb0d0c064b0ec47"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3cdab0855f69db5aeeee"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21947,7 +21947,7 @@
 	    value: function componentDidMount() {
 	      var that = this;
 	      this.getSpots();
-	      console.log('states during app mount, ', that.state.collection);
+	      console.log('states during app mount', that.state.collection);
 	    }
 	  }, {
 	    key: 'getUpdate',
@@ -22006,7 +22006,9 @@
 	          getSpots: this.getSpots.bind(this),
 	          postSpots: this.postSpots.bind(this)
 	        }),
-	        _react2.default.createElement(_Panel2.default, null)
+	        _react2.default.createElement(_Panel2.default, {
+	          collection: this.state.collection
+	        })
 	      );
 	    }
 	  }]);
@@ -57358,7 +57360,7 @@
 	        });
 	      } else if (this.props.panelMode === 'collection') {
 
-	        console.log("This should be the collection", this.props.totalCollection);
+	        console.log("This should be the collection", this.props.totalCollection, "other collection", this.props.collection);
 
 	        if (!this.props.totalCollection.length) {
 

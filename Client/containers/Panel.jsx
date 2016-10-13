@@ -110,7 +110,7 @@ if (!this.props.searchResults.length){
       ));
     } else if (this.props.panelMode==='collection') {
 
-      console.log("This should be the collection", this.props.totalCollection);
+      console.log("This should be the collection", this.props.totalCollection,"other collection",this.props.collection);
 
 if (!this.props.totalCollection.length){
   
