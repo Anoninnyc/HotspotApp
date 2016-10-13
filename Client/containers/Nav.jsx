@@ -34,7 +34,7 @@ collectionClick(e) {
     if (e.which===13){
       this.submitSearch(e);
     }
-  }
+  }//
 
   submitSearch(e) {
     e.preventDefault();

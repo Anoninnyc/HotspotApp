@@ -227,7 +227,7 @@ class Map extends React.Component {
       marker.bindPopup(content)
       marker.on('mouseover', function(e) {
         this.openPopup();
-      });
+      });//
       marker.on('popupopen', function(e) {
         $(`#wishImage`).click(function(event) {
           console.log('Image clicked', marker);
