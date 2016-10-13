@@ -31,7 +31,7 @@ collectionClick(e) {
   }
 
   handleEnter(e){
-    console.log(e);
+    console.log(e,e.which);
   }
 
   submitSearch(e) {
@@ -77,14 +77,12 @@ console.log(friendRequest);
   render() {
     return (
       <nav className="navbar navbar-dark bg-inverse ourNav">
-
         <div className="row bar">
           <div className="col-md-6">
-            <input className='navbarSearch' onKeyPress={this.handleEnter} onChange={this.handleChange.bind(this)}type="text" placeholder="Search here"/>
+            <input className='navbarSearch' onKeyPress={this.handleEnter.bind(this)} onChange={this.handleChange.bind(this)}type="text" placeholder="Search here"/>
             <div className='btn btn-default btn-lg search' onClick={this.submitSearch.bind(this)}>Search</div>
             <div className='btn btn-default btn-lg search' onClick={this.showResults.bind(this)}>Show Search Results</div>
-          </div>
-
+            </div>
           <div className="col-md-6">
             <div onClick={this.collectionClick.bind(this)} className='btn btn-default btn-lg' >Collection</div>
             <div onClick={this.filterClick.bind(this)} className='btn btn-default btn-lg'>Filter</div>
