@@ -31,7 +31,9 @@ collectionClick(e) {
   }
 
   handleEnter(e){
-    console.log(e,e.which);
+    if (e.which===13){
+      this.submitSearch();
+    }
   }
 
   submitSearch(e) {
