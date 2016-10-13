@@ -34,12 +34,6 @@ module.exports= function(app) {
           spotsReturn = spots;
         }
 
-          return requestMultipleYelp(spotsReturn.map((spot) => {
-            return generateYelpNewBusParam(spot.name, spot.longitude, spot.latitude, spot.friendWishOnly);
-          }));
-        })
-
-
         return getOtherFriendSpot(req.user.username)
         .then(friendSpots => {
           var friendSpots = friendSpots.map(friendSpot => {
@@ -48,6 +42,12 @@ module.exports= function(app) {
           });
           // console.log('friendSpots', friendSpots);
           spotsReturn = spotsReturn.concat(friendSpots);
+          return requestMultipleYelp(spotsReturn.map((spot) => {
+            return generateYelpNewBusParam(spot.name, spot.longitude, spot.latitude, spot.friendWishOnly);
+          }));
+        })
+
+
       })
       .then((yelpResults) => {
         // console.log('yelpresults looking for busid location', yelpResults);
@@ -106,10 +106,10 @@ module.exports= function(app) {
           }
         })
       } else {
-         console.log('creating spot',req.body);
+        // console.log('creating spot');
         return Spot.create(req.body)
         .then((spot) => {
-           console.log('insert spot ', spot[0], 'with user id', req.user);
+          // console.log('insert spot ', spot[0], 'with user id', req.user);
           return SpotsUsers.create({userid: req.user.id, spotid: spot[0].id});
         })
       }
