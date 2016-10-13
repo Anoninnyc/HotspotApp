@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "00a02389c8e6c25271c8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ac409fb0d0c064b0ec47"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57456,7 +57456,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { id: 'restaurant', className: 'restaurant card' },
-	    _react2.default.createElement('img', { className: 'card-img-top', src: item.yelpData.image }),
+	    _react2.default.createElement('img', { className: 'card-img-top', src: item.yelpData.image || "http://bit.ly/2e99Pwd" }),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'card-block' },

@@ -18,7 +18,7 @@ var CollectionModel = ({item}) => {
   console.log('address',address)
   return (
   <div id='restaurant' className='restaurant card' >
-    <img className='card-img-top' src={item.yelpData.image} />
+    <img className='card-img-top' src={item.yelpData.image||"http://bit.ly/2e99Pwd"} />
    
     <div className='card-block'>
       <h4  className='card-title'><a href={url} target="_blank">{item.name}</a></h4>
