@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fd421bd9fb5825f8f887"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "99d35963a886532bedbb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21982,6 +21982,7 @@
 	    value: function postSpots(spotObj) {
 	      var _this3 = this;
 
+	      console.log("this is spotObj", spotObj);
 	      $.post('/api/spots', spotObj, function (data, err) {
 	        console.log('postSpots being hit');
 	      }).then(function (result) {
