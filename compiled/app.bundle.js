@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1610076af9db6d7a5092"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "47a003c29ab887b9456e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22295,7 +22295,7 @@
 	        var marker = point.layer;
 	        var feature = marker.feature;
 	        marker.setIcon(L.icon(feature.properties.icon));
-	        var content = '<h2>' + feature.properties.title + '<\/h2>' + '<form>I would<br>' + ('<input type="radio" name="goBack' + pointQuery._leaflet_id + '" required> Definitely and absolutely<br>') + ('<input type="radio" name="goBack' + pointQuery._leaflet_id + '"> Never ever ever<br>') + 'go back<br>' + ('<input type="button" id="fistBump' + pointQuery._leaflet_id + '" value="Thumbs!"></form>') + '<img src="' + feature.properties.image + '" alt="">' + ('<img id="wishImage" src="' + wishImage + '" alt="">') + (marker.feature.properties.icon.iconUrl == starFill ? '<img id="giftImage" src="' + giftImage + '"' : '');
+	        var content = '<h2>' + feature.properties.title + '<\/h2>' + '<form>I would<br>' + ('<input type="radio" name="goBack' + pointQuery._leaflet_id + '" required> Definitely!<br>') + ('<input type="radio" name="goBack' + pointQuery._leaflet_id + '"> Never again! <br>') + ('<input className="btn-default" type="button" id="fistBump' + pointQuery._leaflet_id + '" value="Thumbs!"></form>') + '<img src="' + feature.properties.image + '" alt="">' + ('<img id="wishImage" src="' + wishImage + '" alt="">') + (marker.feature.properties.icon.iconUrl == starFill ? '<img id="giftImage" src="' + giftImage + '"' : '');
 
 	        marker.bindPopup(content);
 	        marker.on('mouseover', function (e) {
