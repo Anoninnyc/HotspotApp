@@ -106,7 +106,7 @@ module.exports= function(app) {
           }
         })
       } else {
-        // console.log('creating spot');
+         console.log('creating spot',req.body);
         return Spot.create(req.body)
         .then((spot) => {
           // console.log('insert spot ', spot[0], 'with user id', req.user);

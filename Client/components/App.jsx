@@ -49,7 +49,9 @@ class App extends React.Component {
       console.log('postSpots being hit');
     }).then(result=> {
       console.log("result from postSpots", result)
-      this.getSpots();
+      if (result.message!=="error"){
+        this.getSpots();
+      }
     })
   }
 
