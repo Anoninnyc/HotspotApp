@@ -102,7 +102,7 @@ if (!this.props.searchResults.length){
           collection={this.props.totalCollection}
           key={filter}
          />
-      ));
+      );
     } else if (this.props.filteredCollection.length !== 0) {
 
       panelItems = this.props.filteredCollection.map(restaurant => (
