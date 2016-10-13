@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3cdab0855f69db5aeeee"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "89e3ed000093bf10553e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57381,16 +57381,19 @@
 	          });
 	        }
 	      }
-	      return _react2.default.createElement(
-	        Menu,
-	        { style: { color: 'blue' },
-	          id: 'panel',
-	          right: true,
-	          noOverlay: true,
-	          customBurgerIcon: false,
-	          customCrossIcon: false,
-	          isOpen: this.props.isOpen },
-	        panelItems
+	      return (
+	        // /
+	        _react2.default.createElement(
+	          Menu,
+	          { style: { color: 'blue' },
+	            id: 'panel',
+	            right: true,
+	            noOverlay: true,
+	            customBurgerIcon: false,
+	            customCrossIcon: false,
+	            isOpen: this.props.isOpen },
+	          panelItems
+	        )
 	      );
 	    }
 	  }]);

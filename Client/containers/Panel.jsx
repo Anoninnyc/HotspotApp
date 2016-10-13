@@ -124,7 +124,7 @@ if (!this.props.totalCollection.length){
      }
     }
     return (
-    
+    // /
       <Menu style={{color:'blue'}}
       id={ 'panel' }
             right
