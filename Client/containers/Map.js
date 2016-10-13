@@ -68,7 +68,7 @@ class Map extends React.Component {
 
   tempClickLocationSubmit(name, latitude, longitude, rating, image) {
   // Create object to make DB query
-    console.log('tempClickLocationSubmit');
+    console.log('tempClickLocationSubmit being run');
     const spotToAdd = {
       name: name,
       latitude: latitude,

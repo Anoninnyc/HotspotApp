@@ -34,8 +34,7 @@ class App extends React.Component {
   }
 
   getSpots() {
-    $.get('/api/spots', (data, err)=> {
-      console.log('hi');
+    $.get('/api/spots', (data, err)=> {;
     }).then( result => {
       console.log("this is result.data", result.data);
       this.setState({
@@ -47,9 +46,10 @@ class App extends React.Component {
 
   postSpots(spotObj) {
     $.post('/api/spots', spotObj, (data, err)=> {
-      console.log('hii');
+      console.log('postSpots being hit');
     }).then(result=> {
-      this.getSpots();//
+      console.log("result from postSpots", result)
+      this.getSpots();
     })
   }
 

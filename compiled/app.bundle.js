@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "55638c8ee893f16fdf23"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b204c95aa7e3a14b31b1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21968,7 +21968,7 @@
 	      var _this2 = this;
 
 	      $.get('/api/spots', function (data, err) {
-	        console.log('hi');
+	        ;
 	      }).then(function (result) {
 	        console.log("this is result.data", result.data);
 	        _this2.setState({
@@ -21983,9 +21983,10 @@
 	      var _this3 = this;
 
 	      $.post('/api/spots', spotObj, function (data, err) {
-	        console.log('hii');
+	        console.log('postSpots being hit');
 	      }).then(function (result) {
-	        _this3.getSpots(); //
+	        console.log("result from postSpots", result);
+	        _this3.getSpots();
 	      });
 	    }
 	  }, {
@@ -22139,7 +22140,7 @@
 	    key: 'tempClickLocationSubmit',
 	    value: function tempClickLocationSubmit(name, latitude, longitude, rating, image) {
 	      // Create object to make DB query
-	      console.log('tempClickLocationSubmit');
+	      console.log('tempClickLocationSubmit being run');
 	      var spotToAdd = {
 	        name: name,
 	        latitude: latitude,
