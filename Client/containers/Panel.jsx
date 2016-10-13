@@ -80,7 +80,7 @@ panelItems = <div>
 
     </div>
 </div>
-
+//
 }
 
 else if (this.props.panelMode === 'results'){
@@ -95,7 +95,7 @@ if (!this.props.searchResults.length){
     ));
   }
 } else if (this.props.panelMode === 'filter') {
-      panelItems = this.props.filters.map(filter => (
+      panelItems = this.props.filters.map(filter => 
         <FilterItem filter={filter}
           appliedFilters={this.props.filterSelected}
           toggleFilter={this.props.actions.toggleFilter}
