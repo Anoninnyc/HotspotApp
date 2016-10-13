@@ -93,7 +93,7 @@ function parse(res) {
   let apos = res.indexOf("'");
   if (apos > -1) {
     let split = res.split("");
-    split.splice(apos, 0,"\\'")
+    split.splice(apos, 1)
     return split.join('')
   } else {
     return res;
