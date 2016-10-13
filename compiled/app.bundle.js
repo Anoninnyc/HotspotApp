@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "44a4f802f3433fbc1aa7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f7a5e5c9101c5d741bbe"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57019,6 +57019,11 @@
 	      this.props.actions.showSearchResults(this.props.PanelMode, this.props.isOpen);
 	    }
 	  }, {
+	    key: 'handleEnter',
+	    value: function handleEnter(e) {
+	      console.log(e);
+	    }
+	  }, {
 	    key: 'submitSearch',
 	    value: function submitSearch(e) {
 	      e.preventDefault();
@@ -57066,7 +57071,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'col-md-6' },
-	            _react2.default.createElement('input', { className: 'navbarSearch', onChange: this.handleChange.bind(this), type: 'text', placeholder: 'Search here' }),
+	            _react2.default.createElement('input', { className: 'navbarSearch', onKeyPress: this.handleEnter, onChange: this.handleChange.bind(this), type: 'text', placeholder: 'Search here' }),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'btn btn-default btn-lg search', onClick: this.submitSearch.bind(this) },
@@ -57257,6 +57262,7 @@
 	            'div',
 	            null,
 	            _react2.default.createElement('input', { className: 'friendToAdd ', type: 'text', placeholder: 'Add a Friend' }),
+	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'button', onClick: this.submitFriendReq.bind(this) },

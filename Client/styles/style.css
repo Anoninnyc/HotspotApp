@@ -134,3 +134,7 @@ background-color: red;
 .noPending, .panelHeader{
   color:white;
 }
+
+.btn-default {
+  border: 1px solid lavender;
+}

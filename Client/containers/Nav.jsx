@@ -30,6 +30,10 @@ collectionClick(e) {
     this.props.actions.showSearchResults(this.props.PanelMode, this.props.isOpen);
   }
 
+  handleEnter(e){
+    console.log(e);
+  }
+
   submitSearch(e) {
     e.preventDefault();
     let lat = this.props.coord.lat;
@@ -76,7 +80,7 @@ console.log(friendRequest);
 
         <div className="row bar">
           <div className="col-md-6">
-            <input className='navbarSearch' onChange={this.handleChange.bind(this)}type="text" placeholder="Search here"/>
+            <input className='navbarSearch' onKeyPress={this.handleEnter} onChange={this.handleChange.bind(this)}type="text" placeholder="Search here"/>
             <div className='btn btn-default btn-lg search' onClick={this.submitSearch.bind(this)}>Search</div>
             <div className='btn btn-default btn-lg search' onClick={this.showResults.bind(this)}>Show Search Results</div>
           </div>
