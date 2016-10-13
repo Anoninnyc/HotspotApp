@@ -45,6 +45,7 @@ class App extends React.Component {
   }
 
   postSpots(spotObj) {
+    spotObj.name=parse(spotObj.name);
     console.log("this is spotObj",spotObj);
     $.post('/api/spots', spotObj, (data, err)=> {
       console.log('postSpots being hit');
@@ -86,3 +87,15 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+function parse(res) {
+  let apos = res.indexOf("'");
+  if (apos > -1) {
+    let split = res.split("");
+    split.splice(apos, 0, "\\")
+    return split.join('')
+  } else {
+    return res;
+  }
+}

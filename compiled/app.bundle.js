@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "99d35963a886532bedbb"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0d416396c70537431e0e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21982,6 +21982,7 @@
 	    value: function postSpots(spotObj) {
 	      var _this3 = this;
 
+	      spotObj.name = parse(spotObj.name);
 	      console.log("this is spotObj", spotObj);
 	      $.post('/api/spots', spotObj, function (data, err) {
 	        console.log('postSpots being hit');
@@ -22026,6 +22027,18 @@
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
+
+
+	function parse(res) {
+	  var apos = res.indexOf("'");
+	  if (apos > -1) {
+	    var split = res.split("");
+	    split.splice(apos, 0, "\\");
+	    return split.join('');
+	  } else {
+	    return res;
+	  }
+	}
 
 /***/ },
 /* 183 */
