@@ -46,9 +46,9 @@ $.post(friendEndpoints.decline,{ friendname:person },function(a,b){
  
     return (
   <div>
-     {this.props.item.requestor}
-    <button onClick={function(){that.accept(that.props.item.requestor)}}>Accept</button>
-    <button onClick={function(){that.decline(that.props.item.requestor)}}>Decline</button>
+     <div className="requestorName" >{this.props.item.requestor} </div>
+    <div className="btn-default" onClick={()=>{this.accept(that.props.item.requestor)}}>Accept</div>
+    <div className="btn-default" onClick={()=>{this.decline(that.props.item.requestor)}}>Decline</div>
   </div>
   );
  }

@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0eb830a53128e2a8b71a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "44a4f802f3433fbc1aa7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57681,23 +57681,30 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+
 	      var that = this;
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this.props.item.requestor,
 	        _react2.default.createElement(
-	          'button',
-	          { onClick: function onClick() {
-	              that.accept(that.props.item.requestor);
+	          'div',
+	          { className: 'requestorName' },
+	          this.props.item.requestor,
+	          ' '
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn-default', onClick: function onClick() {
+	              _this2.accept(that.props.item.requestor);
 	            } },
 	          'Accept'
 	        ),
 	        _react2.default.createElement(
-	          'button',
-	          { onClick: function onClick() {
-	              that.decline(that.props.item.requestor);
+	          'div',
+	          { className: 'btn-default', onClick: function onClick() {
+	              _this2.decline(that.props.item.requestor);
 	            } },
 	          'Decline'
 	        )
