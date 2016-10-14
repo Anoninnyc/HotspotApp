@@ -36,7 +36,7 @@ module.exports.generateYelpNewBusParam = function (name, longitude, latitude, fr
 
 // 
 var parseYelpData = function (business, friendWishOnly) {
-  console.log('businessss',business);
+  //console.log('businessss',business);
   let cuisine;
   if (business.categories && business.categories[0]) {
     cuisine = business.categories[0][0];
@@ -103,7 +103,7 @@ var requestYelp = function (setParameters, busId, searchBar) {
   );
 
   parameters.oauth_signature = signature;
-  console.log('parameters', parameters);
+  //console.log('parameters', parameters);
   var paramUrl = qs.stringify(parameters);
 
   var apiUrl = url + '?' + paramUrl;
@@ -111,7 +111,7 @@ var requestYelp = function (setParameters, busId, searchBar) {
   return new Promise((resolve, reject) => {
     // console.log(apiUrl);
     request(apiUrl, function(err, res, body) {
-       console.log('yelp res', err, JSON.parse(body));
+       //console.log('yelp res', err, JSON.parse(body));
       if (err) {
         console.log('**********************************');
         console.log('ERROR', err);
@@ -199,7 +199,7 @@ module.exports.requestYelp = function (setParameters, busId, searchBar) {
   );
 
   parameters.oauth_signature = signature;
-  console.log('parameters', parameters);
+  //console.log('parameters', parameters);
   var paramUrl = qs.stringify(parameters);
 
   var apiUrl = url + '?' + paramUrl;
@@ -250,7 +250,7 @@ module.exports.requestMultipleYelp = function(yelpParams) {
 
 // Parse required data out of Yelp's response data
 module.exports.parseYelpData = function (business, friendWishOnly) {
-  console.log('businessss',business);
+  //console.log('businessss',business);
   let cuisine;
   if (business.categories && business.categories[0]) {
     cuisine = business.categories[0][0];
