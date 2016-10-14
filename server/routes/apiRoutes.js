@@ -58,16 +58,16 @@ module.exports= function(app) {
           });
           // console.log('friendSpots', friendSpots);
           spotsReturn = spotsReturn.concat(friendSpots);
-          console.log(spotsReturn.map((spot)=>{return [spot.name, parse2(spot.name)]}));
+          //console.log(spotsReturn.map((spot)=>{return [spot.name, parse2(spot.name)]}));
           return requestMultipleYelp(spotsReturn.map(spot => {
-            return generateYelpNewBusParam(spot.name, spot.longitude, spot.latitude, spot.friendWishOnly);
+            return generateYelpNewBusParam(parse2(spot.name), spot.longitude, spot.latitude, spot.friendWishOnly);
           }));
         })
 
 
       })
       .then((yelpResults) => {
-        // console.log('yelpresults looking for busid location', yelpResults);
+         console.log('yelpresults looking for busid location', yelpResults);
         if (yelpResults.length === 0) {
           return [];
         }
