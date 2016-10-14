@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d263bbf08afb46074b80"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c83287e6add9caf084ef"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -21954,11 +21954,7 @@
 	    value: function getUpdate(wish) {
 	      console.log('calling getUpdate');
 	      var that = this;
-	      $.post('/api/wishes', wish, function (data, err) {
-	        // this.state.collection = res;
-	        // console.log('api/wishes called, ', data)
-	        // console.log('error: ', err)
-	      }).then(function (result) {
+	      $.post('/api/wishes', wish, function (data, err) {}).then(function (result) {
 	        that.getSpots();
 	      });
 	    }
@@ -57043,8 +57039,7 @@
 	      if (e.which === 13) {
 	        this.submitSearch(e);
 	      }
-	    } //
-
+	    }
 	  }, {
 	    key: 'submitSearch',
 	    value: function submitSearch(e) {
@@ -57059,6 +57054,7 @@
 	      };
 	      console.log(searchQuery);
 	      this.props.actions.submitSearch(searchQuery);
+	      $(".navbarSearch").val("");
 	    }
 	  }, {
 	    key: 'submitFriendReq',
@@ -57411,7 +57407,6 @@
 	    isOpen: state.PanelMode.isOpen,
 	    searchResults: state.SearchBar.searchResults,
 	    friendRequests: state.FriendReqs.friendReqs
-
 	  };
 	}
 
@@ -57447,7 +57442,6 @@
 	  var url = item.yelpData.url;
 	  var yelpRating = item.yelpData.rating;
 	  var address = item.yelpData.address;
-	  console.log('address', address);
 	  return _react2.default.createElement(
 	    'div',
 	    { id: 'restaurant', className: 'restaurant card' },
@@ -57672,7 +57666,6 @@
 	var FriendModel = function (_React$Component) {
 	  _inherits(FriendModel, _React$Component);
 
-	  //console.log('you should see a friend!');
 	  function FriendModel(props) {
 	    _classCallCheck(this, FriendModel);
 
@@ -57682,20 +57675,21 @@
 	  _createClass(FriendModel, [{
 	    key: 'accept',
 	    value: function accept(person) {
-	      var that = this;
-	      $.post(friendEndpoints.accept, { friendname: person }, function (a, b) {
-	        console.log('accept request!!', a, 'error(?):', b);
-	        that.props.actions.fetchFriendRequests();
-	        console.log('the new store!:', that.props.friendRequestsLower);
+	      var _this2 = this;
+
+	      $.post(friendEndpoints.accept, { friendname: person }, function (res, err) {
+	        console.log('accept request!!', res, 'error(?):', err);
+	        _this2.props.actions.fetchFriendRequests();
 	      });
 	    }
 	  }, {
 	    key: 'decline',
 	    value: function decline(person) {
-	      var that = this;
-	      $.post(friendEndpoints.decline, { friendname: person }, function (a, b) {
-	        console.log('decline request!!', a, 'error(?):', b);
-	        that.props.actions.fetchFriendRequests();
+	      var _this3 = this;
+
+	      $.post(friendEndpoints.decline, { friendname: person }, function (res, err) {
+	        console.log('decline request!!', res, 'error(?):', err);
+	        _this3.props.actions.fetchFriendRequests();
 	      });
 	    }
 	    //
@@ -57703,9 +57697,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-
-	      var that = this;
+	      var _this4 = this;
 
 	      return _react2.default.createElement(
 	        'div',
@@ -57719,14 +57711,14 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'btn-default', onClick: function onClick() {
-	              _this2.accept(that.props.item.requestor);
+	              _this4.accept(_this4.props.item.requestor);
 	            } },
 	          'Accept'
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'btn-default', onClick: function onClick() {
-	              _this2.decline(that.props.item.requestor);
+	              _this4.decline(_this4.props.item.requestor);
 	            } },
 	          'Decline'
 	        )

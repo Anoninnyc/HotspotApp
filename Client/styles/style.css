@@ -138,3 +138,8 @@ background-color: red;
 .btn-default {
   border: 1px solid lavender;
 }
+
+.btn-default:hover {
+  cursor: pointer; 
+}
+

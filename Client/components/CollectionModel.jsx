@@ -5,7 +5,6 @@ var CollectionModel = ({item}) => {
   var url=item.yelpData.url;
   var yelpRating=item.yelpData.rating;
   var address=item.yelpData.address;
-  console.log('address',address)
   return (
   <div id='restaurant' className='restaurant card' >
     <img className='card-img-top' src={item.yelpData.image||"http://bit.ly/2e99Pwd"} />
@@ -20,7 +19,7 @@ var CollectionModel = ({item}) => {
       <li className='list-group-item'>Type: {item.yelpData.cuisine}</li>
     </ul>
   </div>
-);
+ );
 };
 
 

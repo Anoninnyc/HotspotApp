@@ -150,7 +150,6 @@ function mapStateToProps(state) {
     isOpen: state.PanelMode.isOpen,
     searchResults:state.SearchBar.searchResults,
     friendRequests:state.FriendReqs.friendReqs
-
   };
 }
 

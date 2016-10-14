@@ -169,8 +169,7 @@ module.exports= function(app) {
 
   //sent friend request
   app.post('/api/friendRequest', (req, res) => {
-    // Friends.find({username: req.user.username})
-    // console.log('req.body', req.body);
+    console.log("REQ.BODY*****************", req.body,req.session);
     var friendQuery = 
       `SELECT * FROM friends 
       INNER JOIN users 
@@ -182,6 +181,9 @@ module.exports= function(app) {
     .then(foundFriend => {
       if (foundFriend.length === 0) {
         res.send('the friend you entered does not exist');
+      } else if (1>2){
+        null;
+
       } else {
         return Friends.rawQuery(friendQuery)
         .then(friend => {

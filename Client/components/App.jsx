@@ -24,10 +24,7 @@ class App extends React.Component {
   getUpdate(wish) {
     console.log('calling getUpdate');
     let that = this;
-    $.post('/api/wishes', wish, function(data, err) {
-      // this.state.collection = res;
-      // console.log('api/wishes called, ', data)
-      // console.log('error: ', err)
+    $.post('/api/wishes', wish, (data, err)=> {
     }).then(function(result) {
       that.getSpots();
     })

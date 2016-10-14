@@ -4,51 +4,38 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 
 
-
-
-
-
 var friendEndpoints={
   accept:'/api/confirmFriend',
   decline:'/api/rejectFriend'
 }
 
  class FriendModel extends React.Component  {
-  //console.log('you should see a friend!');
   constructor(props){
     super(props)
   }
 
 accept(person){
-  var that=this;
-$.post(friendEndpoints.accept,{ friendname:person },function(a,b){
-  console.log('accept request!!',a,'error(?):',b);
-  that.props.actions.fetchFriendRequests();
-    console.log('the new store!:',that.props.friendRequestsLower);
-
-});
-
- }
+  $.post(friendEndpoints.accept,{ friendname:person },(res,err)=>{
+    console.log('accept request!!',res,'error(?):',err);
+    this.props.actions.fetchFriendRequests();
+  });
+}
 
 
 decline(person){
-  var that=this;
-$.post(friendEndpoints.decline,{ friendname:person },function(a,b){
-  console.log('decline request!!',a,'error(?):',b);
-  that.props.actions.fetchFriendRequests();
-});
-
+  $.post(friendEndpoints.decline,{ friendname:person },(res,err)=>{
+    console.log('decline request!!',res,'error(?):',err);
+    this.props.actions.fetchFriendRequests();
+  });
  }
 //
 
   render(){
-    var that=this;
- 
     return (
   <div>
      <div className="requestorName" >{this.props.item.requestor} </div>
-    <div className="btn-default" onClick={()=>{this.accept(that.props.item.requestor)}}>Accept</div>
-    <div className="btn-default" onClick={()=>{this.decline(that.props.item.requestor)}}>Decline</div>
+    <div className="btn-default" onClick={()=>{this.accept(this.props.item.requestor)}}>Accept</div>
+    <div className="btn-default" onClick={()=>{this.decline(this.props.item.requestor)}}>Decline</div>
   </div>
   );
  }

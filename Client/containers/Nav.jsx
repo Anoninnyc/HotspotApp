@@ -34,7 +34,7 @@ collectionClick(e) {
     if (e.which===13){
       this.submitSearch(e);
     }
-  }//
+  }
 
   submitSearch(e) {
     e.preventDefault();
@@ -48,6 +48,7 @@ collectionClick(e) {
     }
     console.log(searchQuery);
     this.props.actions.submitSearch(searchQuery);
+    $(".navbarSearch").val("");
   }
 
  submitFriendReq(e) {
