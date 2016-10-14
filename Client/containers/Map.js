@@ -99,19 +99,6 @@ class Map extends React.Component {
     console.log('lmapbox', L.mapbox);
     mainMap = L.mapbox.map('map-one', 'mapbox.streets')
       .setView(defaultCoord, 16);
-
-    // var geocoderControl = L.mapbox.geocoderControl('mapbox.places', {
-    //   autocomplete: true,
-    //   keepOpen: true,
-    //   proximity: true,
-    //   container: 'geocoder-container'
-    // });
-    // geocoderControl.addTo(mainMap);
-
-    // geocoderControl.on('select', function(res, mainMap) {
-    //   foundRestaurant(res, mainMap);
-    // });
-    
     //add a listener to the mainmap object that listens to moving
     //and on end will set the store coords to the center of map view 
     mainMap.on('moveend', () => {
@@ -158,26 +145,16 @@ class Map extends React.Component {
         // var that = this;
         $(`#wishImage`).click(function(event) {
           console.log('Image clicked', feature);
-          // marker.setIcon(L.icon({
-          //   iconUrl: starEmpty,
-          //   iconSize: [35, 35],
-          //   iconAnchor: [35, 17],
-          //   popupAnchor: [-17, -17]
-          // }))
           //also call function to send info 
           let latlng = marker._latlng;
           that.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           // Actions.clickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
-          console.log(that);
           var wishData = {
             name: feature.properties.title,
             latitude: latlng.lat, 
             longitude: latlng.lng
           }
-          // let updatedCollection = that.props.getUpdate(wishData);
-          // that.setState({
-          //   collection: updatedCollection  
-          // })
+    
           marker.closePopup();
         })
       });
@@ -231,12 +208,6 @@ class Map extends React.Component {
       marker.on('popupopen', function(e) {
         $(`#wishImage`).click(function(event) {
           console.log('Image clicked', marker);
-          // marker.setIcon(L.icon({
-          //   iconUrl: starEmpty,
-          //   iconSize: [35, 35],
-          //   iconAnchor: [35, 17],
-          //   popupAnchor: [-17, -17]
-          // }))
           //also call function to send info 
           let latlng = marker._latlng;
           that.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
@@ -301,44 +272,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 ////////// TESTING DATA - TODO REMOVE /////////
-// var tastyRestaurants = [
-//   {
-//     name: 'The Flying Falafal',
-//     latitude: 37.7812322,
-//     longitude: -122.4134787,
-//     rating: 5
-//   },
-//   {
-//     name: 'Show Dogs',
-//     latitude: 37.7821228,
-//     longitude: -122.4130593,
-//     rating: 5
-//   },
-//   {
-//     name: 'Lemonade',
-//     latitude: 37.7848661,
-//     longitude: -122.4057182,
-//     rating: 5
-//   },
-//   {
-//     name: 'Super Duper Burgers',
-//     latitude: 37.7862143,
-//     longitude: -122.4053212,
-//     rating: 5
-//   },
-//   {
-//     name: 'Réveille Coffee Co.',
-//     latitude: 37.7735341,
-//     longitude: -122.3942448,
-//     rating: 5
-//   },
-//   {
-//     name: 'Denny\'s',
-//     latitude: 37.7859249,
-//     longitude: -122.407801,
-//     rating: 0
-//   }
-// ];
 
 ////////// TEMPLATES FOR GEOPOINT and GEOSET in geoJSON FORMAT //////////
 var geoJSONPoint = (longitude, latitude, name, thumb, image) => {

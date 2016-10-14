@@ -182,24 +182,21 @@ module.exports= function(app) {
       if (foundFriend.length === 0) {
         res.send('the friend you entered does not exist');
       } else if (req.user.username===req.body.requestee){
-        res.send('You can\'t friend yourself!')
-
+        res.send('You can\'t friend yourself!');
       } else {
         return Friends.rawQuery(friendQuery)
         .then(friend => {
-          // console.log('friend',friend);
           if (friend.length === 0) {
             //another query to see if friend request already exists
             return FriendRequests.find({requestor: req.user.username, requestee: req.body.requestee})
-            .then((request) => {
+            .then(request => {
               if (request.length === 0) {
                 return FriendRequests.create({requestor: req.user.username, requestee: req.body.requestee, response: 'pending'})
-                .then((request) => {
-                  // console.log('request stored', request)
+                .then(request => {
                   res.send('friend request sent');
                 })
               } else {
-                res.send('you have already send a friend request to ' + req.body.requestee);
+                res.send(`you have already send a friend request to ${req.body.requestee}`);
               }
             });
           } else {
