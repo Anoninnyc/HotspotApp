@@ -75,7 +75,7 @@ module.exports= function(app) {
           // console.log('spotssssss', spot)
           let match = yelpResults.filter((result) => {
             let lowerLength = Math.min([spot.length, result.length]);
-            console.log("")
+            //console.log("")
             return result.name.indexOf(spot.name.slice(lowerLength)) !== -1;
           });
           // console.log('yelp stuff', match);
