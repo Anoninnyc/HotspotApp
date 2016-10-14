@@ -406,7 +406,7 @@ module.exports= function(app) {
 
     Wishes.rawQuery(acceptWishQuery)
     .then(wish => {
-      console.log('wishwish', wish);
+      //console.log('wishwish', wish);
       var wishUpdate = 
         `UPDATE wishes 
         SET status = '${req.body.wishstatus}', 

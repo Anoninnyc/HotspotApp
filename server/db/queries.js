@@ -29,11 +29,11 @@ module.exports=  class DB {
   findOrCreate(obj) {
     return this.find(obj)
     .then((foundObj) => {
-      console.log('foundObj', foundObj)
+      //console.log('foundObj', foundObj)
       if (foundObj.length > 0) {
         return foundObj;
       }
-      console.log('make this', obj);
+      //console.log('make this', obj);
       return this.create(obj);
     });
   }
