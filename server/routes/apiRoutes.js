@@ -42,8 +42,9 @@ module.exports= function(app) {
           });
           // console.log('friendSpots', friendSpots);
           spotsReturn = spotsReturn.concat(friendSpots);
+          console.log("*************", requestMultipleYelp(spotsReturn.map((spot)=>spot.name)));
           return requestMultipleYelp(spotsReturn.map((spot) => {
-            console.log("*************", spot.name);
+
             return generateYelpNewBusParam(spot.name, spot.longitude, spot.latitude, spot.friendWishOnly);
           }));
         })
