@@ -24,7 +24,7 @@ var endpointBusID = 'https://api.yelp.com/v2/business/';
 
 // Generate parameters for a new business
 module.exports.generateYelpNewBusParam = function (name, longitude, latitude, friendWishOnly) {
-  console.log('generateYelpNewBusParam called')
+  // /console.log('generateYelpNewBusParam called')
   return {
     term: name,
     limit: 1,
@@ -64,7 +64,7 @@ var parseYelpData = function (business, friendWishOnly) {
 
 var requestYelp = function (setParameters, busId, searchBar) {
   var friendWishOnly = setParameters.friendWishOnly
-  console.log('requestYelp called')
+  //console.log('requestYelp called')
   var httpMethod = 'GET';
 
   if (busId) {
@@ -160,7 +160,7 @@ var requestYelp = function (setParameters, busId, searchBar) {
 // Yelp call
 module.exports.requestYelp = function (setParameters, busId, searchBar) {
   var friendWishOnly = setParameters.friendWishOnly
-  console.log('requestYelp called')
+  //console.log('requestYelp called')
   var httpMethod = 'GET';
 
   if (busId) {
