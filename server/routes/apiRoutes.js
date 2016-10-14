@@ -11,6 +11,22 @@ var FriendRequests =require( '../db/FriendRequests');
 var Wishes =require( '../db/Wishes');
 var Users =require( '../db/Users');
 
+function parse2(res) {
+  let apos = res.indexOf("*");
+  if (apos > -1) {
+    let split = res.split("");
+    split.splice(apos, 1,"'")
+    return split.join('')
+  } else {
+    return res;
+  }
+}
+
+
+
+
+
+
 module.exports= function(app) {
   // RESTFUl API for retrieving spots from the db
   app.get('/api/spots', (req, res) => {
@@ -43,9 +59,8 @@ module.exports= function(app) {
           // console.log('friendSpots', friendSpots);
           spotsReturn = spotsReturn.concat(friendSpots);
           console.log(spotsReturn.map((spot)=>spot.name));
-          return requestMultipleYelp(spotsReturn.map((spot) => {
-
-            return generateYelpNewBusParam(spot.name, spot.longitude, spot.latitude, spot.friendWishOnly);
+          return requestMultipleYelp(spotsReturn.map(spot => {
+            return generateYelpNewBusParam(parse2(spot.name), spot.longitude, spot.latitude, spot.friendWishOnly);
           }));
         })
 
