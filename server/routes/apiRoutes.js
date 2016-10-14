@@ -58,7 +58,7 @@ module.exports= function(app) {
           });
           // console.log('friendSpots', friendSpots);
           spotsReturn = spotsReturn.concat(friendSpots);
-          console.log(spotsReturn.map((spot)=>spot.name));
+          console.log(spotsReturn.map((spot)=>parse2(spot.name)));
           return requestMultipleYelp(spotsReturn.map(spot => {
             return generateYelpNewBusParam(parse2(spot.name), spot.longitude, spot.latitude, spot.friendWishOnly);
           }));
@@ -75,6 +75,7 @@ module.exports= function(app) {
           // console.log('spotssssss', spot)
           let match = yelpResults.filter((result) => {
             let lowerLength = Math.min([spot.length, result.length]);
+            console.log("")
             return result.name.indexOf(spot.name.slice(lowerLength)) !== -1;
           });
           // console.log('yelp stuff', match);
