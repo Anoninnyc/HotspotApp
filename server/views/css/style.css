@@ -418,10 +418,14 @@ body {
 .fa-facebook-square {
   color: #3b5998;
 }
-#homeHeading, #appDesc {
-  color:#ee4b28;
+#homeHeading, #appDesc, #changeToSU, #changeToLI {
+  color:#ee4b28;   
+  font-weight: bold;
 }
 
 #userName1, #userName2, #passWord1, #passWord2, #footer1, #footer2 {
   color:#F05F40;
+}
+#userName1, #userName2, #passWord1, #passWord2 {
+  font-weight: bold;
 }
