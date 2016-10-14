@@ -169,7 +169,7 @@ module.exports= function(app) {
 
   //sent friend request
   app.post('/api/friendRequest', (req, res) => {
-    console.log("REQ.BODY*****************", req.body,req.session);
+    console.log("REQ.BODY*****************", req.body,req.session, req.user);
     var friendQuery = 
       `SELECT * FROM friends 
       INNER JOIN users 
