@@ -43,6 +43,7 @@ module.exports= function(app) {
           // console.log('friendSpots', friendSpots);
           spotsReturn = spotsReturn.concat(friendSpots);
           return requestMultipleYelp(spotsReturn.map((spot) => {
+            console.log("*************", spot.name);
             return generateYelpNewBusParam(spot.name, spot.longitude, spot.latitude, spot.friendWishOnly);
           }));
         })
