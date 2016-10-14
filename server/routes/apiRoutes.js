@@ -67,16 +67,16 @@ module.exports= function(app) {
 
       })
       .then((yelpResults) => {
-         console.log('yelpresults looking for busid location', yelpResults);
+         //console.log('yelpresults looking for busid location', yelpResults);
         if (yelpResults.length === 0) {
           return [];
         }
         return Promise.map(spotsReturn, (spot) => {
-          // console.log('spotssssss', spot)
+           console.log('spotssssss', spot);
           let match = yelpResults.filter((result) => {
             let lowerLength = Math.min([spot.length, result.length]);
             //console.log("")
-            return result.name.indexOf(spot.name.slice(lowerLength)) !== -1;
+            return result.name.indexOf(parse2(spot.name).slice(lowerLength)) !== -1;
           });
           // console.log('yelp stuff', match);
           if (match.length === 0) {
