@@ -181,8 +181,8 @@ module.exports= function(app) {
     .then(foundFriend => {
       if (foundFriend.length === 0) {
         res.send('the friend you entered does not exist');
-      } else if (1>2){
-        null;
+      } else if (req.user.username===req.body.requestee){
+        res.send('You can\'t friend yourself!')
 
       } else {
         return Friends.rawQuery(friendQuery)

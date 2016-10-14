@@ -40,12 +40,14 @@ console.log(friendRequest);
           if (res.text.indexOf('exist')!==-1){
              fade(".doesntExist");
             console.log('doesnt exist')
-          } else if (res.text.indexOf('request sent')!==-1 ){
+          } else if (res.text.indexOf('request sent')!==-1){
             fade(".requestSent");
             console.log('request sent!!')
-          } else if (res.text.indexOf('already send')!==-1 ){
+          } else if (res.text.indexOf('already send')!==-1){
             fade(".alreadySent");
             console.log('request already sent')
+          } else if (res.text.indexOf('yourself!')!==-1){
+            fade(".dontSelf");
           } else {
             fade(".alreadyAFriend");
             document.getElementsByClassName("alreadyAFriend")[0].style.display='inline';
@@ -70,6 +72,7 @@ panelItems = <div>
   <div className='mess doesntExist'> This Person hasn't signed up </div>
   <div className='mess requestSent'> Request Sent! </div>
   <div className='mess alreadySent'> Already sent a friend request </div>
+  <div className='mess dontSelf'> You can't friend yourself! </div>
 
       {!this.props.friendRequests.length?<p className="noPending">No pending friend requests</p>:null}
    </div>

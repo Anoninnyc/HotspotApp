@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c83287e6add9caf084ef"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e48f0f34232b858f7185"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57255,6 +57255,8 @@
 	          } else if (res.text.indexOf('already send') !== -1) {
 	            (0, _utils.fade)(".alreadySent");
 	            console.log('request already sent');
+	          } else if (res.text.indexOf('yourself!') !== -1) {
+	            (0, _utils.fade)(".dontSelf");
 	          } else {
 	            (0, _utils.fade)(".alreadyAFriend");
 	            document.getElementsByClassName("alreadyAFriend")[0].style.display = 'inline';
@@ -57305,6 +57307,11 @@
 	              'div',
 	              { className: 'mess alreadySent' },
 	              ' Already sent a friend request '
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'mess dontSelf' },
+	              ' You can\'t friend yourself! '
 	            ),
 	            !this.props.friendRequests.length ? _react2.default.createElement(
 	              'p',
