@@ -421,3 +421,7 @@ body {
 #homeHeading, #appDesc {
   color:#ee4b28;
 }
+
+#userName1, #userName2, #passWord1, #passWord2, #footer1, #footer2 {
+  color:#F05F40;
+}
