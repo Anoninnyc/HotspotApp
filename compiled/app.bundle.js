@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "682c0f92dbcfa7c26321"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d263bbf08afb46074b80"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57437,23 +57437,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	var _utils = __webpack_require__(202);
 
-	// const $ = require('jquery');
-	//
-	// $('.restaurant').tooltip();
-	//
-	// $(document).ready(function(){
-	// $('[data-toggle="tooltip"]').tooltip();
-	//
-	// });
-	// $('#restaurant');
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var CollectionModel = function CollectionModel(_ref) {
 	  var item = _ref.item;
 
-	  console.log('item', item);
-	  console.log('rewind');
 	  var url = item.yelpData.url;
 	  var yelpRating = item.yelpData.rating;
 	  var address = item.yelpData.address;
@@ -57471,7 +57461,7 @@
 	        _react2.default.createElement(
 	          'a',
 	          { href: url, target: '_blank' },
-	          item.name
+	          (0, _utils.parse)(item.name)
 	        )
 	      )
 	    ),
@@ -57508,7 +57498,6 @@
 	      )
 	    )
 	  );
-	  console.log(here);
 	};
 
 	exports.default = CollectionModel;
@@ -57809,9 +57798,21 @@
 	  value: true
 	});
 	exports.fade = fade;
+	exports.parse = parse;
 	function fade(el) {
 	  $(el).fadeIn(1000);
 	  $(el).fadeOut(1000);
+	}
+
+	function parse(res) {
+	  var apos = res.indexOf("*");
+	  if (apos > -1) {
+	    var split = res.split("");
+	    split.splice(apos, 1, "'");
+	    return split.join('');
+	  } else {
+	    return res;
+	  }
 	}
 
 /***/ },
