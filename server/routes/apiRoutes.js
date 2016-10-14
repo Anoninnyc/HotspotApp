@@ -60,7 +60,7 @@ module.exports= function(app) {
           spotsReturn = spotsReturn.concat(friendSpots);
           console.log(spotsReturn.map((spot)=>{[spot.name, typeof spot.name]}));
           return requestMultipleYelp(spotsReturn.map(spot => {
-            return generateYelpNewBusParam(parse2(spot.name), spot.longitude, spot.latitude, spot.friendWishOnly);
+            return generateYelpNewBusParam(spot.name, spot.longitude, spot.latitude, spot.friendWishOnly);
           }));
         })
 
