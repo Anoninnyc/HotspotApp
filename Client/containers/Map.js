@@ -142,14 +142,16 @@ class Map extends React.Component {
       var that = this;
       var marker = point.layer;
       var feature = marker.feature;
-      console.log("this is a point", feature);
+      console.log("this is a point", feature.properties);
       var parsed = parseAgain(feature.properties.title);
      // console.log("this should =marks", feature.properties);
       marker.setIcon(L.icon(feature.properties.icon));
       var content = '<h2>' + parsed + '</h2>' +
       `<img className="popUpImage" src="${feature.properties.image || "http://bit.ly/2e99Pwd"}" alt="">` +
       `<img id="wishImage" src="${wishImage}" alt="">` + 
-      ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
+      ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '') +
+      ((feature.properties.friendWishOnly) ? `This is a wishh` : 'Not a wish');
+
       //wish icon on click, change icon
       marker.bindPopup(content);
       marker.on('mouseover', function(e) {
