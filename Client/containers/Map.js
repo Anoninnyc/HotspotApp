@@ -7,10 +7,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
-import parseAgain from './utils';
+//import parseAgain from './utils';
 // Globl map
 var mainMap, restaurantPoints, layerGroup;
 var initialize = true;
+
+var parseAgain = function(res) {
+  let ast = res.indexOf("*");
+  if (ast > -1) {
+    let split = res.split("");
+    split.splice(ast, 1, "'");
+    return split.join('');
+  } else {
+    return res;
+  }
+};
 
 ////////// TEST IMAGES TODO - REMOVE FOR FINAL //////////
 
@@ -131,9 +142,10 @@ class Map extends React.Component {
       // var that = this;
       var marker = point.layer;
       var feature = marker.feature;
+      var parsed = parseAgain(feature.properties.title);
       marker.setIcon(L.icon(feature.properties.icon));
-      var content = '<h2>' + parseAgain(feature.properties.title) + '</h2>' +
-      `<img className="popUpImage" src="${feature.properties.image||"http://bit.ly/2e99Pwd"}" alt="">` +
+      var content = '<h2>' + parsed + '</h2>' +
+      `<img className="popUpImage" src="${feature.properties.image || "http://bit.ly/2e99Pwd"}" alt="">` +
       `<img id="wishImage" src="${wishImage}" alt="">` + 
       ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
       //wish icon on click, change icon
