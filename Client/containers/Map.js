@@ -152,7 +152,7 @@ class Map extends React.Component {
       `<img className="popUpImage" src="${feature.properties.image || "http://bit.ly/2e99Pwd"}" alt="">` +
       `<img id="wishImage" src="${wishImage}" alt="">` + 
       ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '') +
-      ((!!feature.properties.friendWishOnly.length) ? `${feature.properties.friendWish.friendname}` : 'not a wish');
+      ((feature.properties.friendWishOnly) ? `${feature.properties.friendWish.friendname}` : 'not a wish');
 
       //wish icon on click, change icon
       marker.bindPopup(content);
