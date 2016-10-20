@@ -30,8 +30,8 @@ class Nav extends React.Component {
     this.props.actions.showSearchResults(this.props.PanelMode, this.props.isOpen);
   }
 
-  handleEnter(e){
-    if (e.which===13){
+  handleEnter(e) {
+    if (e.which === 13) {
       this.submitSearch(e);
     }
   }
