@@ -95,7 +95,7 @@ class Map extends React.Component {
   }
 
   tempClickWishListSubmit(name, latitude, longitude) {
-    this.props.getUpdate({name: name, latitude: latitude, longitude: longitude})
+    this.props.getUpdate({name: name, latitude: latitude, longitude: longitude});
   }
 
   mapSearchCoord(e) {
@@ -143,7 +143,7 @@ class Map extends React.Component {
       var marker = point.layer;
       var feature = marker.feature;
       var parsed = parseAgain(feature.properties.title);
-      console.log("this should feature.properties", feature.properties);
+      console.log("this should =marker", marker);
       marker.setIcon(L.icon(feature.properties.icon));
       var content = '<h2>' + parsed + '</h2>' +
       `<img className="popUpImage" src="${feature.properties.image || "http://bit.ly/2e99Pwd"}" alt="">` +
@@ -161,16 +161,15 @@ class Map extends React.Component {
           console.log('Image clicked', feature);
           //also call function to send info 
           let latlng = marker._latlng;
-          that.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
+          this.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           // Actions.clickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           var wishData = {
             name: feature.properties.title,
             latitude: latlng.lat, 
             longitude: latlng.lng
           };
-    
           marker.closePopup();
-        })
+        });
       });
     });
 
