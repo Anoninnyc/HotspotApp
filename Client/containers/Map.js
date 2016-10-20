@@ -158,7 +158,7 @@ class Map extends React.Component {
       marker.on('popupopen', (e) => {
         // var that = this;
         $(`#wishImage`).click((event) => {
-          console.log('Image clicked', feature);
+          console.log('Image 1 clicked', feature);
           //also call function to send info 
           let latlng = marker._latlng;
           this.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
@@ -220,7 +220,7 @@ class Map extends React.Component {
       });
       marker.on('popupopen', (e) => {
         $(`#wishImage`).click((event) => {
-          console.log('Image clicked', marker);
+          console.log('Image 2 clicked', marker);
           //also call function to send info 
           let latlng = marker._latlng;
           this.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
