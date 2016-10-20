@@ -36,7 +36,7 @@ class Panel extends React.Component {
       e.preventDefault();
 
       let friendRequest = {
-        requestee: document.getElementsByClassName('friendToAdd')[0].value
+        requestee: $('#friendToAdd')[0].val()
       };
 
       if (!friendRequest.requestee.length) {
@@ -52,6 +52,7 @@ class Panel extends React.Component {
               console.log(err)
               return reject(err);
             }
+            $('#friendToAdd')[0].val('');
             console.log('response test', res.text);
             if (res.text.indexOf('exist') !== -1) {
               fade(".doesntExist");
