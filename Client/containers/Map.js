@@ -138,11 +138,11 @@ class Map extends React.Component {
     // console.log('restaurantPoints', restaurantPoints);
     restaurantPoints = L.mapbox.featureLayer().addTo(map);
 
-    restaurantPoints.on('layeradd', function(point) {
-      console.log("this is a point", point);
-      // var that = this;
+    restaurantPoints.on('layeradd', function(point) { 
+      var that = this;
       var marker = point.layer;
       var feature = marker.feature;
+      console.log("this is a point", feature);
       var parsed = parseAgain(feature.properties.title);
      // console.log("this should =marks", feature.properties);
       marker.setIcon(L.icon(feature.properties.icon));
@@ -295,7 +295,7 @@ function mapDispatchToProps(dispatch) {
 ////////// TESTING DATA - TODO REMOVE /////////
 
 ////////// TEMPLATES FOR GEOPOINT and GEOSET in geoJSON FORMAT //////////
-var geoJSONPoint = (longitude, latitude, name, thumb, image) => {
+var geoJSONPoint = (longitude, latitude, name, thumb, image, friendWishOnly, friendWish) => {
   return {
     type: 'Feature',
     geometry: {
@@ -310,7 +310,9 @@ var geoJSONPoint = (longitude, latitude, name, thumb, image) => {
         iconSize: [35, 35],
         iconAnchor: [35, 17],
         popupAnchor: [-17, -17]
-      }
+      },
+      friendWishOnly: friendWishOnly,
+      friendWish:friendWish
     }
   };
 };
@@ -342,7 +344,7 @@ function formatGeoJSON(array) {
     } else {
       ratingImg = spot.rating === '5' ? thumbUp : thumbDown;
     } 
-    return geoJSONPoint(spot.longitude, spot.latitude, spot.name, ratingImg, spot.yelpData.image);
+    return geoJSONPoint(spot.longitude, spot.latitude, spot.name, ratingImg, spot.yelpData.image, spot.friendWishOnly, spot.friendWish);
   });
   return [
     {
