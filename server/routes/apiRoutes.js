@@ -531,6 +531,7 @@ var friendWishesOnSpot = (spot, username, res) => {
     for (var i = 0; i < friendWishes.length; i++) {
       if (friendWishes[i].fulfilfriendwish === 'accepted') {
         spot.fulfilfriendwish = true;
+        spot.friendNameWish = friendWishes[i];
         // sendBackJSON(res, spot, 'sending spot'); 
         return spot;
       }
@@ -563,9 +564,7 @@ var getOtherFriendSpot = (username) => {
 
     return Spot.rawQuery(friendWishQuery)
     .then(friendSpots => {
-          console.log("************THIS IS FRIEND SPOTS!!", friendSpots);
-
-
+          console.log('************THIS IS FRIEND SPOTS!!', friendSpots);
       // console.log('logging friendSpots', friendSpots);
       return friendSpots;
     });
