@@ -74,7 +74,7 @@ panelItems = <div>
   <div className='mess alreadySent'> Already sent a friend request </div>
   <div className='mess dontSelf'> You can't friend yourself! </div>
 
-      {!this.props.friendRequests.length?<p className="noPending">No pending friend requests</p>:null}
+      {!this.props.friendRequests.length ? <p className="noPending">No pending friend requests</p>:null}
    </div>
 <div>
       {this.props.friendRequests.map(person => {
@@ -90,8 +90,10 @@ panelItems = <div>
       if (!this.props.searchResults.length){
         panelItems = <div><p className="panelHeader">Search Something!</p></div>;
       } else {
+        console.log("These should show pnel results", this.props,searchResults);
         panelItems = this.props.searchResults.map(restaurant => (
-      <ResultModel item={restaurant}
+      <ResultModel 
+        item={restaurant}
         viewCollectionItem={this.props.actions.viewCollectionItem}
         key={restaurant.name}
       />
@@ -121,9 +123,11 @@ if (!this.props.collection.length){
   panelItems = <div><p className="panelHeader">Add some places to your collection!</p></div>
 } else {
   panelItems = this.props.collection.map(restaurant => (
-          <CollectionModel item={restaurant}
+          <CollectionModel 
+          item={restaurant}
           viewCollectionItem={this.props.actions.viewCollectionItem}
-          key={restaurant.name}/>
+          key={restaurant.name}
+          />
       ));
      }
     }
