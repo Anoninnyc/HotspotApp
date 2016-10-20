@@ -141,7 +141,6 @@ class Map extends React.Component {
     restaurantPoints = L.mapbox.featureLayer().addTo(map);
 
     restaurantPoints.on('layeradd', function(point) { 
-      var that = this;
       var marker = point.layer;
       var feature = marker.feature;
       console.log("this is a point", feature.properties);
@@ -245,7 +244,7 @@ class Map extends React.Component {
 
 
     // Add listener for submission
-    var that = this;
+
         $('.leaflet-popup-content').on('click', '#fistBump' + pointQuery._leaflet_id, ()=> {
 
           console.log('clicked');
