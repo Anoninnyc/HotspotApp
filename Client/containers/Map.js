@@ -377,5 +377,5 @@ var formatResObj = (yelpResultEntry) => {
       text: yelpResultEntry.name,
       image: yelpResultEntry.image
     }
-  }
+  };
 };
