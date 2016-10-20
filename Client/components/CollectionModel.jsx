@@ -1,12 +1,29 @@
 import React from 'react';
-import { parse } from '../containers/utils';
+//import { parse } from '../containers/utils';
+function fade (el) {
+ $(el).fadeIn(1000);
+ $(el).fadeOut(1000);
+}
+
+ function parse(res) {
+  let apos = res.indexOf("'");
+  if (apos > -1) {
+    let split = res.split("");
+    split.splice(apos, 1, "*");
+    return split.join('');
+  } else {
+    return res;
+  }
+}
+
+
 console.log("THIS IS THE PARSE FUNCTION", parse);
 
 var CollectionModel = ({item}) => {
   var url=item.yelpData.url;
   var yelpRating=item.yelpData.rating;
   var address=item.yelpData.address;
-  console.log("Parsed name!!!", parse(item.name));
+  //console.log("Parsed name!!!", parse(item.name));
   return (
   <div id='restaurant' className='restaurant card' >
     <img className='card-img-top' src={item.yelpData.image||"http://bit.ly/2e99Pwd"} />
