@@ -86,20 +86,21 @@ panelItems = <div>
 //
 }
 
-else if (this.props.panelMode === 'results'){
-if (!this.props.searchResults.length){
-    panelItems=<div><p className="panelHeader">Search Something!</p></div>
-} else {
-    panelItems = this.props.searchResults.map(restaurant => (
+    else if (this.props.panelMode === 'results'){
+      if (!this.props.searchResults.length){
+        panelItems = <div><p className="panelHeader">Search Something!</p></div>;
+      } else {
+        panelItems = this.props.searchResults.map(restaurant => (
       <ResultModel item={restaurant}
         viewCollectionItem={this.props.actions.viewCollectionItem}
         key={restaurant.name}
       />
     ));
-  }
-} else if (this.props.panelMode === 'filter') {
+      }
+    } else if (this.props.panelMode === 'filter') {
       panelItems = this.props.filters.map(filter => 
-        <FilterItem filter={filter}
+        <FilterItem 
+          filter={filter}
           appliedFilters={this.props.filterSelected}
           toggleFilter={this.props.actions.toggleFilter}
           collection={this.props.collection}
@@ -117,9 +118,9 @@ if (!this.props.searchResults.length){
 
 if (!this.props.collection.length){
   
-    panelItems=<div><p className="panelHeader">Add some places to your collection!</p></div>
+  panelItems = <div><p className="panelHeader">Add some places to your collection!</p></div>
 } else {
-      panelItems = this.props.collection.map(restaurant => (
+  panelItems = this.props.collection.map(restaurant => (
           <CollectionModel item={restaurant}
           viewCollectionItem={this.props.actions.viewCollectionItem}
           key={restaurant.name}/>

@@ -14,7 +14,7 @@ module.exports = function(grunt) {
   //grunt shell:addAndDeploy:Message_Here
 
   grunt.registerTask('testGrunt', () => {
-    console.log('testing grunt!')
-  })
+    console.log('testing grunt!');
+  });
 
-}
+};
