@@ -325,6 +325,7 @@ var geoJSONSet = () => {
 
 ////////// HELPER FUNCTIONS - TODO MODULARIZE //////////
 function formatGeoJSON(array) {
+  console.log("this is the array", array);
   const geoPointArray = array.map((spot) => {
     // console.log('spot is', spot);
     var ratingImg;
