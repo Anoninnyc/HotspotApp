@@ -524,9 +524,9 @@ var friendWishesOnSpot = (spot, username, res) => {
 
   return Wishes.rawQuery(friendWishQuery)
   .then(friendWishes => {
-    console.log("************THIS IS FRIEND WISH", friendWishes);
+    console.log("************THIS IS FRIEND WISH", _.uniq(friendWishes));
     // console.log('friendWishes', friendWishes);
-    spot.friendWish = friendWishes;
+    spot.friendWish = _.uniq(friendWishes);
 
     for (var i = 0; i < friendWishes.length; i++) {
       if (friendWishes[i].fulfilfriendwish === 'accepted') {
