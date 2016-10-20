@@ -67,11 +67,11 @@ module.exports = function(app) {
           return [];
         }
         return Promise.map(spotsReturn, (spot) => {
-           console.log('spotssssss', spot);
-          let match = yelpResults.filter((result) => {
-            let lowerLength = Math.min([spot.length, result.length]);
+           console.log('spotssssss', spot, spot.length);
+          let match = yelpResults.filter((resultFilter) => {
+            let lowerLength = Math.min([spot.length, resultFilter.length]);
             //console.log("")
-            return result.name.indexOf(parse2(spot.name).slice(lowerLength)) !== -1;
+            return resultFilter.name.indexOf(parse2(spot.name).slice(lowerLength)) !== -1;
           });
           // console.log('yelp stuff', match);
           if (match.length === 0) {
