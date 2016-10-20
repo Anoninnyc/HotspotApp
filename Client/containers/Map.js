@@ -138,12 +138,12 @@ class Map extends React.Component {
     // console.log('restaurantPoints', restaurantPoints);
     restaurantPoints = L.mapbox.featureLayer().addTo(map);
 
-    restaurantPoints.on('layeradd', (point) => {
+    restaurantPoints.on('layeradd', function(point) {
       // var that = this;
       var marker = point.layer;
       var feature = marker.feature;
       var parsed = parseAgain(feature.properties.title);
-      console.log("this should =marker", marker);
+      console.log("this should =marks", feature.properties);
       marker.setIcon(L.icon(feature.properties.icon));
       var content = '<h2>' + parsed + '</h2>' +
       `<img className="popUpImage" src="${feature.properties.image || "http://bit.ly/2e99Pwd"}" alt="">` +
@@ -151,14 +151,14 @@ class Map extends React.Component {
       ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
       //wish icon on click, change icon
       marker.bindPopup(content);
-      marker.on('mouseover', (e) => {
+      marker.on('mouseover', function(e) {
         console.log(marker.feature.properties.icon.iconUrl);
         this.openPopup();
       });
-      marker.on('popupopen', (e) => {
+      marker.on('popupopen', function(e) {
         // var that = this;
-        $(`#wishImage`).click((event) => {
-          console.log('Image 1 clicked', feature);
+        $(`#wishImage`).click(function(event) {
+          console.log('Image clicked', feature);
           //also call function to send info 
           let latlng = marker._latlng;
           this.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
@@ -200,7 +200,7 @@ class Map extends React.Component {
     // var onClick = (event) => { Actions.clickLocationSubmit(res.feature.text) };
     var pointQuery = L.mapbox.featureLayer().addTo(layerGroup);
     console.log('pointQuery', pointQuery);
-    pointQuery.on('layeradd', (point) => {
+    pointQuery.on('layeradd', function(point) {
       // console.log('actions', Actions);
       var marker = point.layer;
       var feature = marker.feature;
@@ -218,12 +218,12 @@ class Map extends React.Component {
       marker.on('mouseover', (e) => {
         this.openPopup();
       });
-      marker.on('popupopen', (e) => {
-        $(`#wishImage`).click((event) => {
-          console.log('Image 2 clicked', marker);
+      marker.on('popupopen', function(e) {
+        $(`#wishImage`).click(function(event) {
+          console.log('Image clicked', marker);
           //also call function to send info 
           let latlng = marker._latlng;
-          this.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
+          that.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           // Actions.clickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng, rating);
           marker.closePopup();
         })
