@@ -7,7 +7,8 @@ var express = require( 'express');
 var fs = require( 'fs');
 var _ = require( 'lodash');
 var oneDay = 86400000;
-module.exports=  function(app, User) {
+
+module.exports = (app, User) => {
   app.engine('hbs', hbs({
     extname: 'hbs',
     defaultLayout: 'splash',
@@ -41,7 +42,7 @@ module.exports=  function(app, User) {
   app.use(bodyParser.json());
 
   // STATIC DIRECTORIES
-  
+
   app.use(express.static(path.join(__dirname, '/../compiled'), { maxAge: oneDay }));
   app.use(express.static(path.join(__dirname, '/../index.html'), { maxAge: oneDay }));
   app.use(express.static(path.join(__dirname, '/../node_modules'), { maxAge: oneDay }));

@@ -7,7 +7,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
-
+import parseAgain from './utils';
 // Globl map
 var mainMap, restaurantPoints, layerGroup;
 var initialize = true;
@@ -108,10 +108,10 @@ class Map extends React.Component {
 
     mainMap.on('zoomend', () => {
       this.mapSearchZoom(mainMap.getZoom());
-    })
+    });
 
     this.addPointsLayer(mainMap);
-    layerGroup = L.layerGroup().addTo(mainMap)
+    layerGroup = L.layerGroup().addTo(mainMap);
 
     initialize = false;
     return mainMap;
@@ -132,10 +132,10 @@ class Map extends React.Component {
       var marker = point.layer;
       var feature = marker.feature;
       marker.setIcon(L.icon(feature.properties.icon));
-      var content = '<h2>' + feature.properties.title + '5555' + '</h2>' +
+      var content = '<h2>' + parseAgain(feature.properties.title) + '</h2>' +
       `<img className="popUpImage" src="${feature.properties.image||"http://bit.ly/2e99Pwd"}" alt="">` +
       `<img id="wishImage" src="${wishImage}" alt="">` + 
-      ((marker.feature.properties.icon.iconUrl == starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
+      ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
       //wish icon on click, change icon
       marker.bindPopup(content);
       marker.on('mouseover', function(e) {

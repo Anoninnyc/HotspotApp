@@ -5,6 +5,7 @@ import Panel from '../containers/Panel';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
+import parse from '../containers/utils';
 
 class App extends React.Component {
 
@@ -81,19 +82,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(Actions, dispatch)
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-
-function parse(res) {
-  let apos = res.indexOf("'");
-  if (apos > -1) {
-    let split = res.split("");
-    split.splice(apos, 1,"*")
-    return split.join('')
-  } else {
-    return res;
-  }
-}
