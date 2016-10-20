@@ -194,7 +194,7 @@ class Map extends React.Component {
       geoSuccess(position);
     }, geoError);
   }
-
+//
   foundRestaurant(res) {
     var that = this;
     // console.log('found a place', res, res.feature.text, res.feature.center); // -122, 33 long / lat
