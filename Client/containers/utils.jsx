@@ -1,9 +1,9 @@
-export function fade (el) {
+ function fade (el) {
  $(el).fadeIn(1000);
  $(el).fadeOut(1000);
 }
 
-export function parse(res) {
+ function parse(res) {
   let apos = res.indexOf("'");
   if (apos > -1) {
     let split = res.split("");
@@ -23,4 +23,10 @@ function parseAgain(res) {
   } else {
     return res;
   }
+}
+
+export default {
+  fade,
+  parse,
+  parseAgain,
 }

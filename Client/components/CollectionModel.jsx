@@ -1,5 +1,6 @@
 import React from 'react';
 import { parse } from '../containers/utils';
+console.log("THIS IS THE PARSE FUNCTION", parse);
 
 var CollectionModel = ({item}) => {
   var url=item.yelpData.url;
