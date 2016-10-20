@@ -139,6 +139,7 @@ class Map extends React.Component {
     restaurantPoints = L.mapbox.featureLayer().addTo(map);
 
     restaurantPoints.on('layeradd', function(point) {
+      console.log("this is a point", point);
       // var that = this;
       var marker = point.layer;
       var feature = marker.feature;
@@ -228,8 +229,8 @@ class Map extends React.Component {
           that.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           // Actions.clickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng, rating);
           marker.closePopup();
-        })
-      })
+        });
+      });
     });
 
     var coordinates = res.feature.center;
