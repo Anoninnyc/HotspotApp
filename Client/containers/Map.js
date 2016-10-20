@@ -156,12 +156,12 @@ class Map extends React.Component {
         this.openPopup();
       });
       marker.on('popupopen', function(e) {
-        // var that = this;
+         var that = this;
         $(`#wishImage`).click(function(event) {
           console.log('Image clicked', feature);
           //also call function to send info 
           let latlng = marker._latlng;
-          this.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
+          that.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           // Actions.clickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           var wishData = {
             name: feature.properties.title,
@@ -219,6 +219,7 @@ class Map extends React.Component {
         this.openPopup();
       });
       marker.on('popupopen', function(e) {
+        var that = this;
         $(`#wishImage`).click(function(event) {
           console.log('Image clicked', marker);
           //also call function to send info 
