@@ -16,13 +16,13 @@ function parseAgain(res) {
   }
 }
 
-console.log("THIS IS THE PARSE FUNCTION", parse);
+console.log("THIS IS THE PARSE FUNCTION", parseAgain,);
 
 var CollectionModel = ({item}) => {
   var url=item.yelpData.url;
   var yelpRating=item.yelpData.rating;
   var address=item.yelpData.address;
-  //console.log("Parsed name!!!", parse(item.name));
+  console.log("Parsed name!!!", parseAgain(item.name));
   return (
   <div id='restaurant' className='restaurant card' >
     <img className='card-img-top' src={item.yelpData.image||"http://bit.ly/2e99Pwd"} />
