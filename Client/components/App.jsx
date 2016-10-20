@@ -7,6 +7,17 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 // import parse from '../containers/utils';
 
+function parse(res) {
+  let apos = res.indexOf("'");
+  if (apos > -1) {
+    let split = res.split("");
+    split.splice(apos, 1, "*");
+    return split.join('');
+  } else {
+    return res;
+  }
+}
+
 
 class App extends React.Component {
 
