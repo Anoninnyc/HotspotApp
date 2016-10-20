@@ -156,7 +156,7 @@ class Map extends React.Component {
         this.openPopup();
       });
       marker.on('popupopen', function(e) {
-         var that = this;
+         //var that = this;
         $(`#wishImage`).click(function(event) {
           console.log('Image clicked', feature);
           //also call function to send info 
@@ -196,6 +196,7 @@ class Map extends React.Component {
   }
 
   foundRestaurant(res) {
+    var that = this;
     // console.log('found a place', res, res.feature.text, res.feature.center); // -122, 33 long / lat
     // var onClick = (event) => { Actions.clickLocationSubmit(res.feature.text) };
     var pointQuery = L.mapbox.featureLayer().addTo(layerGroup);
@@ -219,7 +220,7 @@ class Map extends React.Component {
         this.openPopup();
       });
       marker.on('popupopen', function(e) {
-        var that = this;
+       
         $(`#wishImage`).click(function(event) {
           console.log('Image clicked', marker);
           //also call function to send info 
