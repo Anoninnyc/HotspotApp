@@ -131,6 +131,7 @@ class Map extends React.Component {
 
   // Helpers to handle search results
   addPointsLayer(map) {
+
     var that = this;
     if (!initialize) {
       // console.log('mainMap.removeLayer(restaurantPoints);');
@@ -315,7 +316,7 @@ var geoJSONPoint = (longitude, latitude, name, thumb, image, friendWishOnly, fri
         popupAnchor: [-17, -17]
       },
       friendWishOnly: friendWishOnly,
-      friendWish:_.uniq(friendWish)
+      friendWish: _.uniqWith(friendWish, _.isEqual)
     }
   };
 };
