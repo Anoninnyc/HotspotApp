@@ -62,7 +62,7 @@ module.exports = function(app) {
 
       })
       .then((yelpResults) => {
-         //console.log('yelpresults looking for busid location', yelpResults);
+         console.log('yelpresults looking for busid location', yelpResults);
         if (yelpResults.length === 0) {
           return [];
         }
