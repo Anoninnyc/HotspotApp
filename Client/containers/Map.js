@@ -315,7 +315,7 @@ var geoJSONPoint = (longitude, latitude, name, thumb, image, friendWishOnly, fri
         popupAnchor: [-17, -17]
       },
       friendWishOnly: friendWishOnly,
-      friendWish:friendWish
+      friendWish:_.uniq(friendWish)
     }
   };
 };
