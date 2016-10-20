@@ -138,7 +138,7 @@ class Map extends React.Component {
     // console.log('restaurantPoints', restaurantPoints);
     restaurantPoints = L.mapbox.featureLayer().addTo(map);
 
-    restaurantPoints.on('layeradd', function(point) {
+    restaurantPoints.on('layeradd', (point) => {
       // var that = this;
       var marker = point.layer;
       var feature = marker.feature;
@@ -151,13 +151,13 @@ class Map extends React.Component {
       ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
       //wish icon on click, change icon
       marker.bindPopup(content);
-      marker.on('mouseover', function(e) {
+      marker.on('mouseover', (e) => {
         console.log(marker.feature.properties.icon.iconUrl);
         this.openPopup();
       });
-      marker.on('popupopen', function(e) {
+      marker.on('popupopen', (e) => {
         // var that = this;
-        $(`#wishImage`).click(function(event) {
+        $(`#wishImage`).click((event) => {
           console.log('Image clicked', feature);
           //also call function to send info 
           let latlng = marker._latlng;
@@ -200,7 +200,7 @@ class Map extends React.Component {
     // var onClick = (event) => { Actions.clickLocationSubmit(res.feature.text) };
     var pointQuery = L.mapbox.featureLayer().addTo(layerGroup);
     console.log('pointQuery', pointQuery);
-    pointQuery.on('layeradd', function(point) {
+    pointQuery.on('layeradd', (point) => {
       // console.log('actions', Actions);
       var marker = point.layer;
       var feature = marker.feature;
@@ -218,12 +218,12 @@ class Map extends React.Component {
       marker.on('mouseover', (e) => {
         this.openPopup();
       });
-      marker.on('popupopen', function(e) {
-        $(`#wishImage`).click(function(event) {
+      marker.on('popupopen', (e) => {
+        $(`#wishImage`).click((event) => {
           console.log('Image clicked', marker);
           //also call function to send info 
           let latlng = marker._latlng;
-          that.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
+          this.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           // Actions.clickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng, rating);
           marker.closePopup();
         })
