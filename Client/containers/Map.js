@@ -13,6 +13,7 @@ var mainMap, restaurantPoints, layerGroup;
 var initialize = true;
 
 ////////// TEST IMAGES TODO - REMOVE FOR FINAL //////////
+
 var thumbDown = './component/map/Assets/thumbdown.png';
 var thumbUp = './component/map/Assets/thumbup.png';
 var fistBump = 'http://emojipedia-us.s3.amazonaws.com/cache/2c/08/2c080d6b97f0416f9d914718b32a2478.png';
@@ -35,7 +36,7 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    console.log('component mount, this.state.collection, ',this.state.collection);
+    console.log('component mount, this.state.collection, ', this.state.collection);
     this.props.actions.fetchCollection()
       .then((results) => {
         this.renderMap();
@@ -44,11 +45,11 @@ class Map extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('nextprops, ', nextProps)
+    console.log('nextprops, ', nextProps);
     console.log('componentWillReceiveProps');
     if (layerGroup) {
       layerGroup.clearLayers();
-      layerGroup = L.layerGroup().addTo(mainMap)
+      layerGroup = L.layerGroup().addTo(mainMap);
     }
 
     //creates a uniqueId for already rated items
@@ -131,7 +132,7 @@ class Map extends React.Component {
       var marker = point.layer;
       var feature = marker.feature;
       marker.setIcon(L.icon(feature.properties.icon));
-      var content = '<h2>' + feature.properties.title + '<\/h2>' +
+      var content = '<h2>' + feature.properties.title + '5555' + '</h2>' +
       `<img className="popUpImage" src="${feature.properties.image||"http://bit.ly/2e99Pwd"}" alt="">` +
       `<img id="wishImage" src="${wishImage}" alt="">` + 
       ((marker.feature.properties.icon.iconUrl == starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
@@ -199,10 +200,10 @@ class Map extends React.Component {
       `<input className="btn-default" type="button" id="fistBump${pointQuery._leaflet_id}" value="Thumbs!"></form>` +
       '<img src="' + feature.properties.image + '" alt="">' +
       `<img id="wishImage" src="${wishImage}" alt="">` +
-      ((marker.feature.properties.icon.iconUrl == starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
+      ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
       
-      marker.bindPopup(content)
-      marker.on('mouseover', function(e) {
+      marker.bindPopup(content);
+      marker.on('mouseover', (e) => {
         this.openPopup();
       });
       marker.on('popupopen', function(e) {
@@ -227,19 +228,24 @@ class Map extends React.Component {
     // Add listener for submission
     var that = this;
         $('.leaflet-popup-content').on('click', '#fistBump' + pointQuery._leaflet_id, ()=> {
-      console.log('clicked')
-      var radios = document.getElementsByName('goBack' + pointQuery._leaflet_id);
-      var rating;
-      radios[0].checked === true ? rating = 5 : rating = 0;
-      if (radios[0].checked || radios[1].checked) {
 
-        that.tempClickLocationSubmit(res.feature.text, coordinates[1], coordinates[0], rating, res.feature.image);
-        mainMap.removeLayer(pointQuery);
-        console.log("Rating logged");
-      } else {
-        console.log('You need to check something off!');
-      }
-    })
+          console.log('clicked');
+          var radios = document.getElementsByName('goBack' + pointQuery._leaflet_id);
+          var rating;
+          radios[0].checked === true ? rating = 5 : rating = 0;
+
+          if (radios[0].checked || radios[1].checked) {
+
+            that.tempClickLocationSubmit(res.feature.text, coordinates[1], coordinates[0], rating, res.feature.image);
+            mainMap.removeLayer(pointQuery);
+            console.log("Rating logged");
+
+          } else {
+
+            console.log('You need to check something off!');
+
+          }
+        });
 
 
   }

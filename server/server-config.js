@@ -6,7 +6,7 @@ var passport = require( 'passport');
 var express = require( 'express');
 var fs = require( 'fs');
 var _ = require( 'lodash');
-
+var oneDay = 86400000;
 module.exports=  function(app, User) {
   app.engine('hbs', hbs({
     extname: 'hbs',
@@ -41,11 +41,12 @@ module.exports=  function(app, User) {
   app.use(bodyParser.json());
 
   // STATIC DIRECTORIES
-  app.use(express.static(path.join(__dirname, '/../compiled')));
-  app.use(express.static(path.join(__dirname, '/../index.html')));
-  app.use(express.static(path.join(__dirname, '/../node_modules')));
-  app.use(express.static(path.join(__dirname, '/../Client')));
-  app.use(express.static(path.join(__dirname, './views')));
+  
+  app.use(express.static(path.join(__dirname, '/../compiled'), { maxAge: oneDay }));
+  app.use(express.static(path.join(__dirname, '/../index.html'), { maxAge: oneDay }));
+  app.use(express.static(path.join(__dirname, '/../node_modules'), { maxAge: oneDay }));
+  app.use(express.static(path.join(__dirname, '/../Client'), { maxAge: oneDay }));
+  app.use(express.static(path.join(__dirname, './views'), { maxAge: oneDay }));
   console.log(path.join(__dirname, '/../compiled'));
   app.use(session({
     secret: 'keyboard cat',
@@ -55,7 +56,4 @@ module.exports=  function(app, User) {
   app.use(passport.initialize());
   app.use(passport.session());
 
-}
-//
-
-//
+};
