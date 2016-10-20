@@ -58,16 +58,14 @@ module.exports = function(app) {
             return generateYelpNewBusParam(parse2(spot.name), spot.longitude, spot.latitude, spot.friendWishOnly);
           }));
         });
-
-
       })
       .then((yelpResults) => {
-         console.log('yelpresults looking for busid location', yelpResults);
+         //console.log('yelpresults looking for busid location', yelpResults);
         if (yelpResults.length === 0) {
           return [];
         }
         return Promise.map(spotsReturn, (spot) => {
-           console.log('spotssssss', spot, spot.length);
+           //console.log('spotssssss', spot, spot.length);
           let match = yelpResults.filter((resultFilter) => {
             let lowerLength = Math.min([spot.length, resultFilter.length]);
             //console.log("")
@@ -108,7 +106,7 @@ module.exports = function(app) {
     // console.log('/api/spots req.body', req.body);
     Spot.find({name: req.body.name, latitude: req.body.latitude, longitude: req.body.longitude})
     .then((spot) => {
-       console.log('*********************found spot*********************', spot);
+       //console.log('*********************found spot*********************', spot);
       if (spot.length > 0) {
         return SpotsUsers.find({userid: req.user.id, spotid: spot[0].id})
         .then((spotuser) => {
@@ -526,6 +524,7 @@ var friendWishesOnSpot = (spot, username, res) => {
 
   return Wishes.rawQuery(friendWishQuery)
   .then(friendWishes => {
+    console.log("************THIS IS FRIEND WISH", friendWishes);
     // console.log('friendWishes', friendWishes);
     spot.friendWish = friendWishes;
 
@@ -564,6 +563,9 @@ var getOtherFriendSpot = (username) => {
 
     return Spot.rawQuery(friendWishQuery)
     .then(friendSpots => {
+          console.log("************THIS IS FRIEND SPOTS!!", friendWishes);
+
+
       // console.log('logging friendSpots', friendSpots);
       return friendSpots;
     });
