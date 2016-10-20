@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e1a5bcb026bb266eb0c7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b0b7fe71706a04ff8e28"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -22396,7 +22396,7 @@
 	        popupAnchor: [-17, -17]
 	      },
 	      friendWishOnly: friendWishOnly,
-	      friendWish: _lodash2.default.uniqWith(friendWish, _lodash2.default.isEqual)
+	      friendWish: friendWish
 	    }
 	  };
 	};
