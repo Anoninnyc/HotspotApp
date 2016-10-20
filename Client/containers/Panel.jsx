@@ -112,7 +112,7 @@ panelItems = <div>
           toggleFilter={this.props.actions.toggleFilter}
           collection={this.props.collection}
           key={filter}
-         />
+        />
       );
     } else if (this.props.filteredCollection.length !== 0) {
 

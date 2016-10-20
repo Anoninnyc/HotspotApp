@@ -16,7 +16,7 @@ function parseAgain(res) {
   }
 }
 
-console.log("THIS IS THE PARSE FUNCTION", parseAgain,);
+console.log("THIS IS THE PARSE FUNCTION", parseAgain);
 
 var CollectionModel = ({item}) => {
   var url=item.yelpData.url;
