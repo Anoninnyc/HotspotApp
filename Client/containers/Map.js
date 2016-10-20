@@ -143,7 +143,7 @@ class Map extends React.Component {
       var marker = point.layer;
       var feature = marker.feature;
       var parsed = parseAgain(feature.properties.title);
-      console.log("this should =marks", feature.properties);
+     // console.log("this should =marks", feature.properties);
       marker.setIcon(L.icon(feature.properties.icon));
       var content = '<h2>' + parsed + '</h2>' +
       `<img className="popUpImage" src="${feature.properties.image || "http://bit.ly/2e99Pwd"}" alt="">` +
