@@ -429,3 +429,9 @@ body {
 #userName1, #userName2, #passWord1, #passWord2 {
   font-weight: bold;
 }
+
+
+p#footer1, p#footer2 {
+  color: black;
+  font-weight: bold;
+}

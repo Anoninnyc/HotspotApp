@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3d319a94b21d36b4cef5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "568e533c19241f949887"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -57108,15 +57108,15 @@
 
 	var _CollectionModel2 = _interopRequireDefault(_CollectionModel);
 
-	var _ResultModel = __webpack_require__(198);
+	var _ResultModel = __webpack_require__(199);
 
 	var _ResultModel2 = _interopRequireDefault(_ResultModel);
 
-	var _FilterItem = __webpack_require__(199);
+	var _FilterItem = __webpack_require__(200);
 
 	var _FilterItem2 = _interopRequireDefault(_FilterItem);
 
-	var _FriendModel = __webpack_require__(200);
+	var _FriendModel = __webpack_require__(201);
 
 	var _FriendModel2 = _interopRequireDefault(_FriendModel);
 
@@ -57124,11 +57124,11 @@
 
 	var Actions = _interopRequireWildcard(_actions);
 
-	var _CollectionDetailModel = __webpack_require__(201);
+	var _CollectionDetailModel = __webpack_require__(202);
 
 	var _CollectionDetailModel2 = _interopRequireDefault(_CollectionDetailModel);
 
-	var _utils = __webpack_require__(202);
+	var _utils = __webpack_require__(198);
 
 	var _superagent = __webpack_require__(185);
 
@@ -57372,7 +57372,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(202);
+	var _utils = __webpack_require__(198);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -57438,6 +57438,33 @@
 
 /***/ },
 /* 198 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.fade = fade;
+	exports.parse = parse;
+	function fade(el) {
+	  $(el).fadeIn(1000);
+	  $(el).fadeOut(1000);
+	}
+
+	function parse(res) {
+	  var apos = res.indexOf("*");
+	  if (apos > -1) {
+	    var split = res.split("");
+	    split.splice(apos, 1, "'");
+	    return split.join('');
+	  } else {
+	    return res;
+	  }
+	}
+
+/***/ },
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57520,7 +57547,7 @@
 	exports.default = ResultModel;
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57565,7 +57592,7 @@
 	exports.default = FilterItem;
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57686,7 +57713,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(FriendModel);
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57719,33 +57746,6 @@
 	};
 
 	exports.default = CollectionDetailModel;
-
-/***/ },
-/* 202 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.fade = fade;
-	exports.parse = parse;
-	function fade(el) {
-	  $(el).fadeIn(1000);
-	  $(el).fadeOut(1000);
-	}
-
-	function parse(res) {
-	  var apos = res.indexOf("*");
-	  if (apos > -1) {
-	    var split = res.split("");
-	    split.splice(apos, 1, "'");
-	    return split.join('');
-	  } else {
-	    return res;
-	  }
-	}
 
 /***/ },
 /* 203 */
