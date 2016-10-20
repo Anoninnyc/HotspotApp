@@ -11,8 +11,8 @@ const rootReducer = combineReducers({
   PanelMode: PanelMode,
   FilterSelectedRestaurants: FilterSelectedRestaurants,
   SearchBar: SearchBar,
-  FriendReqs:FriendReqs,
-  CurrFriends:CurrFriends
+  FriendReqs: FriendReqs,
+  CurrFriends: CurrFriends
 });
 
 export default rootReducer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleCollectionList, toggleFilterList, logout, submitSearch, handleChange,showSearchResults,toggleFriendReqList} from '../actions/index';
+import { toggleCollectionList, toggleFilterList, logout, submitSearch, handleChange, showSearchResults, toggleFriendReqList} from '../actions/index';
 import request from 'superagent';
 console.log('handleChange', handleChange);
 
@@ -11,7 +11,7 @@ class Nav extends React.Component {
     e.preventDefault();
     this.props.actions.toggleFriendReqList(this.props.PanelMode, this.props.isOpen);
   }
-collectionClick(e) {
+  collectionClick(e) {
     e.preventDefault();
     this.props.actions.toggleCollectionList(this.props.PanelMode, this.props.isOpen);
   }
@@ -45,32 +45,32 @@ collectionClick(e) {
       limit: 10,
       radius: this.props.meter,
       ll: `${lat},${lng}` 
-    }
+    };
     console.log(searchQuery);
     this.props.actions.submitSearch(searchQuery);
     $(".navbarSearch").val("");
   }
 
- submitFriendReq(e) {
+  submitFriendReq(e) {
     e.preventDefault();
 
     let friendRequest = {
       requestee: document.getElementsByClassName('friendToAdd')[0].value
-    }
-console.log(friendRequest);
+    };
+    console.log(friendRequest);
     const data = new Promise((resolve, reject) => {
-        request.post('/api/friendRequest')
-        .send(friendRequest)
-        .end((err, res) => {
-          if (err) {
-            console.log(err)
-            return reject(err);
-          }
-          //;
-          console.log(res)
-          return resolve(res);
-        });
+      request.post('/api/friendRequest')
+      .send(friendRequest)
+      .end((err, res) => {
+        if (err) {
+          console.log(err);
+          return reject(err);
+        }
+        //;
+        console.log(res);
+        return resolve(res);
       });
+    });
 
 
   }

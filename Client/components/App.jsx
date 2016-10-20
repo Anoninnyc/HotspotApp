@@ -50,21 +50,20 @@ class App extends React.Component {
       this.setState({
         collection: result.data
       });
-      console.log("And this is the collection:", this.state.collection)
+      console.log("And this is the collection:", this.state.collection);
     })
   }
 
   postSpots(spotObj) {
-    spotObj.name=parse(spotObj.name);
-    console.log("this is spotObj",spotObj);
+    spotObj.name = parse(spotObj.name);
+    console.log("this is spotObj", spotObj);
     $.post('/api/spots', spotObj, (data, err)=> {
       console.log('postSpots being hit');
     }).then(result=> {
-      console.log("result from postSpots", result)
-      if (result.message!=="error"){
+      if (result.message !== "error"){
         this.getSpots();
       }
-    })
+    });
   }
 
   render() {
@@ -72,13 +71,13 @@ class App extends React.Component {
       <div>
         <Nav />
         <Map 
-        collection={this.state.collection}
-        getUpdate={this.getUpdate.bind(this)}
-        getSpots={this.getSpots.bind(this)}
-        postSpots={this.postSpots.bind(this)}
+          collection={this.state.collection}
+          getUpdate={this.getUpdate.bind(this)}
+          getSpots={this.getSpots.bind(this)}
+          postSpots={this.postSpots.bind(this)}
         />
         <Panel
-        collection={this.state.collection}
+          collection={this.state.collection}
         />
       </div>
     );

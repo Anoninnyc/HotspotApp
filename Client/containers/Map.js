@@ -253,15 +253,11 @@ class Map extends React.Component {
           radios[0].checked === true ? rating = 5 : rating = 0;
 
           if (radios[0].checked || radios[1].checked) {
-
             that.tempClickLocationSubmit(res.feature.text, coordinates[1], coordinates[0], rating, res.feature.image);
             mainMap.removeLayer(pointQuery);
             console.log("Rating logged");
-
           } else {
-
             console.log('You need to check something off!');
-
           }
         });
 

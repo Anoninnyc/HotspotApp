@@ -1,5 +1,5 @@
-var DB =require('./queries');
-var dbConnection =require('./dbConnect');
+var DB = require('./queries');
+var dbConnection = require('./dbConnect');
 
 const WishesSchema = {
   columns: {
@@ -13,4 +13,4 @@ const WishesSchema = {
 
 const Wishes = new DB(dbConnection, WishesSchema);
 
-module.exports= Wishes;
+module.exports = Wishes;
