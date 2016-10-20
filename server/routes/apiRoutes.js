@@ -1,33 +1,28 @@
-var Spot =require('../db/Spots');
-var SpotsUsers =require( '../db/spotsUsersJoin');
-var sendBackJSON =require('../db/queryHelpers').sendBackJSON;
-var requestMultipleYelp =require('../yelp/yelpQuery').requestMultipleYelp
-var generateYelpNewBusParam  =require('../yelp/yelpQuery').generateYelpNewBusParam
-var requestYelp =require('../yelp/yelpQuery').requestYelp
-var Promise =require( 'bluebird');
-var _ =require( 'lodash');
-var Friends =require( '../db/Friends');
-var FriendRequests =require( '../db/FriendRequests');
-var Wishes =require( '../db/Wishes');
-var Users =require( '../db/Users');
+var Spot = require('../db/Spots');
+var SpotsUsers = require( '../db/spotsUsersJoin');
+var sendBackJSON = require('../db/queryHelpers').sendBackJSON;
+var requestMultipleYelp = require('../yelp/yelpQuery').requestMultipleYelp;
+var generateYelpNewBusParam = require('../yelp/yelpQuery').generateYelpNewBusParam;
+var requestYelp = require('../yelp/yelpQuery').requestYelp;
+var Promise = require( 'bluebird');
+var _ = require( 'lodash');
+var Friends = require( '../db/Friends');
+var FriendRequests = require( '../db/FriendRequests');
+var Wishes = require( '../db/Wishes');
+var Users = require( '../db/Users');
 
 function parse2(res) {
   let apos = res.indexOf("*");
   if (apos > -1) {
     let split = res.split("");
-    split.splice(apos, 1,"'")
-    return split.join('')
+    split.splice(apos, 1, "'");
+    return split.join('');
   } else {
     return res;
   }
 }
 
-
-
-
-
-
-module.exports= function(app) {
+module.exports = function(app) {
   // RESTFUl API for retrieving spots from the db
   app.get('/api/spots', (req, res) => {
 
@@ -62,7 +57,7 @@ module.exports= function(app) {
           return requestMultipleYelp(spotsReturn.map(spot => {
             return generateYelpNewBusParam(parse2(spot.name), spot.longitude, spot.latitude, spot.friendWishOnly);
           }));
-        })
+        });
 
 
       })
@@ -91,13 +86,13 @@ module.exports= function(app) {
           return yourWishOnSpot(spot, req.user.username)
           .then(wishSpot => {
             return friendWishesOnSpot(wishSpot, req.user.username);
-          })
+          });
         });
       })
       .then((augmentedSpots) => {
         //add spots your friend wished
         // console.log('augmentedSpots', augmentedSpots);
-        sendBackJSON(res, augmentedSpots, 'got all spots')
+        sendBackJSON(res, augmentedSpots, 'got all spots');
       })
       .catch((err) => console.log(err));
   });
@@ -113,7 +108,7 @@ module.exports= function(app) {
     // console.log('/api/spots req.body', req.body);
     Spot.find({name: req.body.name, latitude: req.body.latitude, longitude: req.body.longitude})
     .then((spot) => {
-      // console.log('found spot', spot);
+       console.log('*********************found spot*********************', spot);
       if (spot.length > 0) {
         return SpotsUsers.find({userid: req.user.id, spotid: spot[0].id})
         .then((spotuser) => {
@@ -122,19 +117,19 @@ module.exports= function(app) {
           } else {
             return SpotsUsers.create({userid: req.user.id, spotid: spot[0].id});
           }
-        })
+        });
       } else {
         // console.log('creating spot');
         return Spot.create(req.body)
         .then((spot) => {
           // console.log('insert spot ', spot[0], 'with user id', req.user);
           return SpotsUsers.create({userid: req.user.id, spotid: spot[0].id});
-        })
+        });
       }
     })
     .then((spotuser) => {
       // console.log('created new spot', spotuser);
-      sendBackJSON(res, req.body, 'created new spot')
+      sendBackJSON(res, req.body, 'created new spot');
     })
     .catch((err) => {
       console.log(err);
@@ -157,19 +152,19 @@ module.exports= function(app) {
   app.post('/api/yelp', (req, res) => {
     // console.log('req.body', req.body);
     requestYelp(req.body, null, true)
-    .then(function(data){
+    .then((data) => {
       // console.log('yelp data', data);
-      sendBackJSON(res, data, 'got all spots')
+      sendBackJSON(res, data, 'got all spots');
     })
-    .catch(function(err){
+    .catch((err) => {
       console.log(err);
       res.send(err);
-    })
+    });
   });
 
   //sent friend request
   app.post('/api/friendRequest', (req, res) => {
-    console.log("REQ.BODY*****************", req.body,req.session, req.user);
+    console.log("REQ.BODY*****************", req.body, req.session, req.user);
     var friendQuery = 
       `SELECT * FROM friends 
       INNER JOIN users 
@@ -181,7 +176,7 @@ module.exports= function(app) {
     .then(foundFriend => {
       if (foundFriend.length === 0) {
         res.send('the friend you entered does not exist');
-      } else if (req.user.username===req.body.requestee){
+      } else if (req.user.username === req.body.requestee) {
         res.send('You can\'t friend yourself!');
       } else {
         return Friends.rawQuery(friendQuery)
@@ -194,7 +189,7 @@ module.exports= function(app) {
                 return FriendRequests.create({requestor: req.user.username, requestee: req.body.requestee, response: 'pending'})
                 .then(request => {
                   res.send('friend request sent');
-                })
+                });
               } else {
                 res.send(`you have already send a friend request to ${req.body.requestee}`);
               }
@@ -215,12 +210,12 @@ module.exports= function(app) {
   app.get('/api/friends', (req, res) => {
     Friends.find({username: req.user.username})
     .then((friends) => {
-      console.log('found friends', friends)
-      sendBackJSON(res, friends, 'sending a list of friends')
+      console.log('found friends', friends);
+      sendBackJSON(res, friends, 'sending a list of friends');
     })
     .catch((err) => {
       console.log(err);
-      sendBackJSON(res, err, 'error')
+      sendBackJSON(res, err, 'error');
     });
   });
 
@@ -228,12 +223,12 @@ module.exports= function(app) {
   app.get('/api/friendRequest', (req, res) => {
     FriendRequests.find({requestor: req.user.username})
     .then((friendRequest) => {
-      console.log('pending!!!!!!!!!!',friendRequest);
-      sendBackJSON(res, friendRequest, 'sending a list of friendRequest')
+      console.log('pending!!!!!!!!!!', friendRequest);
+      sendBackJSON(res, friendRequest, 'sending a list of friendRequest');
     })
     .catch((err) => {
       console.log(err);
-      sendBackJSON(res, err, 'error')
+      sendBackJSON(res, err, 'error');
     });
   });
 
@@ -250,7 +245,7 @@ module.exports= function(app) {
     })
     .catch((err) => {
       console.log(err);
-      sendBackJSON(res, err, 'error')
+      sendBackJSON(res, err, 'error');
     });
   });
 
@@ -272,15 +267,15 @@ module.exports= function(app) {
           return Friends.create({username: req.body.friendname, friendname: req.user.username})
           .then((newfriend) => {
             console.log('newfriend', newfriend);
-            return Friends.create({username: req.user.username, friendname: req.body.friendname})
-          })
+            return Friends.create({username: req.user.username, friendname: req.body.friendname});
+          });
         })
         .then((newfriend) => {
           if (newfriend.length > 0) {
             console.log('friend created', newfriend);
             sendBackJSON(res, newfriend, 'sending new friend');
           }
-        })
+        });
       } else {
         console.log('friend request does not exists', request);
         res.send('friend request does not exists');
@@ -289,7 +284,7 @@ module.exports= function(app) {
     })
     .catch((err) => {
       console.log(err);
-      sendBackJSON(res, err, 'error')
+      sendBackJSON(res, err, 'error');
     });
   });
 
@@ -298,7 +293,7 @@ module.exports= function(app) {
     console.log('rejectFriend', req.body);
     FriendRequests.find({requestee: req.user.username, requestor: req.body.friendname})
     .then((request) => {
-      if (request.length > 0  && request[0].response !== 'rejected') {
+      if (request.length > 0 && request[0].response !== 'rejected') {
         var rejectQuery = 
         `UPDATE friendrequests 
         SET response = 'rejected'
@@ -310,7 +305,7 @@ module.exports= function(app) {
           console.log('rejectedRequest', rejectedRequest);
           sendBackJSON(res, rejectedRequest, 'sending rejected request');
           return rejectedRequest;
-        })
+        });
       } else {
         console.log('friend request does not exists', request);
         res.send('friend request does not exists');
@@ -319,7 +314,7 @@ module.exports= function(app) {
     })
     .catch((err) => {
       console.log(err);
-      sendBackJSON(res, err, 'error')
+      sendBackJSON(res, err, 'error');
     });
   });
 
@@ -336,7 +331,7 @@ module.exports= function(app) {
     })
     .catch((err) => {
       console.log(err);
-      sendBackJSON(res, err, 'error')
+      sendBackJSON(res, err, 'error');
     });
   });
 
@@ -372,14 +367,14 @@ module.exports= function(app) {
               // console.log('wish created');
               sendBackJSON(res, wish, 'wish created');
               return wish;
-            })
-          })
-        })
+            });
+          });
+        });
       }
     })
     .catch((err) => {
       console.log(err);
-      sendBackJSON(res, err, 'error')
+      sendBackJSON(res, err, 'error');
     });
   });
 
@@ -433,7 +428,7 @@ module.exports= function(app) {
       return Wishes.rawQuery(wishUpdate)
       .then(acceptedWish => {
         sendBackJSON(res, acceptedWish, 'accepted friend wishes');
-      })
+      });
     })
     .catch((err) => {
       console.log('wishwish, ', err);
@@ -464,7 +459,7 @@ module.exports= function(app) {
     yourWishOnSpot(spot, req.query.username, res)
     .then(wishSpot => {
       friendWishesOnSpot(wishSpot, req.query.username, res);
-    })
+    });
   });
 
   app.get('/api/test2', (req, res) => {
@@ -477,7 +472,7 @@ module.exports= function(app) {
     // console.log('req.query for test3', req.query);
     getOtherFriendSpot(req.query.username, res);
   });
-}
+};
 
 //helper functions
 //mark whether the spot is your wish spot
@@ -510,8 +505,8 @@ var yourWishOnSpot = (spot, username, res) => {
   })
   .catch(err => {
     console.log(err);
-  })
-}
+  });
+};
 
 //find friends who wish this spot
 var friendWishesOnSpot = (spot, username, res) => {
@@ -548,8 +543,8 @@ var friendWishesOnSpot = (spot, username, res) => {
   })
   .catch(err => {
     console.log(err);
-  })
-}
+  });
+};
 
 var getOtherFriendSpot = (username) => {
   return Users.find({username: username})
@@ -571,9 +566,9 @@ var getOtherFriendSpot = (username) => {
     .then(friendSpots => {
       // console.log('logging friendSpots', friendSpots);
       return friendSpots;
-    })
+    });
   })
   .catch(err => {
     console.log(err);
-  })
-}
+  });
+};
