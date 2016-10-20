@@ -91,11 +91,11 @@ panelItems = <div>
 //
 }
 
-    else if (this.props.panelMode === 'results'){
-      if (!this.props.searchResults.length){
+    else if (this.props.panelMode === 'results') {
+      if (!this.props.searchResults.length) {
         panelItems = <div><p className="panelHeader">Search Something!</p></div>;
       } else {
-        console.log("These should show pnel results", this.props,searchResults);
+        console.log("These should show panel results", this.props.searchResults);
         panelItems = this.props.searchResults.map(restaurant => (
       <ResultModel 
         item={restaurant}
@@ -117,7 +117,10 @@ panelItems = <div>
     } else if (this.props.filteredCollection.length !== 0) {
 
       panelItems = this.props.filteredCollection.map(restaurant => (
-        <CollectionModel item={restaurant} key={restaurant.name}/>
+        <CollectionModel 
+          item={restaurant} 
+          key={restaurant.name}
+        />
       ));
     } else if (this.props.panelMode==='collection') {
 
@@ -125,7 +128,7 @@ panelItems = <div>
 
 if (!this.props.collection.length){
   
-  panelItems = <div><p className="panelHeader">Add some places to your collection!</p></div>
+  panelItems = <div><p className="panelHeader">Add some places to your collection!</p></div>;
 } else {
   panelItems = this.props.collection.map(restaurant => (
           <CollectionModel 
