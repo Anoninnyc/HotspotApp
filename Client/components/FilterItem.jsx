@@ -7,7 +7,7 @@ var FilterItem = ({filter, appliedFilters, toggleFilter, collection}) => {
   if (_.findIndex(appliedFilters, (o) =>( o === filter )) > -1) {
     cssClasses += ' active';
   }
-
+  
   return (
     <div className='filter'>
       <div className={cssClasses} onClick={ () => { toggleFilter(filter, appliedFilters, collection); }}>

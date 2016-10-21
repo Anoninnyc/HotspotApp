@@ -1,16 +1,7 @@
 import React from 'react';
-// const $ = require('jquery');
-//
-// $('.restaurant').tooltip();
-//
-// $(document).ready(function(){
-// $('[data-toggle="tooltip"]').tooltip();
-//
-// });
-// $('#restaurant');
 
 var ResultModel = ({item}) => {
-  console.log('item',item);
+  console.log('item', item);
   var url = item.url;
   var rating = item.rating;
   var address = item.address;
@@ -28,7 +19,7 @@ var ResultModel = ({item}) => {
     </ul>
   </div>
 );
-  console.log(here);
+  // console.log(here);
 };
 
 

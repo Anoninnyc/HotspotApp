@@ -51,7 +51,7 @@ class App extends React.Component {
         collection: result.data
       });
       console.log("And this is the collection:", this.state.collection);
-    })
+    });
   }
 
   postSpots(spotObj) {
