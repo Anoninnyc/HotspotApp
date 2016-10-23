@@ -1,7 +1,7 @@
 import React from 'react';
 
 var ResultModel = ({item}) => {
-  console.log('item', item);
+  // console.log('item', item);
   var url = item.url;
   var rating = item.rating;
   var address = item.address;

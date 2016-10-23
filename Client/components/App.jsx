@@ -19,6 +19,17 @@ function parse(res) {
   }
 }
 
+var parseAgain = function(res) {
+  let ast = res.indexOf("*");
+  if (ast > -1) {
+    let split = res.split('');
+    split.splice(ast, 1, "'");
+    return split.join('');
+  } else {
+    return res;
+  }
+};
+
 
 class App extends React.Component {
 
@@ -45,16 +56,24 @@ class App extends React.Component {
   }
 
   getSpots() {
-    $.get('/api/spots', (data, err)=> {
-    }).then( result => {
-      console.log('result.data', result.data);
-      this.setState({
-        collection: /*_.uniqBy(*/
-          result.data/*, 'yelpData.businessId')*/
-      });
-      console.log("And this is the collection:", this.state.collection);
+  $.get('/api/spots', (data, err) => {}).then(result => {
+    
+    const parsedColl = result.data.map(obj => {
+      if (obj.name.indexOf("*") > 1) {
+        obj.name = parseAgain(obj.name);
+        return obj;
+      } else {
+        return obj;
+      }
     });
-  }
+    console.log('parsedColl', parsedColl);
+    this.setState({
+      collection: parsedColl
+      // /*_.uniqBy(*/ result.data /*, 'yelpData.businessId')*/
+    });
+    console.log("And this is the collection:", this.state.collection);
+  });
+}
 
   postSpots(spotObj) {
     spotObj.name = parse(spotObj.name);
