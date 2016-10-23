@@ -47,7 +47,7 @@ class App extends React.Component {
   }
 
   getUpdate(wish) {
-    console.log('calling getUpdate');
+    console.log('calling getUpdate', wish);
     let that = this;
     $.post('/api/wishes', wish, (data, err)=> {
     }).then(function(result) {
