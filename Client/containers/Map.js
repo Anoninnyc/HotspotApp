@@ -74,9 +74,9 @@ class Map extends React.Component {
       //compare search results uniqueId with already rated items
 
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString() + yelpResultEntry.longitude.toString();
-      console.log("outside", yelpResultEntry.name);
+      // console.log("outside", yelpResultEntry.name);
       if (uniqueIds.indexOf(id) === -1) {
-        console.log("inside", yelpResultEntry.name);
+       // console.log("inside", yelpResultEntry.name);
         // console.log(yelpResultEntry.name);
         this.foundRestaurant(formatResObj(yelpResultEntry));
       } else {
@@ -175,6 +175,7 @@ class Map extends React.Component {
           console.log('Image clicked', feature);
           //also call function to send info 
           let latlng = marker._latlng;
+          console.log("info to be sent", feature.properties.title, latlng.lat, latlng.lng);
           that.tempClickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           // Actions.clickWishListSubmit(feature.properties.title, latlng.lat, latlng.lng);
           var wishData = {
