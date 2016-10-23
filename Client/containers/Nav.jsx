@@ -85,7 +85,6 @@ class Nav extends React.Component {
             <div className='btn btn-default btn-lg search' onClick={this.submitSearch.bind(this)}>Search</div>
             <div className='btn btn-default btn-lg search' onClick={this.showResults.bind(this)}>Show Search Results</div>
             </div>
-            {this.props.currFriends[0].userName}
           <div className="col-md-6">
             <div onClick={this.collectionClick.bind(this)} className='btn btn-default btn-lg' >Collection</div>
             <div onClick={this.filterClick.bind(this)} className='btn btn-default btn-lg'>Filter</div>
