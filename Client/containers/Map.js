@@ -74,7 +74,7 @@ class Map extends React.Component {
       let there = false;
 
 
-      for (let i = 0; i < nextProps.collection; i++) {
+      for (let i = 0; i < nextProps.collection.length; i++) {
         if (yelpResultEntry.businessID === nextProps.collection[i].yelpData.businessID) {
           there = true;
         }
