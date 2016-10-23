@@ -106,6 +106,7 @@ class Panel extends React.Component {
     }
 
     else if (this.props.panelMode === 'results') {
+      console.log(this.state);
       if (!this.props.searchResults.length) {
         panelItems = <div><p className="panelHeader">Search Something!</p></div>;
       } else {
