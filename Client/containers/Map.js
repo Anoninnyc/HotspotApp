@@ -71,9 +71,19 @@ class Map extends React.Component {
 
     //render user search results
     nextProps.searchResults.forEach(yelpResultEntry => {
+      let there = false;
+
+
+      for (let i = 0; i < nextProps.collection; i++) {
+        if (yelpResultEntry.businessID === nextProps.collection[i].businessID) {
+          there = true;
+        }
+      }
+      console.log(there);
+
       //compare search results uniqueId with already rated items
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
-      if (uniqueIds.indexOf(id) === -1) {
+      if (!there && (uniqueIds.indexOf(id) === -1)) {
         this.foundRestaurant(formatResObj(yelpResultEntry));
       }
     });
