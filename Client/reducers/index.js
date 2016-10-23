@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import FriendReqs from './reducer_friendReqs';
-import CurrFriends from './reducer_friendReqs';
+import CurrFriends from './reducer_Friends';
 import CollectionRestaurantsFilters from './reducer_collection_restaurants';
 import FilterSelectedRestaurants from './reducer_filtered_restaurants';
 import PanelMode from './reducer_panel_mode';

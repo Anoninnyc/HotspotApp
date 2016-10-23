@@ -106,7 +106,7 @@ class Panel extends React.Component {
     }
 
     else if (this.props.panelMode === 'results') {
-      console.log(this.state);
+      console.log(this.props);
       if (!this.props.searchResults.length) {
         panelItems = <div><p className="panelHeader">Search Something!</p></div>;
       } else {
@@ -176,7 +176,8 @@ function mapStateToProps(state) {
     panelMode: state.PanelMode.panelMode,
     isOpen: state.PanelMode.isOpen,
     searchResults: state.SearchBar.searchResults,
-    friendRequests: state.FriendReqs.friendReqs
+    friendRequests: state.FriendReqs.friendReqs,
+    currFriends: state.CurrFriends.currFriends
   };
 }
 
