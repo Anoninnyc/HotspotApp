@@ -47,8 +47,9 @@ class App extends React.Component {
   }
 
   getUpdate(wish) {
-    console.log('calling getUpdate', wish);
     let that = this;
+    wish.name = parse(wish.name);
+    console.log('calling getUpdate', wish);
     $.post('/api/wishes', wish, (data, err)=> {
     }).then(function(result) {
       that.getSpots();
@@ -75,7 +76,7 @@ class App extends React.Component {
   });
   }
 
-  postSpots(spotObj) {
+  postSpots(spotObj) { 
     spotObj.name = parse(spotObj.name);
     // console.log("this is spotObj", spotObj);
     $.post('/api/spots', spotObj, (data, err)=> {
