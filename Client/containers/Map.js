@@ -67,12 +67,12 @@ class Map extends React.Component {
     //creates a uniqueId for already rated items
     console.log('this.state.collection in component will receive props, ', this.state.collection);
     let collection = nextProps.collection;
-    var uniqueIds = collection.map(id => id.name + id.latitude.toString().slice(0,2) + id.longitude.toString().slice(0,2))
+    var uniqueIds = collection.map(id => id.name + id.latitude.toString().slice(0, 2) + id.longitude.toString().slice(0, 2));
 
     //render user search results
     nextProps.searchResults.forEach(yelpResultEntry => {
       //compare search results uniqueId with already rated items
-      var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0,2) + yelpResultEntry.longitude.toString().slice(0,2);
+      var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
       if (uniqueIds.indexOf(id) === -1) {
         this.foundRestaurant(formatResObj(yelpResultEntry));
       }
@@ -86,7 +86,7 @@ class Map extends React.Component {
       name: name,
       latitude: latitude,
       longitude: longitude,
-      rating: "" + rating,
+      rating: '' + rating,
       yelpData: {
         image: image
       }
@@ -155,7 +155,7 @@ class Map extends React.Component {
       `<img className="popUpImage" src="${feature.properties.image || "http://bit.ly/2e99Pwd"}" alt="">` +
       `<img id="wishImage" src="${wishImage}" alt="">` + 
       ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '') +
-      ((feature.properties.friendWishOnly) ? `${feature.properties.friendWish[0].friendname}` : '');
+      ((feature.properties.friendWishOnly) ? `Friends Interested:<br/>${feature.properties.friendWish[0].friendname}` : '');
 
       //wish icon on click, change icon
       marker.bindPopup(content);
@@ -250,7 +250,6 @@ class Map extends React.Component {
     // Add listener for submission
 
         $('.leaflet-popup-content').on('click', '#fistBump' + pointQuery._leaflet_id, ()=> {
-
           console.log('clicked');
           var radios = document.getElementsByName('goBack' + pointQuery._leaflet_id);
           var rating;
