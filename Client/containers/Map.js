@@ -75,8 +75,8 @@ class Map extends React.Component {
 
 
       for (var i = 0; i < nextProps.collection.length; i++) {
-        console.log("the two", yelpResultEntry, yelpResultEntry.businessID, nextProps.collection[i].yelpData.businessID);
-        if (yelpResultEntry.businessID === nextProps.collection[i].yelpData.businessID) {
+        console.log("the two", yelpResultEntry, yelpResultEntry.businessId, nextProps.collection[i].yelpData.businessID);
+        if (yelpResultEntry.businessId === nextProps.collection[i].yelpData.businessId) {
           there = true;
         }
       }
