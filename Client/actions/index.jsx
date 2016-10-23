@@ -81,7 +81,7 @@ export function handleChange(input) {
 }
 
 export function submitSearch(inputObj) {
-console.log('search called', inputObj);
+// console.log('search called', inputObj);
 	const data = new Promise((resolve, reject) => {
 
 		request.post('/api/yelp')

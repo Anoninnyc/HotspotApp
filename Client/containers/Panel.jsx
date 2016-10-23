@@ -77,7 +77,7 @@ class Panel extends React.Component {
   render() {
     let panelItems;
     this.props.actions.createFilters(this.props.collection, this.props.filters);
-    if (this.props.panelMode === 'friendRequests'){
+    if (this.props.panelMode === 'friendRequests') {
    
       panelItems = <div>
         <div>
@@ -144,9 +144,9 @@ class Panel extends React.Component {
       } else {
         panelItems = this.props.collection.map(restaurant => (
                 <CollectionModel 
-                item={restaurant}
-                viewCollectionItem={this.props.actions.viewCollectionItem}
-                key={restaurant.name}
+                  item={restaurant}
+                  viewCollectionItem={this.props.actions.viewCollectionItem}
+                  key={restaurant.name}
                 />
             ));
       }

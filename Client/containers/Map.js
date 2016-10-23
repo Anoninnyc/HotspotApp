@@ -208,7 +208,7 @@ class Map extends React.Component {
     // console.log('found a place', res, res.feature.text, res.feature.center); // -122, 33 long / lat
     // var onClick = (event) => { Actions.clickLocationSubmit(res.feature.text) };
     var pointQuery = L.mapbox.featureLayer().addTo(layerGroup);
-    console.log('pointQuery', pointQuery);
+    // console.log('pointQuery', pointQuery);
     pointQuery.on('layeradd', function(point) {
       // console.log('actions', Actions);
       var marker = point.layer;
