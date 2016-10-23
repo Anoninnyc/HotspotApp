@@ -68,7 +68,7 @@ class Map extends React.Component {
     console.log('this.state.collection in component will receive props, ', this.state.collection);
     let collection = nextProps.collection;
     var uniqueIds = collection.map(id => id.name + id.latitude.toString().slice(0, 2) + id.longitude.toString().slice(0, 2));
-
+    
     //render user search results
     nextProps.searchResults.forEach(yelpResultEntry => {
       //compare search results uniqueId with already rated items
@@ -79,6 +79,8 @@ class Map extends React.Component {
         console.log("inside", yelpResultEntry.name);
         // console.log(yelpResultEntry.name);
         this.foundRestaurant(formatResObj(yelpResultEntry));
+      } else {
+        console.log("caught bad", uniqueIds, id);
       }
     });
   }

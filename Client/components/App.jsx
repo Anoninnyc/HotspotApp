@@ -73,7 +73,7 @@ class App extends React.Component {
     });
     console.log("And this is the collection:", this.state.collection);
   });
-}
+  }
 
   postSpots(spotObj) {
     spotObj.name = parse(spotObj.name);
