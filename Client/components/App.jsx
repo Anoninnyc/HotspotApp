@@ -5,6 +5,7 @@ import Panel from '../containers/Panel';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
+import _ from 'lodash';
 // import parse from '../containers/utils';
 
 function parse(res) {
@@ -46,8 +47,9 @@ class App extends React.Component {
   getSpots() {
     $.get('/api/spots', (data, err)=> {
     }).then( result => {
+      console.log('result.data', result.data);
       this.setState({
-        collection: result.data
+        collection: _uniqBy(result.data, 'address')
       });
       console.log("And this is the collection:", this.state.collection);
     });
