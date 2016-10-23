@@ -142,7 +142,7 @@ class Panel extends React.Component {
       if (!this.props.collection.length) {
         panelItems = <div><p className="panelHeader">Add some places to your collection!</p></div>;
       } else {
-        panelItems = this.props.collection.map(restaurant => (
+        panelItems = _.uniqBy(this.props.collection, 'yelpData.businessId').map(restaurant => (
                 <CollectionModel 
                   item={restaurant}
                   viewCollectionItem={this.props.actions.viewCollectionItem}
