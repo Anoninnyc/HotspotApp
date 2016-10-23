@@ -46,7 +46,6 @@ class App extends React.Component {
   getSpots() {
     $.get('/api/spots', (data, err)=> {
     }).then( result => {
-      console.log("this is result.data", result.data);
       this.setState({
         collection: result.data
       });

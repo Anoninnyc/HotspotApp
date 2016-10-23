@@ -24,7 +24,7 @@ var parseAgain = function(res) {
   }
 };
 
-////////// TEST IMAGES TODO - REMOVE FOR FINAL //////////
+////////// TEST IMAGES TODO - REMOVE FOR FINAL
 
 var thumbDown = './component/map/Assets/thumbdown.png';
 var thumbUp = './component/map/Assets/thumbup.png';
@@ -145,7 +145,7 @@ class Map extends React.Component {
       var feature = marker.feature;
 
       if (!!feature.properties.friendWish.length) {
-        console.log('this is a point', feature.properties);
+        // console.log('this is a point', feature.properties);
       }
 
       var parsed = parseAgain(feature.properties.title);
@@ -184,7 +184,7 @@ class Map extends React.Component {
     // console.log('this.state.temp_collection', this.state.temp_collection);
    // console.log('this.props.collection', this.props.collection);
     var collection = this.props.collection;
-    console.log('total collection', this.props.totalCollection);
+    // console.log('total collection', this.props.totalCollection);
     // If any filters have been selected and a filtered collection
     // exists, send that into the map instead
     if (this.props.filteredCollection.length > 0) {
@@ -229,7 +229,7 @@ class Map extends React.Component {
       });
       marker.on('popupopen', function(e) {
        
-        $(`#wishImage`).click(function(event) {
+        $('#wishImage').click(function(event) {
           console.log('Image clicked', marker);
           //also call function to send info 
           let latlng = marker._latlng;
@@ -329,7 +329,7 @@ var geoJSONSet = () => {
   ];
 };
 
-////////// HELPER FUNCTIONS - TODO MODULARIZE //////////
+////////// HELPER FUNCTIONS - TODO MODULARIZE ////////////
 function formatGeoJSON(array) {
  // console.log("this is the array", array);
   const geoPointArray = array.map((spot) => {
