@@ -72,9 +72,10 @@ class Map extends React.Component {
     //render user search results
     nextProps.searchResults.forEach(yelpResultEntry => {
       //compare search results uniqueId with already rated items
-      console.log(yelpResultEntry.name);
+
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
       if (uniqueIds.indexOf(id) === -1) {
+        // console.log(yelpResultEntry.name);
         this.foundRestaurant(formatResObj(yelpResultEntry));
       }
     });
@@ -205,6 +206,7 @@ class Map extends React.Component {
   }
 //
   foundRestaurant(res) {
+    console.log("res.feature.text",res.feature.text);
     var that = this;
     // console.log('found a place', res, res.feature.text, res.feature.center); // -122, 33 long / lat
     // var onClick = (event) => { Actions.clickLocationSubmit(res.feature.text) };
