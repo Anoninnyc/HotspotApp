@@ -139,7 +139,7 @@ class Map extends React.Component {
     }
     // console.log('restaurantPoints', restaurantPoints);
     restaurantPoints = L.mapbox.featureLayer().addTo(map);
-    
+
     restaurantPoints.on('layeradd', function(point) {
       var marker = point.layer;
       var feature = marker.feature;
@@ -155,7 +155,7 @@ class Map extends React.Component {
       `<img className="popUpImage" src="${feature.properties.image || "http://bit.ly/2e99Pwd"}" alt="">` +
       `<img id="wishImage" src="${wishImage}" alt="">` + 
       ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '') +
-      ((feature.properties.friendWishOnly) ? `Friends Interested:<br/>${feature.properties.friendWish[0].friendname}` : '');
+      ((feature.properties.friendWishOnly) ? `Friends Interested:<br/>${feature.properties.friendWish.map(wish=> wish.friendname)}` : '');
 
       //wish icon on click, change icon
       marker.bindPopup(content);
