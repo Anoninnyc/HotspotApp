@@ -7,7 +7,6 @@ var FilterItem = ({filter, appliedFilters, toggleFilter, collection}) => {
   if (_.findIndex(appliedFilters, (o) =>( o === filter )) > -1) {
     cssClasses += ' active';
   }
-  console.log(filter);
   if (filter === null) {
     return (<div>
       </div>);
