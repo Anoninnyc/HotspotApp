@@ -53,17 +53,14 @@ class Panel extends React.Component {
               console.log(err)
               return reject(err);
             }
-            document.getElementsByClassName('friendToAdd')[0].value="";
+            document.getElementsByClassName('friendToAdd')[0].value = '';
             console.log('response test', res.text);
             if (res.text.indexOf('exist') !== -1) {
               fade(".doesntExist");
-              console.log('doesnt exist')
             } else if (res.text.indexOf('request sent') !== -1) {
               fade(".requestSent");
-              console.log('request sent!!')
             } else if (res.text.indexOf('already send') !== -1) {
               fade(".alreadySent");
-              console.log('request already sent')
             } else if (res.text.indexOf('yourself!') !== -1) {
               fade(".dontSelf");
             } else {
@@ -86,6 +83,7 @@ class Panel extends React.Component {
           <br />
           <br />
           <button className='button' onClick={this.submitFriendReq.bind(this)}>Send Request</button>
+          <br />
           {!this.props.friendRequests.length ?
           <p className="noPending">No pending friend requests</p> : null}
           <br />
@@ -101,7 +99,7 @@ class Panel extends React.Component {
           })}
 
           </div>
-          <div>{!!this.props.currFriends.length?<h2>Your current friends</h2>: '' } </div>
+          <div>{!!this.props.currFriends.length ? <h3>Your current friends </h3>: '' } </div>
           <div id="currFriendsList">
           {this.props.currFriends.map(person =>{
             return (<div className = "currFriend">
