@@ -82,7 +82,8 @@ class Panel extends React.Component {
       panelItems = <div>
         <div>
           <input className='friendToAdd ' type='text' placeholder='Add a Friend' />
-          <br/>
+          <br />
+          <br />
           <button className='button' onClick={this.submitFriendReq.bind(this)}>Send Request</button>
           <div className='mess alreadyAFriend'> Already a friend </div>
           <div className='mess doesntExist'> This Person hasn't signed up </div>
@@ -91,7 +92,7 @@ class Panel extends React.Component {
           <div className='mess dontSelf'> You can't friend yourself! </div>
 
           {!this.props.friendRequests.length ?
-          <p className="noPending">No pending friend requests</p>:null}
+          <p className="noPending">No pending friend requests</p> : null}
         </div>
         <div>
           {this.props.friendRequests.map(person => {
@@ -139,7 +140,6 @@ class Panel extends React.Component {
      // console.log("This should be the collection", this.props.totalCollection,"other collection",this.props.collection);
 
       if (!this.props.collection.length) {
-        
         panelItems = <div><p className="panelHeader">Add some places to your collection!</p></div>;
       } else {
         panelItems = this.props.collection.map(restaurant => (

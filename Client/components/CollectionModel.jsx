@@ -30,10 +30,10 @@ const CollectionModel = ({item}) => {
       <h4 className='card-title'><a href={url} target="_blank">{parseAgain(item.name)}</a></h4>
     </div>
     <ul className='list-group list-group-flush'>
-      <li className='list-group-item'>Address: <p style={{fontSize: '12px'}}>{address}</p></li>
+      <li className='list-group-item'>Address: <p style={{fontSize: '12px'}}>{address || 'No Address Given'}</p></li>
       <li className='list-group-item'>Your Rating: {item.rating || 'No Rating Given'}</li>
-      <li className='list-group-item'>Yelp Rating: {yelpRating}</li>
-      <li className='list-group-item'>Type: {item.yelpData.cuisine}</li>
+      <li className='list-group-item'>Yelp Rating: {yelpRating || 'No Rating Given'}</li>
+      <li className='list-group-item'>Type: {item.yelpData.cuisine || 'No Type Given'}</li>
     </ul>
   </div>
  );
