@@ -72,6 +72,7 @@ class Map extends React.Component {
     //render user search results
     nextProps.searchResults.forEach(yelpResultEntry => {
       //compare search results uniqueId with already rated items
+      console.log(yelpResultEntry.name);
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
       if (uniqueIds.indexOf(id) === -1) {
         this.foundRestaurant(formatResObj(yelpResultEntry));
