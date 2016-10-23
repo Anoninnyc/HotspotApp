@@ -75,12 +75,12 @@ class Map extends React.Component {
 
 
       for (let i = 0; i < nextProps.collection; i++) {
-        if (yelpResultEntry.businessID === nextProps.collection[i].businessID) {
+        if (yelpResultEntry.businessID === nextProps.collection[i].yelpData.businessID) {
           there = true;
         }
       }
       console.log(there);
-
+//
       //compare search results uniqueId with already rated items
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
       if (!there && (uniqueIds.indexOf(id) === -1)) {
