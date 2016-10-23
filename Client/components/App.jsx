@@ -49,7 +49,7 @@ class App extends React.Component {
     }).then( result => {
       console.log('result.data', result.data);
       this.setState({
-        collection: _.uniqBy(result.data, 'address')
+        collection: _.uniqBy(result.data, 'yelpData.businessId')
       });
       console.log("And this is the collection:", this.state.collection);
     });
