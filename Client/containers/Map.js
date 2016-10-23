@@ -71,19 +71,9 @@ class Map extends React.Component {
 
     //render user search results
     nextProps.searchResults.forEach(yelpResultEntry => {
-      let there = false;
-
-//
-      for (var i = 0; i < nextProps.collection.length; i++) {
-        console.log("the two", yelpResultEntry, yelpResultEntry.businessId, nextProps.collection[i].yelpData.businessId);
-        if (yelpResultEntry.businessId === nextProps.collection[i].yelpData.businessId) {
-          there = true;
-        }
-      }
-      console.log(there);
       //compare search results uniqueId with already rated items
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
-      if (!there && (uniqueIds.indexOf(id) === -1)) {
+      if (uniqueIds.indexOf(id) === -1) {
         this.foundRestaurant(formatResObj(yelpResultEntry));
       }
     });
@@ -149,10 +139,8 @@ class Map extends React.Component {
     }
     // console.log('restaurantPoints', restaurantPoints);
     restaurantPoints = L.mapbox.featureLayer().addTo(map);
-    console.log('this is map', map, 'restpoints', restaurantPoints);
-
+    
     restaurantPoints.on('layeradd', function(point) {
-        console.log("this is point", point);
       var marker = point.layer;
       var feature = marker.feature;
 
@@ -216,7 +204,6 @@ class Map extends React.Component {
   }
 //
   foundRestaurant(res) {
-    console.log("this may be res as it's added", res);
     var that = this;
     // console.log('found a place', res, res.feature.text, res.feature.center); // -122, 33 long / lat
     // var onClick = (event) => { Actions.clickLocationSubmit(res.feature.text) };
