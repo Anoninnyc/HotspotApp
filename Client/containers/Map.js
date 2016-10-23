@@ -74,7 +74,9 @@ class Map extends React.Component {
       //compare search results uniqueId with already rated items
 
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
+      console.log("outside", yelpResultEntry.name);
       if (uniqueIds.indexOf(id) === -1) {
+        console.log("inside", yelpResultEntry.name);
         // console.log(yelpResultEntry.name);
         this.foundRestaurant(formatResObj(yelpResultEntry));
       }
