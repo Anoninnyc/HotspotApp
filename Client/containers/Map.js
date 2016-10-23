@@ -67,13 +67,13 @@ class Map extends React.Component {
     //creates a uniqueId for already rated items
     console.log('this.state.collection in component will receive props, ', this.state.collection);
     let collection = nextProps.collection;
-    var uniqueIds = collection.map(id => id.name + id.latitude.toString().slice(0, 2) + id.longitude.toString().slice(0, 2));
+    var uniqueIds = collection.map(id => id.name + id.latitude.toString() + id.longitude.toString());
     
     //render user search results
     nextProps.searchResults.forEach(yelpResultEntry => {
       //compare search results uniqueId with already rated items
 
-      var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
+      var id = yelpResultEntry.name + yelpResultEntry.latitude.toString() + yelpResultEntry.longitude.toString();
       console.log("outside", yelpResultEntry.name);
       if (uniqueIds.indexOf(id) === -1) {
         console.log("inside", yelpResultEntry.name);
