@@ -101,6 +101,13 @@ class Panel extends React.Component {
           })}
 
           </div>
+          <div id="currFriendsList">
+          {this.props.currFriends.map(person =>{
+            return (<div className = "currFriend">
+              {person.friendName}
+              </div>);
+          })}
+          </div>
       </div>;
       //
     }
