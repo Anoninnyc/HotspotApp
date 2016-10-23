@@ -75,13 +75,12 @@ class Map extends React.Component {
 
 //
       for (var i = 0; i < nextProps.collection.length; i++) {
-        console.log("the two", yelpResultEntry, yelpResultEntry.businessId, nextProps.collection[i].yelpData.businessID);
+        console.log("the two", yelpResultEntry, yelpResultEntry.businessId, nextProps.collection[i].yelpData.businessId);
         if (yelpResultEntry.businessId === nextProps.collection[i].yelpData.businessId) {
           there = true;
         }
       }
       console.log(there);
-//
       //compare search results uniqueId with already rated items
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString().slice(0, 2) + yelpResultEntry.longitude.toString().slice(0, 2);
       if (!there && (uniqueIds.indexOf(id) === -1)) {
