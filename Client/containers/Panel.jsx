@@ -86,14 +86,14 @@ class Panel extends React.Component {
           <br />
           <br />
           <button className='button' onClick={this.submitFriendReq.bind(this)}>Send Request</button>
+          {!this.props.friendRequests.length ?
+          <p className="noPending">No pending friend requests</p> : null}
+          <br />
           <div className='mess alreadyAFriend'> Already a friend </div>
           <div className='mess doesntExist'> This Person hasn't signed up </div>
           <div className='mess requestSent'> Request Sent! </div>
           <div className='mess alreadySent'> Already sent a friend request </div>
           <div className='mess dontSelf'> You can't friend yourself! </div>
-
-          {!this.props.friendRequests.length ?
-          <p className="noPending">No pending friend requests</p> : null}
         </div>
         <div>
           {this.props.friendRequests.map(person => {

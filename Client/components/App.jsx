@@ -58,7 +58,7 @@ class App extends React.Component {
 
   postSpots(spotObj) {
     spotObj.name = parse(spotObj.name);
-    console.log("this is spotObj", spotObj);
+    // console.log("this is spotObj", spotObj);
     $.post('/api/spots', spotObj, (data, err)=> {
       console.log('postSpots being hit');
     }).then(result=> {

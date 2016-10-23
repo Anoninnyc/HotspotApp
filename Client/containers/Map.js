@@ -16,7 +16,7 @@ var initialize = true;
 var parseAgain = function(res) {
   let ast = res.indexOf("*");
   if (ast > -1) {
-    let split = res.split("");
+    let split = res.split('');
     split.splice(ast, 1, "'");
     return split.join('');
   } else {
@@ -139,8 +139,10 @@ class Map extends React.Component {
     }
     // console.log('restaurantPoints', restaurantPoints);
     restaurantPoints = L.mapbox.featureLayer().addTo(map);
+    console.log('this is map', map, 'restpoints', restaurantPoints);
 
-    restaurantPoints.on('layeradd', function(point) { 
+    restaurantPoints.on('layeradd', function(point) {
+        console.log("this is point", point);
       var marker = point.layer;
       var feature = marker.feature;
 
@@ -165,7 +167,7 @@ class Map extends React.Component {
       });
       marker.on('popupopen', function(e) {
          //var that = this;
-        $(`#wishImage`).click(function(event) {
+        $('#wishImage').click(function(event) {
           console.log('Image clicked', feature);
           //also call function to send info 
           let latlng = marker._latlng;
@@ -204,6 +206,7 @@ class Map extends React.Component {
   }
 //
   foundRestaurant(res) {
+    console.log("this may be res as it's added", res);
     var that = this;
     // console.log('found a place', res, res.feature.text, res.feature.center); // -122, 33 long / lat
     // var onClick = (event) => { Actions.clickLocationSubmit(res.feature.text) };
@@ -264,7 +267,6 @@ class Map extends React.Component {
             console.log('You need to check something off!');
           }
         });
-
 
   }
 

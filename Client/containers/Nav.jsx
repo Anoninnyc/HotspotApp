@@ -48,7 +48,7 @@ class Nav extends React.Component {
     };
     console.log(searchQuery);
     this.props.actions.submitSearch(searchQuery);
-    $(".navbarSearch").val("");
+    $('.navbarSearch').val('');
   }
 
   submitFriendReq(e) {
