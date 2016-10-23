@@ -15,6 +15,7 @@ import * as Actions from '../actions';
 import CollectionDetailModel from '../components/CollectionDetailModel';
 //import { fade } from './utils';
 import request from 'superagent';
+import _ from 'lodash';
 
 function fade(el) {
   $(el).fadeIn(1000);
