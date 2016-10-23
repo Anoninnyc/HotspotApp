@@ -143,7 +143,11 @@ class Map extends React.Component {
     restaurantPoints.on('layeradd', function(point) { 
       var marker = point.layer;
       var feature = marker.feature;
-      console.log("this is a point", feature.properties);
+
+      if (!!feature.properties.friendWish.length) {
+        console.log('this is a point', feature.properties);
+      }
+
       var parsed = parseAgain(feature.properties.title);
      // console.log("this should =marks", feature.properties);
       marker.setIcon(L.icon(feature.properties.icon));
@@ -178,7 +182,7 @@ class Map extends React.Component {
     });
 
     // console.log('this.state.temp_collection', this.state.temp_collection);
-    console.log('this.props.collection', this.props.collection);
+   // console.log('this.props.collection', this.props.collection);
     var collection = this.props.collection;
     console.log('total collection', this.props.totalCollection);
     // If any filters have been selected and a filtered collection
@@ -327,7 +331,7 @@ var geoJSONSet = () => {
 
 ////////// HELPER FUNCTIONS - TODO MODULARIZE //////////
 function formatGeoJSON(array) {
-  console.log("this is the array", array);
+ // console.log("this is the array", array);
   const geoPointArray = array.map((spot) => {
     // console.log('spot is', spot);
     var ratingImg;
