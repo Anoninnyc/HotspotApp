@@ -8,10 +8,10 @@ var FilterItem = ({filter, appliedFilters, toggleFilter, collection}) => {
     cssClasses += ' active';
   }
   console.log(filter);
-  if (!filter.length) {
-    return (<div>
-      </div>);
-  } else { 
+  // if (!filter.length) {
+  //   return (<div>
+  //     </div>);
+  // } else { 
     return (
     <div className='filter'>
       <div className={cssClasses} onClick={ () => { toggleFilter(filter, appliedFilters, collection); }}>
@@ -19,7 +19,7 @@ var FilterItem = ({filter, appliedFilters, toggleFilter, collection}) => {
       </div>
     </div>
   );
-  }
+ // }
 };
 
 export default FilterItem;
