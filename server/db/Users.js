@@ -40,4 +40,4 @@ class User extends DB {
   }
 }
 
-module.exports=  new User(dbConnection, userSchema);
+module.exports =  new User(dbConnection, userSchema);

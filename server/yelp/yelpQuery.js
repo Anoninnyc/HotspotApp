@@ -1,19 +1,19 @@
 // Required modules to handle Yelp's oAuth requirement
-var oauthSignature =require('oauth-signature');
-var n =require('nonce');
-var request =require('request');
-var qs =require('querystring');
-var _ =require('lodash');
-var Promise =require('bluebird');
+var oauthSignature = require('oauth-signature');
+var n = require('nonce');
+var request = require('request');
+var qs = require('querystring');
+var _ = require('lodash');
+var Promise = require('bluebird');
 
 // Import sercet API keys (All 4 are needed)
 // cant import from non existant file in deployment
 // import Y from '../config-public/yelpconfig';
 // import Y from '../config/yelpconfig';
-const YELP_CONSUMER_KEY='HpCOGNCIk40BYpp8MwSUsw'
-const YELP_CONSUMER_SECRET='0BOyZ9ERh2tyE5HkC1pkgtWFlqU'
-const YELP_TOKEN='UaEe6RD_1DLNImDZ-Kj2kBZkyOqZ697b'
-const YELP_TOKEN_SECRET='S7AiWsIXsR8Sj3GKwvh3YkbijpQ'
+const YELP_CONSUMER_KEY = process.env.YELP_CONSUMER_KEY;
+const YELP_CONSUMER_SECRET = process.env.YELP_CONSUMER_SECRET;
+const YELP_TOKEN = process.env.YELP_TOKEN;
+const YELP_TOKEN_SECRET = process.env.YELP_TOKEN_SECRET;
 
 
 

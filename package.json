@@ -27,12 +27,9 @@
     "type": "git",
     "url": "git+https://github.com/Tremendous-Thumb/Hotspot.git"
   },
-  "author": "Tremendous-Thumb",
+  "author": "Tremendous-Thumb & PiquantToothbrush",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Tremendous-Thumb/Hotspot/issues"
-  },
-  "homepage": "https://github.com/Tremendous-Thumb/Hotspot#readme",
+  "homepage": "N/A",
   "dependencies": {
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
@@ -48,6 +45,7 @@
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "bootstrap-validator": "^0.11.5",
+    "dotenv": "^2.0.0",
     "eslint-config-hackreactor": "github:hackreactor-labs/eslint-config-hackreactor",
     "eslint-plugin-react": "^5.2.2",
     "express": "^4.14.0",

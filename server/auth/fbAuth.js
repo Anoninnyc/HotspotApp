@@ -2,9 +2,9 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var passport = require('passport');
 
 const FB = {
-  APP_ID: '1813878368846537',
-  APP_SECRET: '593aa0c997cd308c58587825095f4264',
-  CALLBACK: 'http://localhost:8732/auth/facebook/callback'
+  APP_ID: process.env.APP_ID,
+  APP_SECRET: process.env.APP_SECRET,
+  CALLBACK: process.env.CALLBACK
 };
 
 console.log(FB);

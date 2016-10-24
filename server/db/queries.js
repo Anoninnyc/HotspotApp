@@ -1,10 +1,10 @@
 var _ = require('lodash');
-var createInsertQuery = require('./queryHelpers').createInsertQuery
-var createUpdateQuery = require('./queryHelpers').createUpdateQuery
-var sendBackJSON = require('./queryHelpers').sendBackJSON
-var createSelectQuery = require('./queryHelpers').createSelectQuery
+var createInsertQuery = require('./queryHelpers').createInsertQuery;
+var createUpdateQuery = require('./queryHelpers').createUpdateQuery;
+var sendBackJSON = require('./queryHelpers').sendBackJSON;
+var createSelectQuery = require('./queryHelpers').createSelectQuery;
 
-module.exports=  class DB {
+module.exports = class DB {
   constructor(pgConnection, schema) {
     this.pg = pgConnection;
     this.schema = schema;
@@ -23,7 +23,7 @@ module.exports=  class DB {
   }
 
   create(obj) {
-    return this.pg.query(createInsertQuery(this.schema, obj))
+    return this.pg.query(createInsertQuery(this.schema, obj));
   }
 
   findOrCreate(obj) {
@@ -45,4 +45,4 @@ module.exports=  class DB {
   rawQuery(queryString) {
     return this.pg.query(queryString);
   }
-}
+};

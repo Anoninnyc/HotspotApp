@@ -1,13 +1,14 @@
 var express = require('express');
-var serverConfig =require('./server-config');
-var Spot =require ('./db/Spots');
-var User =require( './db/Users');
-const test="test"
-var facebookAuthConfig =require('./auth/fbAuth').facebookAuthConfig;
-var localAuthConfig =require('./auth/localAuth');
-var primaryRoutes =require('./routes/primaryRoutes');
-var authRoutes =require('./routes/authRoutes');
-var apiRoutes =require('./routes/apiRoutes');
+require('dotenv').config();
+var serverConfig = require('./server-config');
+var Spot = require ('./db/Spots');
+var User = require( './db/Users');
+const test = "test";
+var facebookAuthConfig = require('./auth/fbAuth').facebookAuthConfig;
+var localAuthConfig = require('./auth/localAuth');
+var primaryRoutes = require('./routes/primaryRoutes');
+var authRoutes = require('./routes/authRoutes');
+var apiRoutes = require('./routes/apiRoutes');
 
 
 const app = express();
@@ -31,3 +32,5 @@ apiRoutes(app);
 app.listen(port, () => {
   console.log('server started on port');
 });
+
+//process.env.DB_HOST

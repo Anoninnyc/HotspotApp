@@ -1,10 +1,10 @@
 var _ =require('lodash');
 
-const typeWrapper = function(thing, type){
+const typeWrapper = function(thing, type) {
   if(thing === null) return null;
   if (type === 'string') return `\'${thing}\'`;
   return thing;
-}
+};
 
 module.exports.createInsertQuery = function (schema, objToInsert) {
   let query = `insert into ${schema.tableName}`;
@@ -43,12 +43,12 @@ module.exports.createSelectQuery = function(schema, findObj) {
     }
     i++;
     return `${params} ${key} = ${typeWrapper(val, schema.columns[key])} and`;
-  }, '')
+  }, '');
   // console.log(`${query} ${params}`);
-  return `${query} ${params}`
+  return `${query} ${params}`;
 };
 
-module.exports.sendBackJSON = function (res, data, message){
+module.exports.sendBackJSON = function (res, data, message) {
   return res.status(200)
     .json({
       data: data,

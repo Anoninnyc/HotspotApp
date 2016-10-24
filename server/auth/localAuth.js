@@ -48,4 +48,4 @@ module.exports= function(User) {
       })
       .catch((err) => done(err));
   }));
-}
+};
