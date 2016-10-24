@@ -564,7 +564,7 @@ var getOtherFriendSpot = (username) => {
 
     return Spot.rawQuery(friendWishQuery)
     .then(friendSpots => {
-          console.log('************THIS IS FRIEND SPOTS!!', friendSpots);
+        // console.log('************THIS IS FRIEND SPOTS!!', friendSpots);
       // console.log('logging friendSpots', friendSpots);
       return friendSpots;
     });

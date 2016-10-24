@@ -207,10 +207,10 @@ module.exports.requestYelp = function (setParameters, busId, searchBar) {
   return new Promise((resolve, reject) => {
     // console.log(apiUrl);
     request(apiUrl, function(err, res, body) {
-       console.log('yelp res', err, JSON.parse(body));
+      // console.log('yelp res', err, JSON.parse(body));
       if (err) {
-        console.log('**********************************');
-        console.log('ERROR', err);
+       // console.log('**********************************');
+      //  console.log('ERROR', err);
         reject(err);
       }
 
@@ -260,9 +260,9 @@ module.exports.parseYelpData = function (business, friendWishOnly) {
   var imageUrl = business.image_url;
   var businessId = business.id;
   var parsed = {
-    address:business.location.display_address.join(','),
-    rating:business.rating,
-    url:business.url,
+    address: business.location.display_address.join(','),
+    rating: business.rating,
+    url: business.url,
     name: business.name,
     cuisine: cuisine,
     image: imageUrl,
