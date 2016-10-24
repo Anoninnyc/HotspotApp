@@ -223,7 +223,7 @@ class Map extends React.Component {
       var feature = marker.feature;
       marker.setIcon(L.icon(feature.properties.icon));
       var content = '<h2>' + feature.properties.title + '<\/h2>' +
-      '<form>I would<br>' +
+      '<form>Would you return<br>' +
       `<input type="radio" name="goBack${pointQuery._leaflet_id}" required> Definitely!<br>` +
       `<input type="radio" name="goBack${pointQuery._leaflet_id}"> Never again! <br>` +
       `<input className="btn-default" type="button" id="fistBump${pointQuery._leaflet_id}" value="Thumbs!"></form>` +
