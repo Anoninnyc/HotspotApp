@@ -1,5 +1,5 @@
 // Default focus if location access not allowed or available. (Moscone Center)
-var defaultCoord = [37.784005, -122.401551];
+//var defaultCoord = [37.784005, -122.401551];
 
 // Public accessToken. Set up from mapbox.com. Make sure is a public token
 L.mapbox.accessToken = 'pk.eyJ1Ijoicm1jY2hlc24iLCJhIjoiY2lxbHkxbXFiMDA5dWZubm5mNWkwdGYwbiJ9.QC1lP-2tNymbJ5tHaMugZw';
