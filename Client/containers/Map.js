@@ -230,7 +230,7 @@ class Map extends React.Component {
       '<img src="' + feature.properties.image + '" alt="">' +
       `<img id="wishImage" src="${wishImage}" alt="">` +
       ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
-      
+      //
       marker.bindPopup(content);
       marker.on('mouseover', (e) => {
         this.openPopup();
