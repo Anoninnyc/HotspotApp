@@ -117,7 +117,7 @@ class Map extends React.Component {
   renderMap() {
     console.log('running renderMap');
     mainMap = L.mapbox.map('map-one', 'mapbox.streets')
-      .setView(defaultCoord, 10);
+      .setView(defaultCoord, 9);
     //add a listener to the mainmap object that listens to moving
     //and on end will set the store coords to the center of map view 
     mainMap.on('moveend', () => {
