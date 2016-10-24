@@ -1,5 +1,5 @@
 // Default focus if location access not allowed or available. (Moscone Center)
-//var defaultCoord = [37.784005, -122.401551];
+var defaultCoord = [37.784005, -122.401551];
 
 // Public accessToken. Set up from mapbox.com. Make sure is a public token
 L.mapbox.accessToken = 'pk.eyJ1Ijoicm1jY2hlc24iLCJhIjoiY2lxbHkxbXFiMDA5dWZubm5mNWkwdGYwbiJ9.QC1lP-2tNymbJ5tHaMugZw';
@@ -115,9 +115,9 @@ class Map extends React.Component {
   }
 
   renderMap() {
-    console.log('lmapbox', L.mapbox);
+    console.log('running renderMap');
     mainMap = L.mapbox.map('map-one', 'mapbox.streets')
-      //.setView(defaultCoord, 16);
+      .setView(defaultCoord, 16);
     //add a listener to the mainmap object that listens to moving
     //and on end will set the store coords to the center of map view 
     mainMap.on('moveend', () => {
