@@ -26,6 +26,8 @@ export const NAV_SEARCH_RESULTS = 'NAV_SEARCH_RESULTS';
 export const MAP_SEARCH_COORD = 'MAP_SEARCH_COORD';
 export const MAP_SEARCH_ZOOM = 'MAP_SEARCH_ZOOM';
 export const FETCH_FRIENDS = 'FETCH_FRIENDS';
+export const NAV_HELP = 'NAV_HELP';
+
 
 export function mapSearchZoom(zoomLevel) {
   let meters;
@@ -164,6 +166,26 @@ export function toggleCollectionList(panelMode, isOpen) {
 
   return {
     type: NAV_CLICK_COLLECTION,
+    payload: {
+      panelMode: panelMode,
+      isOpen: isOpen
+    }
+  };
+}
+// Click handler for help
+export function toggleHelp(panelMode, isOpen) {
+  // If panelMode is collection, set it to null.
+  if (panelMode === 'collection' && isOpen === true) {
+    isOpen = false;
+  } else {
+    // Else set panelMode to collection
+    panelMode = 'help';
+    isOpen = true;
+  }
+
+
+  return {
+    type: NAV_HELP,
     payload: {
       panelMode: panelMode,
       isOpen: isOpen

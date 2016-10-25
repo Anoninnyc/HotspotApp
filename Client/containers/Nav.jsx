@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleCollectionList, toggleFilterList, logout, submitSearch, handleChange, showSearchResults, toggleFriendReqList} from '../actions/index';
+import { toggleHelp, toggleCollectionList, toggleFilterList, logout, submitSearch, handleChange, showSearchResults, toggleFriendReqList} from '../actions/index';
 import request from 'superagent';
 console.log('handleChange', handleChange);
 
@@ -16,6 +16,10 @@ class Nav extends React.Component {
     this.props.actions.toggleCollectionList(this.props.PanelMode, this.props.isOpen);
   }
   filterClick(e) {
+    e.preventDefault();
+    this.props.actions.toggleFilterList(this.props.PanelMode, this.props.isOpen);
+  }
+  helpClick(e) {
     e.preventDefault();
     this.props.actions.toggleFilterList(this.props.PanelMode, this.props.isOpen);
   }
@@ -83,6 +87,7 @@ class Nav extends React.Component {
             <div className='btn btn-default btn-lg search' onClick={this.showResults.bind(this)}>Show Search Results</div>
             </div>
           <div className="col-md-6">
+             <div onClick={this.helpClick.bind(this)} className='btn btn-default btn-lg' >Help</div>
             <div onClick={this.collectionClick.bind(this)} className='btn btn-default btn-lg' >Collection</div>
             <div onClick={this.filterClick.bind(this)} className='btn btn-default btn-lg'>Filter</div>
             <div onClick={this.friendReqClick.bind(this)} className='btn btn-default btn-lg' >Friend Requests</div>

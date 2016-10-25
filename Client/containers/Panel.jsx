@@ -126,6 +126,8 @@ class Panel extends React.Component {
       />
     ));
       }
+    } else if (this.props.panelMode === 'help') {
+      panelItems = 'help should be here';
     } else if (this.props.panelMode === 'filter') {
       panelItems = this.props.filters.map(filter => 
         <FilterItem 
