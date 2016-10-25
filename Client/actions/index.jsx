@@ -155,7 +155,7 @@ export function toggleFriendReqList(panelMode, isOpen) {
 // Click Handler for Nav Collection button
 export function toggleCollectionList(panelMode, isOpen) {
   // If panelMode is collection, set it to null.
-  if (panelMode === 'help' && isOpen === true) {
+  if (panelMode === 'collection' && isOpen === true) {
     isOpen = false;
   } else {
     // Else set panelMode to collection
@@ -172,14 +172,13 @@ export function toggleCollectionList(panelMode, isOpen) {
     }
   };
 }
-
 // Click handler for help
 export function toggleHelp(panelMode, isOpen) {
   // If panelMode is collection, set it to null.
-  if (panelMode === 'collection' && isOpen === true) {
+  if (panelMode === 'help' && isOpen === true) {
     isOpen = false;
   } else {
-    // Else set panelMode to help
+    // Else set panelMode to collection
     panelMode = 'help';
     isOpen = true;
   }
