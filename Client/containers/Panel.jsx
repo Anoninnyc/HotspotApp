@@ -127,21 +127,13 @@ class Panel extends React.Component {
     ));
       }
     } else if (this.props.panelMode === 'help') {
-      
+
       panelItems = <div>
-          <input className='friendToAdd ' type='text' placeholder='Add a Friend' />
-          <br />
-          <br />
-          <button className='button' onClick={this.submitFriendReq.bind(this)}>Send Request</button>
-          <br />
-          {!this.props.friendRequests.length ?
-          <p className="noPending">No pending friend requests</p> : null}
-          <br />
-          <div className='mess alreadyAFriend'> Already a friend </div>
-          <div className='mess doesntExist'> This Person hasn't signed up </div>
-          <div className='mess requestSent'> Request Sent! </div>
-          <div className='mess alreadySent'> Already sent a friend request </div>
-          <div className='mess dontSelf'> You can't friend yourself! </div>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
+          has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
+          took a galley of type and scrambled it to make a type specimen book. It has survived not only 
+          five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+          It was popularised in the 1960s with the release of Letraset sheets.
         </div>;
 
     } else if (this.props.panelMode === 'filter') {
