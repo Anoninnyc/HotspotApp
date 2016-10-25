@@ -128,12 +128,19 @@ class Panel extends React.Component {
       }
     } else if (this.props.panelMode === 'help') {
 
-      panelItems = <div>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
-          has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-          took a galley of type and scrambled it to make a type specimen book. It has survived not only 
-          five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-          It was popularised in the 1960s with the release of Letraset sheets.
+      panelItems = <div id="instructions">
+
+      Step 1: Zoom in on your desired location
+      Step 2: Search for something, and view results on the map as fists
+      Step 3: To add to our collection, hover over a fist (hotspot) and rate it
+      
+      You can: 
+      - Send and accept friend requests.
+      - Filter map results.
+      - View your collection. 
+      - Broadcast to all your friends that you'd like to go to visit a particular spot by clicking the icon to the right of the spot's image ("Make a wish"). 
+      You'll see the spot you wish to visit as a pink heart. If any of your friends also wish to visit the spot, the heart will turn red.
+      - Accept the hotspots your friends "wish" to visit by clicking on any of their wishes (which you'll see as stars).
         </div>;
 
     } else if (this.props.panelMode === 'filter') {
