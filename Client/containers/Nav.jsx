@@ -65,13 +65,10 @@ class Nav extends React.Component {
           console.log(err);
           return reject(err);
         }
-        //;
         console.log(res);
         return resolve(res);
       });
     });
-
-
   }
 
 

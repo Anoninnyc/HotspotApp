@@ -63,7 +63,7 @@ var parseYelpData = function (business, friendWishOnly) {
 
 
 var requestYelp = function (setParameters, busId, searchBar) {
-  var friendWishOnly = setParameters.friendWishOnly
+  var friendWishOnly = setParameters.friendWishOnly;
   //console.log('requestYelp called')
   var httpMethod = 'GET';
 

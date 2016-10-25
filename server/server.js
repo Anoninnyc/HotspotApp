@@ -1,4 +1,5 @@
 var express = require('express');
+var http = require('http');
 require('dotenv').config();
 var serverConfig = require('./server-config');
 var Spot = require ('./db/Spots');
@@ -10,6 +11,12 @@ var primaryRoutes = require('./routes/primaryRoutes');
 var authRoutes = require('./routes/authRoutes');
 var apiRoutes = require('./routes/apiRoutes');
 
+
+
+setInterval(() => {
+  http.get("http://hotspots-io.herokuapp.com/");
+  console.log("*************PINGED!!**********");
+}, 300000);
 
 const app = express();
 const port = process.env.PORT || 8732;
