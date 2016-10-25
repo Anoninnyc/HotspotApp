@@ -19,8 +19,9 @@ class Nav extends React.Component {
     e.preventDefault();
     this.props.actions.toggleFilterList(this.props.PanelMode, this.props.isOpen);
   }
-  
+
   helpClick(e) {
+    console.log("help click called!");
     e.preventDefault();
     this.props.actions.toggleHelp(this.props.PanelMode, this.props.isOpen);
   }

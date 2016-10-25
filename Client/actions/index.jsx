@@ -172,6 +172,8 @@ export function toggleCollectionList(panelMode, isOpen) {
     }
   };
 }
+
+
 // Click handler for help
 export function toggleHelp(panelMode, isOpen) {
   // If panelMode is collection, set it to null.
