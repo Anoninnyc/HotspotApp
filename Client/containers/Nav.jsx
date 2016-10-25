@@ -104,7 +104,7 @@ class Nav extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({toggleCollectionList, toggleFilterList, logout, submitSearch, handleChange, showSearchResults, toggleFriendReqList}, dispatch)
+    actions: bindActionCreators({toggleHelp, toggleCollectionList, toggleFilterList, logout, submitSearch, handleChange, showSearchResults, toggleFriendReqList}, dispatch)
   };
 }
 
