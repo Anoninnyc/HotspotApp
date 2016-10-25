@@ -146,6 +146,11 @@ background-color: red;
 .currFriend {
   color:white;
 }
-#instructions{
+
+#instructions {
   color:white;
+}
+
+div#instructions {
+  font-size: 12px;
 }
