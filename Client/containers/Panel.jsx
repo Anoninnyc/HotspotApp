@@ -94,9 +94,12 @@ class Panel extends React.Component {
           <div className='mess dontSelf'> You can't friend yourself! </div>
         </div>
         <div>
-          {this.props.friendRequests.map(person => {
-            return (<FriendModel item={person} />);
-          })}
+
+          {this.props.friendRequests.map(person => (
+              <FriendModel 
+                item = {person} 
+              />
+          ))}
 
           </div>
           <br />
@@ -110,9 +113,7 @@ class Panel extends React.Component {
           </div>
       </div>;
       //
-    }
-
-    else if (this.props.panelMode === 'results') {
+    } else if (this.props.panelMode === 'results') {
       console.log(this.props);
       if (!this.props.searchResults.length) {
         panelItems = <div><p className="panelHeader">Search Something!</p></div>;

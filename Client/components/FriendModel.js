@@ -26,6 +26,7 @@ class FriendModel extends React.Component {
     $.post(friendEndpoints.decline, { friendname: person }, (res, err)=>{
       console.log('decline request!!', res, 'error(?):', err);
       this.props.actions.fetchFriendRequests();
+      this.props.actions.fetchCurrentFriends();
     });
   }
   //
