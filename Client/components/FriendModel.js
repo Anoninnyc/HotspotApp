@@ -14,7 +14,7 @@ class FriendModel extends React.Component {
     super(props);
   }
 
-  accept(person){
+  accept(person) {
     $.post(friendEndpoints.accept, { friendname: person }, (res, err)=>{
       console.log('accept request!!', res, 'error(?):', err);
       this.props.actions.fetchFriendRequests();

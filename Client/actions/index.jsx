@@ -354,6 +354,7 @@ export function fetchCollection() {
 
 
 export function fetchCurrentFriends() {
+  console.log('fetchcurrentfriends');
   // This function should only be called once on startup
   // Query database for user's friends
   const currFriends = request.get(endpoints.getFriends);
