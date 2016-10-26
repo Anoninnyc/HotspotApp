@@ -18,20 +18,20 @@ class FriendModel extends React.Component {
     $.post(friendEndpoints.accept, { friendname: person }, (res, err)=>{
       console.log('accept request!!', res, 'error(?):', err);
       this.props.actions.fetchFriendRequests();
+      this.props.actions.fetchCurrentFriends();
     });
   }
 
 
-  decline(person){
+  decline(person) {
     $.post(friendEndpoints.decline, { friendname: person }, (res, err)=>{
       console.log('decline request!!', res, 'error(?):', err);
       this.props.actions.fetchFriendRequests();
-      this.props.actions.fetchCurrentFriends();
     });
   }
   //
 
-  render(){
+  render() {
     return (
   <div>
      <div className="requestorName" >{this.props.item.requestor} </div>
