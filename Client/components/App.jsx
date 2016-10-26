@@ -58,7 +58,6 @@ class App extends React.Component {
 
   getSpots() {
   $.get('/api/spots', (data, err) => {}).then(result => {
-    
     const parsedColl = result.data.map(obj => {
       if (obj.name.indexOf("*") > 1) {
         obj.name = parseAgain(obj.name);
