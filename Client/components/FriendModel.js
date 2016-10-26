@@ -46,7 +46,7 @@ class FriendModel extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    friendRequestsLower:state.FriendReqs.friendReqs
+    friendRequestsLower: state.FriendReqs.friendReqs
   };
 }
 

@@ -358,8 +358,8 @@ export function fetchCurrentFriends() {
   // This function should only be called once on startup
   // Query database for user's friends
   const currFriends = request.get(endpoints.getFriends);
-  $.get("/api/friends", function(a, b) {
-    console.log('these are all my friends!!!', a);
+  $.get('/api/friends', function(friends, err) {
+    console.log('these are all my friends!!!', friends);
   });
   return {
     type: FETCH_FRIENDS,
