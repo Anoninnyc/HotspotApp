@@ -16,7 +16,7 @@
     "dev:start": "nodemon ./server/server.js --exec babel-node --presets es2015 stage-1",
     "dev:fullstart": "npm run dev:startdb & npm run dev:start",
     "dev:config": "mkdir ./server/config; cp ../hotspot-config/config/* ./server/config/",
-    "start": "node server-dist/server.js",
+    "start": "node server/server.js",
     "predeploy": "git add -A",
     "deploy": "git commit -m",
     "logs": "heroku logs --app hotspot-app -t",
