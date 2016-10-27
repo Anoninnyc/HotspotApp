@@ -50,7 +50,7 @@ class Panel extends React.Component {
           .send(friendRequest)
           .end((err, res) => {
             if (err) {
-              console.log(err)
+              console.log(err);
               return reject(err);
             }
             document.getElementsByClassName('friendToAdd')[0].value = '';

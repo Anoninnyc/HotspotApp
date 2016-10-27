@@ -7,7 +7,7 @@
     "node": "6.2.2"
   },
   "scripts": {
-    "postinstall": "npm run build",
+    // "postinstall": "npm run build",
     "prod:buildclient": "webpack",
     "prod:buildserver": "babel ./server -d ./server-dist --presets es2015,stage-2 --copy-files",
     "build": "npm run prod:buildclient; npm run prod:buildserver",
