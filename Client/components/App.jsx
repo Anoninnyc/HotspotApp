@@ -7,8 +7,28 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 import _ from 'lodash';
 // import parse from '../containers/utils';
-import {parse, parseAgain} from './utils';
 
+function parse(res) {
+  let apos = res.indexOf("'");
+  if (apos > -1) {
+    let split = res.split("");
+    split.splice(apos, 1, "*");
+    return split.join('');
+  } else {
+    return res;
+  }
+}
+
+function parseAgain (res) {
+  let ast = res.indexOf("*");
+  if (ast > -1) {
+    let split = res.split('');
+    split.splice(ast, 1, "'");
+    return split.join('');
+  } else {
+    return res;
+  }
+}
 
 class App extends React.Component {
 
