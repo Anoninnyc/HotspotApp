@@ -73,7 +73,7 @@ class Map extends React.Component {
         console.log("caught bad", uniqueIds, id);
       }
     });
-  }
+  }//
 
   tempClickLocationSubmit(name, latitude, longitude, rating, image) {
   // Create object to make DB query
