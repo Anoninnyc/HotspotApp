@@ -56,8 +56,8 @@ class Map extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
     console.log('nextprops, ', nextProps);
+    this.addPointsLayer(mainMap);
     console.log('componentWillReceiveProps');
     if (layerGroup) {
       layerGroup.clearLayers();
