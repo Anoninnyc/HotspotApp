@@ -25,51 +25,51 @@ const Menu = require('react-burger-menu').slide;
 
 class Panel extends React.Component {
 
-    componentDidMount() {
-      this.props.actions.fetchCollection();
-      this.props.actions.fetchFriendRequests();
-      this.props.actions.fetchCurrentFriends();
-      console.log('panel has mounted!!!');
+  componentDidMount() {
+    this.props.actions.fetchCollection();
+    this.props.actions.fetchFriendRequests();
+    this.props.actions.fetchCurrentFriends();
+    console.log('panel has mounted!!!');
+  }
+
+  submitFriendReq(e) {
+    e.preventDefault();
+
+    let friendRequest = {
+      requestee: document.getElementsByClassName('friendToAdd')[0].value
+    };
+
+    if (!friendRequest.requestee.length) {
+      return;
     }
 
-    submitFriendReq(e) {
-      e.preventDefault();
-
-      let friendRequest = {
-        requestee: document.getElementsByClassName('friendToAdd')[0].value
-      };
-
-      if (!friendRequest.requestee.length) {
-        return;
-      }
-
-      console.log(friendRequest);
-      const data = new Promise((resolve, reject) => {
-        request.post('/api/friendRequest')
-          .send(friendRequest)
-          .end((err, res) => {
-            if (err) {
-              console.log(err);
-              return reject(err);
-            }
-            document.getElementsByClassName('friendToAdd')[0].value = '';
-            console.log('response test', res.text);
-            if (res.text.indexOf('exist') !== -1) {
-              fade(".doesntExist");
-            } else if (res.text.indexOf('request sent') !== -1) {
-              fade(".requestSent");
-            } else if (res.text.indexOf('already send') !== -1) {
-              fade(".alreadySent");
-            } else if (res.text.indexOf('yourself!') !== -1) {
-              fade(".dontSelf");
-            } else {
-              fade(".alreadyAFriend");
-              document.getElementsByClassName("alreadyAFriend")[0].style.display = 'inline';
-            }
-            return resolve(res);
-          });
-      });
-    }
+    console.log(friendRequest);
+    const data = new Promise((resolve, reject) => {
+      request.post('/api/friendRequest')
+        .send(friendRequest)
+        .end((err, res) => {
+          if (err) {
+            console.log(err);
+            return reject(err);
+          }
+          document.getElementsByClassName('friendToAdd')[0].value = '';
+          console.log('response test', res.text);
+          if (res.text.indexOf('exist') !== -1) {
+            fade(".doesntExist");
+          } else if (res.text.indexOf('request sent') !== -1) {
+            fade(".requestSent");
+          } else if (res.text.indexOf('already send') !== -1) {
+            fade(".alreadySent");
+          } else if (res.text.indexOf('yourself!') !== -1) {
+            fade(".dontSelf");
+          } else {
+            fade(".alreadyAFriend");
+           // document.getElementsByClassName("alreadyAFriend")[0].style.display = 'inline';
+          }
+          return resolve(res);
+        });
+    });
+  }
 
   render() {
     let panelItems;
@@ -111,9 +111,8 @@ class Panel extends React.Component {
           })}
           </div>
       </div>;
-      //
+
     } else if (this.props.panelMode === 'results') {
-      console.log(this.props);
       if (!this.props.searchResults.length) {
         panelItems = <div><p className="panelHeader">Search Something!</p></div>;
       } else {
@@ -141,11 +140,14 @@ class Panel extends React.Component {
        <div>- Broadcast to all your friends that you'd like to go to visit a particular spot by clicking the icon to the right of the spot's image ("Make a wish"). 
        <div>You'll see the spot you wish to visit as a pink heart. If any of your friends also wish to visit the spot, the heart will turn red.</div>
        <div>- Accept the hotspots your friends "wish" to visit by clicking on any of their wishes (which you'll see as stars).</div>
-        </div>
-        </div>;
+       </div>
+       </div>;
 
     } else if (this.props.panelMode === 'filter') {
-      panelItems = this.props.filters.map(filter => 
+      panelItems = 
+      <div>
+      <div>{!!this.props.collection.length ? "Click on a filter to show all hotspots that match the criterion" : "Search something to filter"}</div>
+      this.props.filters.map(filter => 
         <FilterItem 
           filter={filter}
           appliedFilters={this.props.filterSelected}
@@ -154,6 +156,7 @@ class Panel extends React.Component {
           key={filter}
         />
       );
+      </div>;
     } else if (this.props.filteredCollection.length !== 0) {
 
       panelItems = this.props.filteredCollection.map(restaurant => (
