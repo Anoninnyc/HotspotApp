@@ -146,7 +146,7 @@ class Panel extends React.Component {
     } else if (this.props.panelMode === 'filter') {
       panelItems = 
       <div>
-      <div>{!!this.props.collection.length ? "Click on a filter to show all hotspots that match the criterion" : "Search something to filter"}</div>
+      <div>{!!this.props.collection.length ? " Click on a filter to show all hotspots that match the criterion" : "Search something to filter"}</div>
       this.props.filters.map(filter => 
         <FilterItem 
           filter={filter}
