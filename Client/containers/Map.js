@@ -119,10 +119,14 @@ class Map extends React.Component {
     //and on end will set the store coords to the center of map view 
     mainMap.on('moveend', () => {
       this.mapSearchCoord(mainMap.getBounds().getCenter());
+      console.log("this is the center", mainMap.getBounds().getCenter());
+     //  L.mapbox.featureLayer().addTo(mainMap);
+      var center = L.mapbox.featureLayer().addTo(layerGroup);
     });
 
     mainMap.on('zoomend', () => {
       this.mapSearchZoom(mainMap.getZoom());
+
     });
 
     this.addPointsLayer(mainMap);
