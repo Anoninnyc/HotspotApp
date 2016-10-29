@@ -46,6 +46,7 @@ class Map extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
     console.log('nextprops, ', nextProps);
     console.log('componentWillReceiveProps');
     if (layerGroup) {
@@ -281,7 +282,9 @@ function mapStateToProps(state) {
     filters: state.FilterSelectedRestaurants.filters,
     totalCollection: state.CollectionRestaurantsFilters.collection,
     filteredCollection: state.FilterSelectedRestaurants.filteredRestaurants,
-    searchResults: state.SearchBar.searchResults
+    searchResults: state.SearchBar.searchResults,
+    friendRequests: state.FriendReqs.friendReqs,
+    currFriends: state.CurrFriends.currFriends
   };
 }
 
