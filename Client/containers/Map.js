@@ -73,10 +73,8 @@ class Map extends React.Component {
       //compare search results uniqueId with already rated items
 
       var id = yelpResultEntry.name + yelpResultEntry.latitude.toString() + yelpResultEntry.longitude.toString();
-      // console.log("outside", yelpResultEntry.name);
       if (uniqueIds.indexOf(id) === -1 && yelpResultEntry.name.indexOf("Salt & Honey")===-1) {
-       // console.log("inside", yelpResultEntry.name);
-         console.log(yelpResultEntry.name);
+        // console.log(yelpResultEntry.name);
         this.foundRestaurant(formatResObj(yelpResultEntry));
       } else {
         console.log("caught bad", uniqueIds, id);
