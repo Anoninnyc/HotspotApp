@@ -8,21 +8,10 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
-//import parseAgain from './utils';
+import {parseAgain} from './utils';
 // Globl map
-var mainMap, restaurantPoints, layerGroup;
-var initialize = true;
+var mainMap, restaurantPoints, layerGroup, initialize = true;
 
-var parseAgain = function(res) {
-  let ast = res.indexOf("*");
-  if (ast > -1) {
-    let split = res.split('');
-    split.splice(ast, 1, "'");
-    return split.join('');
-  } else {
-    return res;
-  }
-};
 
 ////////// TEST IMAGES TODO - REMOVE FOR FINAL
 

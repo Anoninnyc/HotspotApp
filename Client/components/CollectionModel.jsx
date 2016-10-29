@@ -1,20 +1,5 @@
 import React from 'react';
-//import { parse } from '../containers/utils';
-function fade (el) {
- $(el).fadeIn(1000);
- $(el).fadeOut(1000);
-}
-
-function parseAgain(res) {
-  let ast = res.indexOf("*");
-  if (ast > -1) {
-    let split = res.split("");
-    split.splice(ast, 1, "'");
-    return split.join('');
-  } else {
-    return res;
-  }
-}
+import { fade, parseAgain } from './utils';
 
 // console.log("THIS IS THE PARSE FUNCTION", parseAgain);
 

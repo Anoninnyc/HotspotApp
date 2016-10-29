@@ -12,7 +12,6 @@ import ResultModel from '../components/ResultModel';
 import FilterItem from '../components/FilterItem';
 import FriendModel from '../components/FriendModel';
 import * as Actions from '../actions';
-import CollectionDetailModel from '../components/CollectionDetailModel';
 //import { fade } from './utils';
 import request from 'superagent';
 import _ from 'lodash';

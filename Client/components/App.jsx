@@ -7,28 +7,8 @@ import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
 import _ from 'lodash';
 // import parse from '../containers/utils';
+import {parse, parseAgain} from './utils';
 
-function parse(res) {
-  let apos = res.indexOf("'");
-  if (apos > -1) {
-    let split = res.split("");
-    split.splice(apos, 1, "*");
-    return split.join('');
-  } else {
-    return res;
-  }
-}
-
-var parseAgain = function(res) {
-  let ast = res.indexOf("*");
-  if (ast > -1) {
-    let split = res.split('');
-    split.splice(ast, 1, "'");
-    return split.join('');
-  } else {
-    return res;
-  }
-};
 
 class App extends React.Component {
 
@@ -40,9 +20,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var that = this;
     this.getSpots();
-    console.log('states during app mount', that.state.collection);
   }
 
   getUpdate(wish) {
@@ -50,7 +28,7 @@ class App extends React.Component {
     wish.name = parse(wish.name);
     console.log('calling getUpdate', wish);
     $.post('/api/wishes', wish, (data, err)=> {
-    }).then(function(result) {
+    }).then((result) => {
       that.getSpots();
     });
   }

@@ -15,15 +15,15 @@
  }
 
  function parseAgain(res) {
-   let ast = res.indexOf("*");
-   if (ast > -1) {
-     let split = res.split("");
-     split.splice(ast, 1, "'");
-     return split.join('');
-   } else {
-     return res;
-   }
- }
+  let ast = res.indexOf("*");
+  if (ast > -1) {
+    let split = res.split('');
+    split.splice(ast, 1, "'");
+    return split.join('');
+  } else {
+    return res;
+  }
+};
 
  export default {
    fade,
