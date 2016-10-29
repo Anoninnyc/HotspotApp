@@ -30,7 +30,6 @@ var parseAgain = function(res) {
   }
 };
 
-
 class App extends React.Component {
 
   constructor(props) {
