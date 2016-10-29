@@ -133,7 +133,7 @@ class Panel extends React.Component {
        <h2>Instructions</h2><br/>
        <div>Step 1: Zoom in on your desired location</div>
        <div>Step 2: Search for something, and view results on the map as fists</div>
-       <div>Step 3: To add to our collection, hover over a fist (hotspot) and rate it</div>
+       <div>Step 3: To add to your collection, hover over a fist (hotspot) and rate it</div>
        <br/>
        <div>You can:</div>
        <div>- Send and accept friend requests.</div>

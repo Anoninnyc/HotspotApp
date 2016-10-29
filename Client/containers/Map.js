@@ -226,7 +226,7 @@ class Map extends React.Component {
       '<form>Would you return?<br>' +
       `<input type="radio" name="goBack${pointQuery._leaflet_id}" required> Definitely!<br>` +
       `<input type="radio" name="goBack${pointQuery._leaflet_id}"> Never again! <br>` +
-      `<input className="btn-default" type="button" id="fistBump${pointQuery._leaflet_id}" value="Thumbs!"></form>` +
+      `<input className="btn-default" type="button" id="fistBump${pointQuery._leaflet_id}" value="Rate!"></form>` +
       '<img src="' + feature.properties.image + '" alt="">' +
       `<img id="wishImage" src="${wishImage}" alt="">` +
       ((marker.feature.properties.icon.iconUrl === starFill) ? `<img id="giftImage" src="${giftImage}"` : '');
